@@ -1,0 +1,263 @@
+.header {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.header-sub {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 14px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.search:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.select {
+  padding: 7px 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.result-count {
+  margin: 14px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--line);
+}
+
+.card-body {
+  padding: 14px 16px 16px;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.card-company {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.card-meta {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.source {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 2px 7px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.source-wanted {
+  color: #1a4fd6;
+  background: #e3ebff;
+}
+
+.source-jumpit {
+  color: #8a2f7b;
+  background: #fae4f5;
+}
+
+.source-saramin {
+  color: #1f6b2c;
+  background: #ddf3e0;
+}
+
+.card-skills {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.card-category {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.tag {
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.tag-cond {
+  color: #0b6b5b;
+  background: #d8f3ec;
+}
+
+.tag-reward {
+  color: #3b4a68;
+  background: #e6ebf5;
+}
+
+.empty,
+.state {
+  padding: 64px 24px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.state-title {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.state-desc {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.state-desc code {
+  padding: 2px 6px;
+  font-size: 13px;
+  background: var(--line);
+  border-radius: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .source-wanted {
+    color: #a8c0ff;
+    background: #1b2540;
+  }
+
+  .source-jumpit {
+    color: #f0a8e0;
+    background: #3a1c33;
+  }
+
+  .source-saramin {
+    color: #8fd89a;
+    background: #14301a;
+  }
+
+  .tag-cond {
+    color: #7fe0cb;
+    background: #10352e;
+  }
+
+  .tag-reward {
+    color: #b9c7e3;
+    background: #252c3a;
+  }
+}
