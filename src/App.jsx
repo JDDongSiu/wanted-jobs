@@ -42,6 +42,12 @@ const SOURCE_LABELS = {
   jumpit: '점핏',
   saramin: '사람인',
   jobkorea: '잡코리아',
+  catch: '캐치',
+}
+
+// 잡플래닛은 평점 데이터를 스크립트로 가져올 수 없어(검색 경로 차단) 링크만 건다.
+function jobplanetUrl(company) {
+  return `https://www.jobplanet.co.kr/search?query=${encodeURIComponent(company)}`
 }
 
 // 상한 없음을 원티드는 100, 잡코리아·사람인은 null 로 표현한다.
@@ -64,11 +70,12 @@ function formatUpdatedAt(iso) {
 
 function JobCard({ job }) {
   return (
-    <a className="card" href={job.url} target="_blank" rel="noreferrer">
-      {job.thumbnail && (
-        <img className="card-thumb" src={job.thumbnail} alt="" loading="lazy" />
-      )}
-      <div className="card-body">
+    <div className="card">
+      <a className="card-main" href={job.url} target="_blank" rel="noreferrer">
+        {job.thumbnail && (
+          <img className="card-thumb" src={job.thumbnail} alt="" loading="lazy" />
+        )}
+        <div className="card-body">
         <span className={`source source-${job.source}`}>
           {SOURCE_LABELS[job.source] ?? job.source}
         </span>
@@ -93,8 +100,19 @@ function JobCard({ job }) {
             ))}
           {job.reward_total && <span className="tag tag-reward">보상금 {job.reward_total}</span>}
         </div>
-      </div>
-    </a>
+        </div>
+      </a>
+      {job.company && (
+        <a
+          className="card-jp"
+          href={jobplanetUrl(job.company)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          잡플래닛에서 기업 평점 보기
+        </a>
+      )}
+    </div>
   )
 }
 

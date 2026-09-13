@@ -20,6 +20,7 @@ crawler/saramin.py  ┘                        └→ jobs.csv
 | 점핏 | 비공식 API (`jumpit-api.saramin.co.kr/api/positions`) | 위와 같음 |
 | 사람인 | 공식 오픈 API (`oapi.saramin.co.kr/job-search`) | `access-key` 필요. 일일 요청 한도 있음 |
 | 잡코리아 | HTML 파싱 (`Recruit/Home/_GI_List/`) | 공식 API 없음. 마크업 변경 시 깨질 수 있음 |
+| 캐치 | 비공식 API (`api/v1.0/recruit/information/getRecruitList`) | robots.txt 가 로그 경로만 금지 |
 
 ### 수집 대상 선정과 robots.txt
 
@@ -27,8 +28,21 @@ crawler/saramin.py  ┘                        └→ jobs.csv
 
 - **잡코리아**: `/recruit/joblist` 와 `/Recruit/GI_Read` 를 **명시적으로 허용**한다.
   금지된 것은 로그인·회원 영역과 검색 쿼리 URL(`/Search?TS_Search=`) 이라 목록 수집에는 해당하지 않는다.
+- **캐치**: `Allow: /` 이고 `/api/v1.0/recruit/` 중 로그 수집 경로만 금지한다. 목록 조회는 해당 없다.
 - **인크루트**: `User-agent: *` 에 `Disallow: /` — 전면 금지라 **수집 대상에서 제외**했다.
+- **링크드인**: `User-agent: *` 에 `Disallow: /` 이고, 크롤링하려면 화이트리스트를 신청하라고
+  robots.txt 에 명시했다. **제외**.
 - **로켓펀치**: 허용되어 있어 추가 후보다.
+
+### 수집하지 못한 곳
+
+- **인디드**: robots.txt 는 허용하지만 실제 요청이 모두 403 이다(루트 페이지 포함). 봇 차단.
+- **프로그래머스**: `career.programmers.co.kr` 서브도메인이 없어졌다. 채용 서비스 자체가 사라졌다.
+- **리멤버**: 목록이 전부 클라이언트 렌더링이라 HTML 에 공고 데이터가 없다.
+  수집하려면 headless 브라우저가 필요해 비용 대비 효과가 낮다고 보고 보류했다.
+- **잡플래닛 평점**: 회사명으로 평점을 찾으려면 검색이 필요한데,
+  검색 페이지는 robots.txt 가 금지하고 검색 API 는 스크립트에서 400/403 이다.
+  대신 카드마다 잡플래닛 검색 링크를 걸어 클릭으로 확인하게 했다.
 
 사람인은 환경변수 `SARAMIN_API_KEY` 로 키를 넘긴다. 키가 없으면 사람인만 건너뛰고 나머지는 정상 수집한다.
 

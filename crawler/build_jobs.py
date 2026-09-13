@@ -5,6 +5,7 @@ import json
 import sys
 from datetime import datetime
 
+import catch
 import jobkorea
 import jumpit
 import saramin
@@ -12,7 +13,7 @@ import wanted
 from common import CSV_PATH, JSON_PATH, KST, ROOT
 from wanted import CONDITIONS
 
-SOURCES = (wanted, jumpit, saramin, jobkorea)
+SOURCES = (wanted, jumpit, saramin, jobkorea, catch)
 
 CSV_FIELDS = [
     "source",
