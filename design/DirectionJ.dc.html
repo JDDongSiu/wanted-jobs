@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard,
+        "Malgun Gothic", system-ui, sans-serif;
+      background: #ffffff;
+      color: #17181c;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #167a5b; text-decoration: none; }
+    a:hover { color: #0f5a43; }
+  </style>
+</helmet>
+
+<div style="padding: 34px 44px; display: flex; flex-direction: column; gap: 24px">
+
+  <div style="display: flex; align-items: flex-end; gap: 20px">
+    <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 7px">
+      <div style="font-size: 26px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.3">
+        오늘 <span style="color: #167a5b">12건</span>이 새로 올라왔어요
+      </div>
+      <div style="font-size: 13px; color: #7c8087">매일 아침 9시에 네 사이트를 다시 확인합니다 · 전체 371건</div>
+    </div>
+    <div style="display: flex; gap: 8px">
+      <div style="border: 1px solid #e3e5e8; border-radius: 9px; padding: 9px 13px; font-size: 13px; font-weight: 600">서울</div>
+      <div style="border: 1px solid #e3e5e8; border-radius: 9px; padding: 9px 13px; font-size: 13px; font-weight: 600">보기 옵션</div>
+    </div>
+  </div>
+
+  <!-- 타임라인 -->
+  <div style="display: flex; flex-direction: column; gap: 0">
+
+    <!-- 오늘 -->
+    <div style="display: flex; gap: 20px">
+      <div style="width: 84px; flex-shrink: 0; padding-top: 2px">
+        <div style="font-size: 13px; font-weight: 700">오늘</div>
+        <div style="font-size: 11.5px; color: #9aa0a6">9월 13일</div>
+      </div>
+      <div style="width: 2px; background: #167a5b; flex-shrink: 0; position: relative"></div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px; padding-bottom: 22px">
+
+        <div style="border: 1px solid #e3e5e8; border-radius: 12px; padding: 15px 18px; display: flex; align-items: center; gap: 16px">
+          <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 5px">
+            <div style="display: flex; align-items: center; gap: 8px">
+              <span style="font-size: 10px; font-weight: 700; color: #fff; background: #167a5b; border-radius: 4px; padding: 3px 6px">NEW</span>
+              <span style="font-size: 15px; font-weight: 700; letter-spacing: -0.02em">Staff Frontend Engineer (Coupang Eats)</span>
+            </div>
+            <div style="font-size: 12.5px; color: #7c8087">쿠팡 · 서울 강남구 · 경력 7-14년 · 원티드</div>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: #00a05a; flex-shrink: 0">4.1</div>
+        </div>
+
+        <div style="border: 1px solid #e3e5e8; border-radius: 12px; padding: 15px 18px; display: flex; align-items: center; gap: 16px">
+          <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 5px">
+            <div style="display: flex; align-items: center; gap: 8px">
+              <span style="font-size: 10px; font-weight: 700; color: #fff; background: #167a5b; border-radius: 4px; padding: 3px 6px">NEW</span>
+              <span style="font-size: 15px; font-weight: 700; letter-spacing: -0.02em">프론트엔드 개발자 - 자산 서비스</span>
+            </div>
+            <div style="font-size: 12.5px; color: #7c8087">㈜카카오페이 · 경기 성남시 · 경력 3년 이상 · 잡코리아</div>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: #00a05a; flex-shrink: 0">4.3</div>
+        </div>
+
+        <div style="border: 1px solid #e3e5e8; border-radius: 12px; padding: 15px 18px; display: flex; align-items: center; gap: 16px">
+          <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 5px">
+            <div style="display: flex; align-items: center; gap: 8px">
+              <span style="font-size: 10px; font-weight: 700; color: #fff; background: #167a5b; border-radius: 4px; padding: 3px 6px">NEW</span>
+              <span style="font-size: 15px; font-weight: 700; letter-spacing: -0.02em">프론트엔드 개발자 (전환형 인턴)</span>
+            </div>
+            <div style="font-size: 12.5px; color: #7c8087">넥스트그라운드 · 서울 · 경력무관 · 캐치</div>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: #00a05a; flex-shrink: 0">3.6</div>
+        </div>
+
+        <div style="font-size: 12.5px; color: #9aa0a6; padding-left: 2px">그 외 9건 더 보기</div>
+      </div>
+    </div>
+
+    <!-- 어제 -->
+    <div style="display: flex; gap: 20px">
+      <div style="width: 84px; flex-shrink: 0; padding-top: 2px">
+        <div style="font-size: 13px; font-weight: 700; color: #7c8087">어제</div>
+        <div style="font-size: 11.5px; color: #9aa0a6">9월 12일</div>
+      </div>
+      <div style="width: 2px; background: #e3e5e8; flex-shrink: 0"></div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px; padding-bottom: 22px">
+
+        <div style="border: 1px solid #e3e5e8; border-radius: 12px; padding: 15px 18px; display: flex; align-items: center; gap: 16px">
+          <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.02em">웹 프론트엔드 개발자 (디자인 시스템)</div>
+            <div style="font-size: 12.5px; color: #7c8087">힐링페이퍼(강남언니) · 서울 강남구 · 경력 5년 이상 · 원티드</div>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: #00a05a; flex-shrink: 0">4.0</div>
+        </div>
+
+        <div style="border: 1px solid #e3e5e8; border-radius: 12px; padding: 15px 18px; display: flex; align-items: center; gap: 16px">
+          <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.02em">프론트엔드 개발자</div>
+            <div style="font-size: 12.5px; color: #7c8087">와탭랩스 · 서울 서초구 · 경력 3-10년 · 점핏</div>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: #00a05a; flex-shrink: 0">3.8</div>
+        </div>
+
+        <div style="font-size: 12.5px; color: #9aa0a6; padding-left: 2px">그 외 18건 더 보기</div>
+      </div>
+    </div>
+
+    <!-- 이번 주 -->
+    <div style="display: flex; gap: 20px">
+      <div style="width: 84px; flex-shrink: 0; padding-top: 2px">
+        <div style="font-size: 13px; font-weight: 700; color: #7c8087">이번 주</div>
+        <div style="font-size: 11.5px; color: #9aa0a6">9월 8-11일</div>
+      </div>
+      <div style="width: 2px; background: #e3e5e8; flex-shrink: 0"></div>
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 10px">
+        <div style="border: 1px solid #e3e5e8; border-radius: 12px; padding: 15px 18px; display: flex; align-items: center; gap: 16px">
+          <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 5px">
+            <div style="font-size: 15px; font-weight: 700; letter-spacing: -0.02em">Frontend Engineer (빗썸페이)</div>
+            <div style="font-size: 12.5px; color: #7c8087">빗썸 · 서울 강남구 · 경력 3-8년 · 원티드</div>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: #00a05a; flex-shrink: 0">3.9</div>
+        </div>
+        <div style="font-size: 12.5px; color: #9aa0a6; padding-left: 2px">그 외 63건 더 보기</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

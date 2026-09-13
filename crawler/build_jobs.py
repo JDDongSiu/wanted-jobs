@@ -34,18 +34,38 @@ def is_matched(record):
     return record["source"] == "wanted" and all(record["flags"].values())
 
 
-def load_previous_by_source():
-    """직전 수집 결과를 소스별로 나눠 둔다. 수집 실패한 소스의 공고를 살리는 데 쓴다."""
+def load_previous():
     if not JSON_PATH.exists():
-        return {}
+        return []
 
     with open(JSON_PATH, encoding="utf-8") as f:
-        previous = json.load(f)
+        return json.load(f).get("jobs", [])
 
+
+def group_by_source(jobs):
+    """수집 실패한 소스의 공고를 살리는 데 쓴다."""
     by_source = {}
-    for job in previous.get("jobs", []):
+    for job in jobs:
         by_source.setdefault(job["source"], []).append(job)
     return by_source
+
+
+def apply_first_seen(jobs, previous):
+    """공고를 처음 본 날짜를 남긴다. 화면에서 신착을 구분하는 근거가 된다.
+
+    이 기능을 넣기 전부터 있던 공고는 언제 올라왔는지 알 수 없다.
+    오늘 날짜를 찍으면 전부 신착으로 보이므로 None 으로 두고, 이후 새로 나타난 것만 기록한다.
+    """
+    today = datetime.now(KST).date().isoformat()
+    known = {job["id"]: job.get("first_seen") for job in previous}
+
+    for job in jobs:
+        if job["id"] in known:
+            job["first_seen"] = known[job["id"]]
+        else:
+            job["first_seen"] = today
+
+    return sum(1 for job in jobs if job["first_seen"] == today)
 
 
 def collect():
@@ -54,7 +74,8 @@ def collect():
     원티드·점핏은 비공식 API라 차단(403)이나 사이트 변경으로 언제든 실패할 수 있다.
     실패한 소스를 빈 값으로 덮으면 멀쩡하던 공고가 통째로 사라지므로 직전 데이터를 유지한다.
     """
-    previous = load_previous_by_source()
+    previous = load_previous()
+    by_source = group_by_source(previous)
     jobs = []
     stale = []
 
@@ -63,22 +84,24 @@ def collect():
         try:
             jobs.extend(module.fetch())
         except Exception as exc:
-            kept = previous.get(name, [])
+            kept = by_source.get(name, [])
             stale.append(name)
             jobs.extend(kept)
             print(f"  {name}: 수집 실패 ({exc})")
             print(f"  {name}: 직전 데이터 {len(kept)}건을 그대로 둠")
 
-    return jobs, stale
+    return jobs, stale, previous
 
 
 def main():
     print("공고 수집 중...")
-    jobs, stale = collect()
+    jobs, stale, previous = collect()
 
     if len(stale) == len(SOURCES):
         print("\n모든 소스 수집에 실패했습니다.")
         sys.exit(1)
+
+    new_count = apply_first_seen(jobs, previous)
 
     counts = {}
     for job in jobs:
@@ -90,6 +113,7 @@ def main():
         "stale_sources": stale,
         "total_count": len(jobs),
         "matched_count": sum(1 for job in jobs if is_matched(job)),
+        "new_count": new_count,
         "conditions": list(CONDITIONS),
         "jobs": jobs,
     }
@@ -106,6 +130,7 @@ def main():
     print(f"\n합계 {len(jobs)}건 {counts}")
     if stale:
         print(f"갱신 실패(직전 데이터 유지): {', '.join(stale)}")
+    print(f"오늘 새로 나타난 공고: {new_count}건")
     print(f"원티드 조건 충족: {payload['matched_count']}건")
     print(f"저장 완료: {JSON_PATH.relative_to(ROOT)}, {CSV_PATH.relative_to(ROOT)}")
 

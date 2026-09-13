@@ -165,4 +165,13 @@ Unregister-ScheduledTask -TaskName "wanted-jobs 수집" -Confirm:$false
 | `jobs[].source` | `wanted` / `jumpit` / `saramin` |
 | `jobs[].category` | 공고의 직무 |
 | `jobs[].skills` | 기술스택 (점핏·사람인) |
-| `jobs[].flags` | 조건별 충족 여부 (원티드만, 나머지는 빈 객체) |
+| `jobs[].flags` | 조건별 충족 여부 (해당 소스만, 나머지는 빈 객체) |
+| `jobs[].first_seen` | 공고를 처음 본 날짜 (YYYY-MM-DD) |
+| `new_count` | 이번 수집에서 처음 나타난 공고 수 |
+
+`first_seen` 은 직전 `public/jobs.json` 에 없던 공고에만 오늘 날짜를 찍는다.
+이 기능을 넣기 전부터 있던 공고는 언제 올라왔는지 알 수 없어 `null` 로 둔다.
+오늘 날짜를 찍으면 전부 신착으로 보이기 때문이다.
+
+화면의 요구경력 필터는 `annual_from` 과 `is_newbie` 로 구간을 나눈다
+(`src/App.jsx` 의 `careerBucket`). 사이트마다 경력 표기가 달라 최소 경력을 기준으로 묶는다.

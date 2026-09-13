@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard,
+        "Malgun Gothic", system-ui, sans-serif;
+      background: #fcfcfb;
+      color: #1b1b18;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { color: #1d4ed8; }
+  </style>
+</helmet>
+
+<div style="padding: 34px 40px; display: flex; flex-direction: column; gap: 24px">
+
+  <div style="display: flex; align-items: flex-end; gap: 20px">
+    <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 6px">
+      <div style="font-size: 22px; font-weight: 700; letter-spacing: -0.03em">이번 주 프론트엔드 채용 시장</div>
+      <div style="font-size: 13px; color: #78716c">371건 · 네 사이트 · 2026년 9월 13일 갱신</div>
+    </div>
+    <div style="display: flex; gap: 8px">
+      <div style="border: 1px solid #e0dedb; border-radius: 8px; padding: 9px 13px; font-size: 13px; font-weight: 600">서울</div>
+      <div style="border: 1px solid #e0dedb; border-radius: 8px; padding: 9px 13px; font-size: 13px; font-weight: 600">보기 옵션</div>
+    </div>
+  </div>
+
+  <!-- 요약 타일 -->
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+    <div style="border: 1px solid #e0dedb; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 5px">
+      <div style="font-size: 12px; color: #78716c">전체 공고</div>
+      <div style="font-size: 28px; font-weight: 700; letter-spacing: -0.035em; line-height: 1">371</div>
+    </div>
+    <div style="border: 1px solid #e0dedb; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 5px">
+      <div style="font-size: 12px; color: #78716c">서울 비중</div>
+      <div style="font-size: 28px; font-weight: 700; letter-spacing: -0.035em; line-height: 1">77<span style="font-size: 17px; color: #78716c">%</span></div>
+    </div>
+    <div style="border: 1px solid #e0dedb; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 5px">
+      <div style="font-size: 12px; color: #78716c">신입 지원 가능</div>
+      <div style="font-size: 28px; font-weight: 700; letter-spacing: -0.035em; line-height: 1">48</div>
+    </div>
+    <div style="border: 1px solid #e0dedb; border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 5px">
+      <div style="font-size: 12px; color: #78716c">평균 요구 경력</div>
+      <div style="font-size: 28px; font-weight: 700; letter-spacing: -0.035em; line-height: 1">4.2<span style="font-size: 17px; color: #78716c">년</span></div>
+    </div>
+  </div>
+
+  <!-- 분포 차트 2개 -->
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px">
+
+    <div style="border: 1px solid #e0dedb; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 13.5px; font-weight: 700; letter-spacing: -0.015em">가장 많이 요구되는 기술스택</div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; align-items: center; gap: 12px">
+          <div style="width: 74px; font-size: 12.5px; color: #57534e; flex-shrink: 0">React</div>
+          <div style="flex-grow: 1; height: 10px; background: #f0efec; border-radius: 5px"><div style="width: 88%; height: 100%; background: #2563eb; border-radius: 5px"></div></div>
+          <div style="width: 30px; font-size: 12px; color: #78716c; text-align: right">142</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <div style="width: 74px; font-size: 12.5px; color: #57534e; flex-shrink: 0">TypeScript</div>
+          <div style="flex-grow: 1; height: 10px; background: #f0efec; border-radius: 5px"><div style="width: 71%; height: 100%; background: #2563eb; border-radius: 5px"></div></div>
+          <div style="width: 30px; font-size: 12px; color: #78716c; text-align: right">115</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <div style="width: 74px; font-size: 12.5px; color: #57534e; flex-shrink: 0">Next.js</div>
+          <div style="flex-grow: 1; height: 10px; background: #f0efec; border-radius: 5px"><div style="width: 46%; height: 100%; background: #2563eb; border-radius: 5px"></div></div>
+          <div style="width: 30px; font-size: 12px; color: #78716c; text-align: right">74</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <div style="width: 74px; font-size: 12.5px; color: #57534e; flex-shrink: 0">Vue.js</div>
+          <div style="flex-grow: 1; height: 10px; background: #f0efec; border-radius: 5px"><div style="width: 29%; height: 100%; background: #2563eb; border-radius: 5px"></div></div>
+          <div style="width: 30px; font-size: 12px; color: #78716c; text-align: right">47</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <div style="width: 74px; font-size: 12.5px; color: #57534e; flex-shrink: 0">Git</div>
+          <div style="flex-grow: 1; height: 10px; background: #f0efec; border-radius: 5px"><div style="width: 22%; height: 100%; background: #2563eb; border-radius: 5px"></div></div>
+          <div style="width: 30px; font-size: 12px; color: #78716c; text-align: right">36</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border: 1px solid #e0dedb; border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 13.5px; font-weight: 700; letter-spacing: -0.015em">요구 경력 분포</div>
+      <div style="display: flex; align-items: flex-end; gap: 10px; height: 128px">
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; gap: 7px">
+          <div style="font-size: 11px; color: #78716c">48</div>
+          <div style="width: 100%; height: 48px; background: #2563eb; border-radius: 4px 4px 0 0"></div>
+          <div style="font-size: 11.5px; color: #57534e">신입</div>
+        </div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; gap: 7px">
+          <div style="font-size: 11px; color: #78716c">96</div>
+          <div style="width: 100%; height: 92px; background: #2563eb; border-radius: 4px 4px 0 0"></div>
+          <div style="font-size: 11.5px; color: #57534e">1-3년</div>
+        </div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; gap: 7px">
+          <div style="font-size: 11px; color: #78716c">104</div>
+          <div style="width: 100%; height: 100px; background: #2563eb; border-radius: 4px 4px 0 0"></div>
+          <div style="font-size: 11.5px; color: #57534e">4-6년</div>
+        </div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; gap: 7px">
+          <div style="font-size: 11px; color: #78716c">71</div>
+          <div style="width: 100%; height: 68px; background: #2563eb; border-radius: 4px 4px 0 0"></div>
+          <div style="font-size: 11.5px; color: #57534e">7-9년</div>
+        </div>
+        <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; gap: 7px">
+          <div style="font-size: 11px; color: #78716c">52</div>
+          <div style="width: 100%; height: 50px; background: #2563eb; border-radius: 4px 4px 0 0"></div>
+          <div style="font-size: 11.5px; color: #57534e">10년+</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 목록 -->
+  <div style="display: flex; flex-direction: column; gap: 10px">
+    <div style="font-size: 13.5px; font-weight: 700; letter-spacing: -0.015em">조건에 맞는 공고 206건</div>
+    <div style="border: 1px solid #e0dedb; border-radius: 12px; overflow: hidden">
+      <div style="display: grid; grid-template-columns: 2fr 1fr 0.9fr 0.7fr 0.6fr; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #f0efec; align-items: center">
+        <div style="font-size: 13.5px; font-weight: 600">Staff Frontend Engineer (Coupang Eats)</div>
+        <div style="font-size: 13px; color: #57534e">쿠팡</div>
+        <div style="font-size: 12.5px; color: #78716c">서울 강남구</div>
+        <div style="font-size: 12.5px; color: #78716c">7-14년</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a; text-align: right">4.1</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 0.9fr 0.7fr 0.6fr; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #f0efec; align-items: center">
+        <div style="font-size: 13.5px; font-weight: 600">프론트엔드 개발자 - 자산 서비스</div>
+        <div style="font-size: 13px; color: #57534e">㈜카카오페이</div>
+        <div style="font-size: 12.5px; color: #78716c">경기 성남시</div>
+        <div style="font-size: 12.5px; color: #78716c">3년 이상</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a; text-align: right">4.3</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 0.9fr 0.7fr 0.6fr; gap: 12px; padding: 12px 18px; border-bottom: 1px solid #f0efec; align-items: center">
+        <div style="font-size: 13.5px; font-weight: 600">웹 프론트엔드 개발자 (디자인 시스템)</div>
+        <div style="font-size: 13px; color: #57534e">힐링페이퍼(강남언니)</div>
+        <div style="font-size: 12.5px; color: #78716c">서울 강남구</div>
+        <div style="font-size: 12.5px; color: #78716c">5년 이상</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a; text-align: right">4.0</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 2fr 1fr 0.9fr 0.7fr 0.6fr; gap: 12px; padding: 12px 18px; align-items: center">
+        <div style="font-size: 13.5px; font-weight: 600">프론트엔드 개발자</div>
+        <div style="font-size: 13px; color: #57534e">와탭랩스</div>
+        <div style="font-size: 12.5px; color: #78716c">서울 서초구</div>
+        <div style="font-size: 12.5px; color: #78716c">3-10년</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a; text-align: right">3.8</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

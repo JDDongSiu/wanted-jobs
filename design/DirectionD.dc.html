@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard,
+        "Malgun Gothic", system-ui, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #56d4a0; text-decoration: none; }
+    a:hover { color: #7ee2b8; }
+  </style>
+</helmet>
+
+<div style="padding: 36px 40px; display: flex; flex-direction: column; gap: 26px">
+
+  <!-- 헤더 -->
+  <div style="display: flex; align-items: flex-end; gap: 20px">
+    <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 9px">
+      <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: #56d4a0">~/frontend-jobs $ fetch --all</div>
+      <div style="font-size: 27px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.3">
+        프론트엔드 공고 <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; color: #56d4a0">371</span>건
+      </div>
+    </div>
+    <div style="display: flex; gap: 7px">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #7d8590; border: 1px solid #30363d; border-radius: 6px; padding: 5px 9px">wanted 192</span>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #7d8590; border: 1px solid #30363d; border-radius: 6px; padding: 5px 9px">jobkorea 146</span>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #7d8590; border: 1px solid #30363d; border-radius: 6px; padding: 5px 9px">jumpit 24</span>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #7d8590; border: 1px solid #30363d; border-radius: 6px; padding: 5px 9px">catch 9</span>
+    </div>
+  </div>
+
+  <!-- 검색 + 필터 -->
+  <div style="display: flex; gap: 10px; align-items: center">
+    <div style="flex-grow: 1; display: flex; align-items: center; gap: 9px; background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 11px 13px">
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #56d4a0">&gt;</span>
+      <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #6e7681">search position, company, stack</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 7px; background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 11px 13px; font-size: 13px; color: #c9d1d9">서울</div>
+    <div style="display: flex; align-items: center; gap: 7px; background: #132d24; border: 1px solid #2c6e54; border-radius: 8px; padding: 11px 13px; font-size: 13px; color: #56d4a0; font-weight: 600">옵션 3</div>
+    <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 13px; color: #7d8590">206 results</div>
+  </div>
+
+  <!-- 목록 -->
+  <div style="display: flex; flex-direction: column; gap: 10px">
+
+    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 17px 19px; display: flex; gap: 18px; align-items: flex-start">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: center; gap: 9px">
+          <span style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.015em">Staff Frontend Engineer (Coupang Eats)</span>
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #58a6ff; border: 1px solid #1f4b7f; border-radius: 4px; padding: 2px 6px">wanted</span>
+        </div>
+        <div style="font-size: 13px; color: #8b949e">쿠팡 · 서울 강남구 · 경력 7-14년 · 정규직</div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap">
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #56d4a0; background: #132d24; border-radius: 5px; padding: 3px 7px">설립 4년+</span>
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #56d4a0; background: #132d24; border-radius: 5px; padding: 3px 7px">장비지원</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0">
+        <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 19px; font-weight: 600; color: #56d4a0">4.1</div>
+        <div style="font-size: 11px; color: #6e7681">잡플래닛</div>
+      </div>
+    </div>
+
+    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 17px 19px; display: flex; gap: 18px; align-items: flex-start">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: center; gap: 9px">
+          <span style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.015em">프론트엔드 개발자</span>
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #d2a8ff; border: 1px solid #553a7a; border-radius: 4px; padding: 2px 6px">jumpit</span>
+        </div>
+        <div style="font-size: 13px; color: #8b949e">와탭랩스 · 서울 서초구 · 경력 3-10년</div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap">
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #c9d1d9; background: #21262d; border-radius: 5px; padding: 3px 7px">React</span>
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #c9d1d9; background: #21262d; border-radius: 5px; padding: 3px 7px">Git</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0">
+        <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 19px; font-weight: 600; color: #56d4a0">3.8</div>
+        <div style="font-size: 11px; color: #6e7681">잡플래닛</div>
+      </div>
+    </div>
+
+    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 17px 19px; display: flex; gap: 18px; align-items: flex-start">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: center; gap: 9px">
+          <span style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.015em">프론트엔드 개발자 - 자산 서비스</span>
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #ffa657; border: 1px solid #7a4a22; border-radius: 4px; padding: 2px 6px">jobkorea</span>
+        </div>
+        <div style="font-size: 13px; color: #8b949e">㈜카카오페이 · 경기 성남시 · 경력 3년 이상 · 정규직</div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap">
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #56d4a0; background: #132d24; border-radius: 5px; padding: 3px 7px">인센티브</span>
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #56d4a0; background: #132d24; border-radius: 5px; padding: 3px 7px">리프레시 휴가</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0">
+        <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 19px; font-weight: 600; color: #56d4a0">4.3</div>
+        <div style="font-size: 11px; color: #6e7681">잡플래닛</div>
+      </div>
+    </div>
+
+    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 17px 19px; display: flex; gap: 18px; align-items: flex-start">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: center; gap: 9px">
+          <span style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.015em">웹 프론트엔드 개발자 (디자인 시스템)</span>
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #58a6ff; border: 1px solid #1f4b7f; border-radius: 4px; padding: 2px 6px">wanted</span>
+        </div>
+        <div style="font-size: 13px; color: #8b949e">힐링페이퍼(강남언니) · 서울 강남구 · 경력 5년 이상</div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap">
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: #56d4a0; background: #132d24; border-radius: 5px; padding: 3px 7px">인원 급성장</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0">
+        <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 19px; font-weight: 600; color: #56d4a0">4.0</div>
+        <div style="font-size: 11px; color: #6e7681">잡플래닛</div>
+      </div>
+    </div>
+
+    <div style="background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 17px 19px; display: flex; gap: 18px; align-items: flex-start">
+      <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 8px">
+        <div style="display: flex; align-items: center; gap: 9px">
+          <span style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.015em">프론트엔드 개발자 (전환형 인턴)</span>
+          <span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; color: #c9d1d9; border: 1px solid #4a4458; border-radius: 4px; padding: 2px 6px">catch</span>
+        </div>
+        <div style="font-size: 13px; color: #8b949e">넥스트그라운드 · 서울 · 경력무관 · 인턴</div>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0">
+        <div style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 19px; font-weight: 600; color: #56d4a0">3.6</div>
+        <div style="font-size: 11px; color: #6e7681">잡플래닛</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

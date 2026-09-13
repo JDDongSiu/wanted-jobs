@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard,
+        "Malgun Gothic", system-ui, sans-serif;
+      background: #ffffff;
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #4338ca; text-decoration: none; }
+    a:hover { color: #312e81; }
+  </style>
+</helmet>
+
+<div style="display: flex; height: 100%">
+
+  <!-- 좌측 필터 레일 -->
+  <div style="width: 236px; flex-shrink: 0; border-right: 1px solid #e2e8f0; padding: 26px 20px; display: flex; flex-direction: column; gap: 24px; background: #fbfcfd">
+    <div style="display: flex; flex-direction: column; gap: 3px">
+      <div style="font-size: 14px; font-weight: 700; letter-spacing: -0.01em">프론트엔드 채용</div>
+      <div style="font-size: 12px; color: #94a3b8">371건 · 4개 사이트</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 9px">
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.06em">사이트</div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: #4338ca">원티드 <span>192</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475569">잡코리아 <span style="color: #94a3b8">146</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475569">점핏 <span style="color: #94a3b8">24</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475569">캐치 <span style="color: #94a3b8">9</span></div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 9px">
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.06em">지역</div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475569">서울 <span style="color: #94a3b8">284</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475569">경기 <span style="color: #94a3b8">53</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 13px; color: #475569">인천 <span style="color: #94a3b8">7</span></div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 9px">
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.06em">조건</div>
+      <div style="display: flex; flex-direction: column; gap: 7px">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #475569">
+          <span style="width: 14px; height: 14px; border-radius: 4px; background: #4338ca; display: flex; align-items: center; justify-content: center">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="m5 13 5 5L20 7"></path></svg>
+          </span>설립 4년 이상
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #475569">
+          <span style="width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid #cbd5e1"></span>인원 급성장
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #475569">
+          <span style="width: 14px; height: 14px; border-radius: 4px; background: #4338ca; display: flex; align-items: center; justify-content: center">
+            <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="m5 13 5 5L20 7"></path></svg>
+          </span>스톡옵션
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 본문 -->
+  <div style="flex-grow: 1; display: flex; flex-direction: column">
+    <div style="padding: 20px 28px; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 14px">
+      <div style="flex-grow: 1; display: flex; align-items: center; gap: 8px; border: 1px solid #e2e8f0; border-radius: 7px; padding: 8px 11px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+        <span style="font-size: 13px; color: #94a3b8">검색</span>
+      </div>
+      <div style="font-size: 13px; color: #64748b"><strong style="color: #0f172a">206</strong>건</div>
+    </div>
+
+    <!-- 표 헤더 -->
+    <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 10px 28px; border-bottom: 1px solid #e2e8f0; background: #fbfcfd">
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.04em">포지션</div>
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.04em">회사</div>
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.04em">지역</div>
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.04em">경력</div>
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.04em">출처</div>
+      <div style="font-size: 11px; font-weight: 700; color: #94a3b8; letter-spacing: 0.04em">평점</div>
+    </div>
+
+    <!-- 행들 -->
+    <div style="display: flex; flex-direction: column">
+      <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 13px 28px; border-bottom: 1px solid #f1f5f9; align-items: center">
+        <div style="font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em">Staff Frontend Engineer (Coupang Eats)</div>
+        <div style="font-size: 13px; color: #475569">쿠팡</div>
+        <div style="font-size: 13px; color: #64748b">서울 강남구</div>
+        <div style="font-size: 13px; color: #64748b">7-14년</div>
+        <div style="font-size: 12px; color: #4338ca; font-weight: 600">원티드</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a">4.1</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 13px 28px; border-bottom: 1px solid #f1f5f9; align-items: center; background: #fbfcfd">
+        <div style="font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em">프론트엔드 개발자 - 자산 서비스</div>
+        <div style="font-size: 13px; color: #475569">㈜카카오페이</div>
+        <div style="font-size: 13px; color: #64748b">경기 성남시</div>
+        <div style="font-size: 13px; color: #64748b">3년 이상</div>
+        <div style="font-size: 12px; color: #9c4221; font-weight: 600">잡코리아</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a">4.3</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 13px 28px; border-bottom: 1px solid #f1f5f9; align-items: center">
+        <div style="font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em">프론트엔드 개발자</div>
+        <div style="font-size: 13px; color: #475569">와탭랩스</div>
+        <div style="font-size: 13px; color: #64748b">서울 서초구</div>
+        <div style="font-size: 13px; color: #64748b">3-10년</div>
+        <div style="font-size: 12px; color: #8a2f7b; font-weight: 600">점핏</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a">3.8</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 13px 28px; border-bottom: 1px solid #f1f5f9; align-items: center; background: #fbfcfd">
+        <div style="font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em">웹 프론트엔드 개발자 (디자인 시스템)</div>
+        <div style="font-size: 13px; color: #475569">힐링페이퍼(강남언니)</div>
+        <div style="font-size: 13px; color: #64748b">서울 강남구</div>
+        <div style="font-size: 13px; color: #64748b">5년 이상</div>
+        <div style="font-size: 12px; color: #4338ca; font-weight: 600">원티드</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a">4.0</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 13px 28px; border-bottom: 1px solid #f1f5f9; align-items: center">
+        <div style="font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em">Frontend Tech Lead (12년 이상)</div>
+        <div style="font-size: 13px; color: #475569">㈜에이치나인</div>
+        <div style="font-size: 13px; color: #64748b">경기 성남시</div>
+        <div style="font-size: 13px; color: #64748b">12-20년</div>
+        <div style="font-size: 12px; color: #9c4221; font-weight: 600">잡코리아</div>
+        <div style="font-size: 13px; font-weight: 700; color: #94a3b8">–</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 13px 28px; border-bottom: 1px solid #f1f5f9; align-items: center; background: #fbfcfd">
+        <div style="font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em">프론트엔드 개발자 (전환형 인턴) 채용</div>
+        <div style="font-size: 13px; color: #475569">넥스트그라운드</div>
+        <div style="font-size: 13px; color: #64748b">서울</div>
+        <div style="font-size: 13px; color: #64748b">경력무관</div>
+        <div style="font-size: 12px; color: #6b3fa0; font-weight: 600">캐치</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a">3.6</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 13px 28px; border-bottom: 1px solid #f1f5f9; align-items: center">
+        <div style="font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em">Frontend Engineer (빗썸페이)</div>
+        <div style="font-size: 13px; color: #475569">빗썸</div>
+        <div style="font-size: 13px; color: #64748b">서울 강남구</div>
+        <div style="font-size: 13px; color: #64748b">3-8년</div>
+        <div style="font-size: 12px; color: #4338ca; font-weight: 600">원티드</div>
+        <div style="font-size: 13px; font-weight: 700; color: #00a05a">3.9</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1.9fr 1fr 0.8fr 0.7fr 0.6fr 0.5fr; gap: 14px; padding: 13px 28px; border-bottom: 1px solid #f1f5f9; align-items: center; background: #fbfcfd">
+        <div style="font-size: 13.5px; font-weight: 600; letter-spacing: -0.01em">프론트엔드 개발자 (React / Next.js / Python)</div>
+        <div style="font-size: 13px; color: #475569">㈜예진</div>
+        <div style="font-size: 13px; color: #64748b">서울 송파구</div>
+        <div style="font-size: 13px; color: #64748b">3년 이상</div>
+        <div style="font-size: 12px; color: #9c4221; font-weight: 600">잡코리아</div>
+        <div style="font-size: 13px; font-weight: 700; color: #94a3b8">–</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

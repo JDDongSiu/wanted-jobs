@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont,
+        "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+      background: #f4f4f1;
+      color: #0a0a0a;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #0a0a0a; text-decoration: underline; }
+    a:hover { color: #d62828; }
+  </style>
+</helmet>
+
+<div style="padding: 0">
+
+  <!-- 상단 블록 -->
+  <div style="border-bottom: 3px solid #0a0a0a; padding: 34px 40px 26px; display: flex; align-items: flex-start; gap: 40px">
+    <div style="flex-grow: 1; display: flex; flex-direction: column; gap: 14px">
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase">Frontend Jobs / Seoul / 2026</div>
+      <div style="font-size: 52px; font-weight: 700; line-height: 0.96; letter-spacing: -0.045em">프론트엔드<br>채용 인덱스</div>
+    </div>
+    <div style="display: flex; gap: 0; border: 3px solid #0a0a0a">
+      <div style="padding: 14px 18px; border-right: 1px solid #0a0a0a; display: flex; flex-direction: column; gap: 2px; min-width: 76px">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em">TOTAL</div>
+        <div style="font-size: 30px; font-weight: 700; line-height: 1; letter-spacing: -0.04em">371</div>
+      </div>
+      <div style="padding: 14px 18px; border-right: 1px solid #0a0a0a; display: flex; flex-direction: column; gap: 2px; min-width: 76px">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em">필터됨</div>
+        <div style="font-size: 30px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; color: #d62828">206</div>
+      </div>
+      <div style="padding: 14px 18px; display: flex; flex-direction: column; gap: 2px; min-width: 76px">
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.1em">사이트</div>
+        <div style="font-size: 30px; font-weight: 700; line-height: 1; letter-spacing: -0.04em">4</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 필터 바 -->
+  <div style="border-bottom: 1px solid #0a0a0a; padding: 0; display: flex">
+    <div style="flex-grow: 1; padding: 13px 40px; border-right: 1px solid #0a0a0a; font-size: 13px; font-weight: 500; color: #6e6e69">검색 —</div>
+    <div style="padding: 13px 20px; border-right: 1px solid #0a0a0a; font-size: 13px; font-weight: 700">전체 사이트</div>
+    <div style="padding: 13px 20px; border-right: 1px solid #0a0a0a; font-size: 13px; font-weight: 700">서울</div>
+    <div style="padding: 13px 20px; font-size: 13px; font-weight: 700; background: #0a0a0a; color: #f4f4f1">옵션 3</div>
+  </div>
+
+  <!-- 인덱스 목록 -->
+  <div style="display: flex; flex-direction: column">
+
+    <div style="display: grid; grid-template-columns: 52px 1fr 200px 130px 90px 64px; gap: 0; border-bottom: 1px solid #cfcfc9; align-items: center">
+      <div style="padding: 16px 10px 16px 40px; font-size: 12px; font-weight: 700; color: #9a9a93">001</div>
+      <div style="padding: 16px 14px; font-size: 17px; font-weight: 700; letter-spacing: -0.025em">Staff Frontend Engineer (Coupang Eats)</div>
+      <div style="padding: 16px 14px; font-size: 13px; font-weight: 500">쿠팡</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">서울 강남구</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">7-14년</div>
+      <div style="padding: 16px 40px 16px 14px; font-size: 15px; font-weight: 700; text-align: right">4.1</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 52px 1fr 200px 130px 90px 64px; gap: 0; border-bottom: 1px solid #cfcfc9; align-items: center">
+      <div style="padding: 16px 10px 16px 40px; font-size: 12px; font-weight: 700; color: #9a9a93">002</div>
+      <div style="padding: 16px 14px; font-size: 17px; font-weight: 700; letter-spacing: -0.025em">프론트엔드 개발자 — 자산 서비스</div>
+      <div style="padding: 16px 14px; font-size: 13px; font-weight: 500">㈜카카오페이</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">경기 성남시</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">3년 이상</div>
+      <div style="padding: 16px 40px 16px 14px; font-size: 15px; font-weight: 700; text-align: right">4.3</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 52px 1fr 200px 130px 90px 64px; gap: 0; border-bottom: 1px solid #cfcfc9; align-items: center">
+      <div style="padding: 16px 10px 16px 40px; font-size: 12px; font-weight: 700; color: #9a9a93">003</div>
+      <div style="padding: 16px 14px; font-size: 17px; font-weight: 700; letter-spacing: -0.025em">웹 프론트엔드 개발자 (디자인 시스템)</div>
+      <div style="padding: 16px 14px; font-size: 13px; font-weight: 500">힐링페이퍼</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">서울 강남구</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">5년 이상</div>
+      <div style="padding: 16px 40px 16px 14px; font-size: 15px; font-weight: 700; text-align: right">4.0</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 52px 1fr 200px 130px 90px 64px; gap: 0; border-bottom: 1px solid #cfcfc9; align-items: center; background: #0a0a0a; color: #f4f4f1">
+      <div style="padding: 16px 10px 16px 40px; font-size: 12px; font-weight: 700; color: #8a8a84">004</div>
+      <div style="padding: 16px 14px; font-size: 17px; font-weight: 700; letter-spacing: -0.025em">프론트엔드 개발자</div>
+      <div style="padding: 16px 14px; font-size: 13px; font-weight: 500">와탭랩스</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #b5b5ae">서울 서초구</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #b5b5ae">3-10년</div>
+      <div style="padding: 16px 40px 16px 14px; font-size: 15px; font-weight: 700; text-align: right">3.8</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 52px 1fr 200px 130px 90px 64px; gap: 0; border-bottom: 1px solid #cfcfc9; align-items: center">
+      <div style="padding: 16px 10px 16px 40px; font-size: 12px; font-weight: 700; color: #9a9a93">005</div>
+      <div style="padding: 16px 14px; font-size: 17px; font-weight: 700; letter-spacing: -0.025em">Frontend Engineer (빗썸페이)</div>
+      <div style="padding: 16px 14px; font-size: 13px; font-weight: 500">빗썸</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">서울 강남구</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">3-8년</div>
+      <div style="padding: 16px 40px 16px 14px; font-size: 15px; font-weight: 700; text-align: right">3.9</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 52px 1fr 200px 130px 90px 64px; gap: 0; border-bottom: 1px solid #cfcfc9; align-items: center">
+      <div style="padding: 16px 10px 16px 40px; font-size: 12px; font-weight: 700; color: #9a9a93">006</div>
+      <div style="padding: 16px 14px; font-size: 17px; font-weight: 700; letter-spacing: -0.025em">Frontend Tech Lead (12년 이상)</div>
+      <div style="padding: 16px 14px; font-size: 13px; font-weight: 500">㈜에이치나인</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">경기 성남시</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">12-20년</div>
+      <div style="padding: 16px 40px 16px 14px; font-size: 15px; font-weight: 700; text-align: right; color: #9a9a93">—</div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 52px 1fr 200px 130px 90px 64px; gap: 0; border-bottom: 1px solid #cfcfc9; align-items: center">
+      <div style="padding: 16px 10px 16px 40px; font-size: 12px; font-weight: 700; color: #9a9a93">007</div>
+      <div style="padding: 16px 14px; font-size: 17px; font-weight: 700; letter-spacing: -0.025em">프론트엔드 개발자 (전환형 인턴)</div>
+      <div style="padding: 16px 14px; font-size: 13px; font-weight: 500">넥스트그라운드</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">서울</div>
+      <div style="padding: 16px 14px; font-size: 13px; color: #6e6e69">경력무관</div>
+      <div style="padding: 16px 40px 16px 14px; font-size: 15px; font-weight: 700; text-align: right">3.6</div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

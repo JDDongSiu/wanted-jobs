@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-13T14:57:05+09:00",
+  "updated_at": "2026-09-13T18:18:51+09:00",
   "sources": {
     "wanted": 192,
     "jumpit": 24,
@@ -9,6 +9,7 @@
   "stale_sources": [],
   "total_count": 371,
   "matched_count": 5,
+  "new_count": 0,
   "conditions": [
     "established",
     "rapid_growth",
@@ -34,7 +35,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -55,7 +57,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -76,7 +79,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -97,7 +101,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -118,7 +123,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -139,7 +145,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -160,7 +167,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -181,7 +189,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -202,7 +211,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -223,7 +233,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -244,7 +255,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -265,7 +277,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -286,7 +299,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -307,7 +321,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -328,7 +343,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -349,7 +365,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -370,7 +387,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -391,7 +409,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -412,7 +431,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -433,7 +453,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -454,7 +475,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -475,7 +497,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -496,7 +519,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -517,7 +541,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -538,7 +563,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -559,7 +585,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -580,7 +607,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -601,7 +629,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -622,7 +651,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -643,7 +673,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -664,7 +695,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -685,7 +717,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -706,7 +739,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -727,7 +761,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -748,7 +783,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -769,7 +805,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -790,7 +827,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -811,7 +849,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -832,7 +871,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -853,7 +893,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -874,7 +915,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -895,7 +937,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -916,7 +959,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -937,7 +981,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -958,7 +1003,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -979,7 +1025,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1000,7 +1047,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1021,7 +1069,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1042,7 +1091,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1063,7 +1113,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1084,7 +1135,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1105,7 +1157,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1126,7 +1179,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1147,7 +1201,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1168,7 +1223,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1189,7 +1245,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1210,7 +1267,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1231,7 +1289,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1252,7 +1311,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1273,7 +1333,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1294,7 +1355,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1315,7 +1377,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1336,7 +1399,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1357,7 +1421,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1378,7 +1443,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1399,7 +1465,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1420,7 +1487,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1441,7 +1509,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1462,7 +1531,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1483,7 +1553,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1504,7 +1575,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1525,7 +1597,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1546,7 +1619,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1567,7 +1641,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1588,7 +1663,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1609,7 +1685,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1630,7 +1707,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1651,7 +1729,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1672,7 +1751,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1693,7 +1773,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1714,7 +1795,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1735,7 +1817,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1756,7 +1839,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1777,7 +1861,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1798,7 +1883,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1819,7 +1905,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1840,7 +1927,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1861,7 +1949,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1882,7 +1971,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1903,7 +1993,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1924,7 +2015,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1945,7 +2037,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1966,7 +2059,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -1987,7 +2081,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2008,7 +2103,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2029,7 +2125,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2050,7 +2147,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2071,7 +2169,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2092,7 +2191,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2113,7 +2213,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2134,7 +2235,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2155,7 +2257,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2176,7 +2279,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2197,7 +2301,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2218,7 +2323,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2239,7 +2345,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2260,7 +2367,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2281,7 +2389,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2302,7 +2411,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2323,7 +2433,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2344,7 +2455,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2365,7 +2477,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2386,7 +2499,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2407,7 +2521,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2428,7 +2543,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2449,7 +2565,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2470,7 +2587,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2491,7 +2609,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2512,7 +2631,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2533,7 +2653,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2554,7 +2675,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2575,7 +2697,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2596,7 +2719,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2617,7 +2741,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2638,7 +2763,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2659,7 +2785,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2680,7 +2807,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2701,7 +2829,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2722,7 +2851,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2743,7 +2873,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2764,7 +2895,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2785,7 +2917,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2806,7 +2939,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2827,7 +2961,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2848,7 +2983,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2869,7 +3005,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2890,7 +3027,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2911,7 +3049,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2932,7 +3071,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2953,7 +3093,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2974,7 +3115,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -2995,7 +3137,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3016,7 +3159,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3037,7 +3181,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3058,7 +3203,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3079,7 +3225,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3100,7 +3247,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3121,7 +3269,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3142,7 +3291,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3163,7 +3313,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3184,7 +3335,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3205,7 +3357,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3226,7 +3379,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3247,7 +3401,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3268,7 +3423,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3289,7 +3445,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3310,7 +3467,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3331,7 +3489,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3352,7 +3511,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3373,7 +3533,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3394,7 +3555,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3415,7 +3577,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3436,7 +3599,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3457,7 +3621,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3478,7 +3643,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3499,7 +3665,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3520,7 +3687,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3541,7 +3709,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3562,7 +3731,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3583,7 +3753,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3604,7 +3775,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3625,7 +3797,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3646,7 +3819,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3667,7 +3841,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3688,7 +3863,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3709,7 +3885,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3730,7 +3907,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3751,7 +3929,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3772,7 +3951,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3793,7 +3973,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3814,7 +3995,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3835,7 +4017,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3856,7 +4039,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3877,7 +4061,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3898,7 +4083,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3919,7 +4105,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3940,7 +4127,8 @@
         "established": true,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3961,7 +4149,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -3982,7 +4171,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -4003,7 +4193,8 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -4024,7 +4215,8 @@
         "established": false,
         "rapid_growth": true,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "wanted",
@@ -4045,7 +4237,8 @@
         "established": false,
         "rapid_growth": false,
         "equipment": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4069,7 +4262,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/gon_38839/20222210142215459_1080_790.webp",
       "url": "https://jumpit.saramin.co.kr/position/55000748",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4097,7 +4291,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/hr_22955/20211823151843983_2592_1728.webp",
       "url": "https://jumpit.saramin.co.kr/position/55011246",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4117,7 +4312,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/ynchoi_112299/20233314173318332_992_725.webp",
       "url": "https://jumpit.saramin.co.kr/position/55013728",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4145,7 +4341,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/257670/20240124160100125_3997_2398.webp",
       "url": "https://jumpit.saramin.co.kr/position/54964030",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4173,7 +4370,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/images/106264/20233615153618924_3264_2448.png",
       "url": "https://jumpit.saramin.co.kr/position/54927604",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4199,7 +4397,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/mjnam_252093/20250927160959589_298_123.webp",
       "url": "https://jumpit.saramin.co.kr/position/54901904",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4222,7 +4421,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/images/jinpyung_252071/20250709130749496_1080_790.png",
       "url": "https://jumpit.saramin.co.kr/position/54900139",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4245,7 +4445,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/images/jinpyung_252071/20250709130749496_1080_790.png",
       "url": "https://jumpit.saramin.co.kr/position/54900151",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4268,7 +4469,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/images/jinpyung_252071/20250709130749496_1080_790.png",
       "url": "https://jumpit.saramin.co.kr/position/54900239",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4295,7 +4497,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/jnyoon_106/20250314130352167_567_378.webp",
       "url": "https://jumpit.saramin.co.kr/position/54866014",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4322,7 +4525,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/171/20230022200054389_4000_3000.webp",
       "url": "https://jumpit.saramin.co.kr/position/54839079",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4345,7 +4549,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/hello_28773/20221824221854652_1080_790.webp",
       "url": "https://jumpit.saramin.co.kr/position/54840210",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4370,7 +4575,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/hello_28773/20221824221854652_1080_790.webp",
       "url": "https://jumpit.saramin.co.kr/position/54840099",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4395,7 +4601,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/hello_28773/20221824221854652_1080_790.webp",
       "url": "https://jumpit.saramin.co.kr/position/54840071",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4420,7 +4627,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/hello_28773/20221824221854652_1080_790.webp",
       "url": "https://jumpit.saramin.co.kr/position/54840054",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4440,7 +4648,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/company/6518100883/20245019185036921/r5mon9_9ayw-1mnpwok_workenv-bg.webp",
       "url": "https://jumpit.saramin.co.kr/position/54833719",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4465,7 +4674,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/careers_41771/20221723171728802_1080_790.webp",
       "url": "https://jumpit.saramin.co.kr/position/54780871",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4490,7 +4700,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/129781/20243230123213510/profile-image.webp",
       "url": "https://jumpit.saramin.co.kr/position/54787802",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4513,7 +4724,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/129781/20243230123213510/profile-image.webp",
       "url": "https://jumpit.saramin.co.kr/position/54787794",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4533,7 +4745,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/309117/20240524220542966/profile-image.webp",
       "url": "https://jumpit.saramin.co.kr/position/54787913",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4553,7 +4766,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/309117/20240524220542966/profile-image.webp",
       "url": "https://jumpit.saramin.co.kr/position/54787903",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4573,7 +4787,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/309117/20240524220542966/profile-image.webp",
       "url": "https://jumpit.saramin.co.kr/position/54787893",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4599,7 +4814,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/dabin_3358/20245813175822390_1095_797.webp",
       "url": "https://jumpit.saramin.co.kr/position/54750532",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jumpit",
@@ -4626,7 +4842,8 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/dabin_3358/20245813175822390_1095_797.webp",
       "url": "https://jumpit.saramin.co.kr/position/54750529",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4648,7 +4865,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4670,7 +4888,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4692,7 +4911,8 @@
         "club": true,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4714,7 +4934,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4736,7 +4957,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4758,7 +4980,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4780,7 +5003,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4802,7 +5026,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4824,7 +5049,8 @@
         "club": false,
         "refresh": false,
         "stock": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4846,7 +5072,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4868,7 +5095,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4890,7 +5118,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4912,7 +5141,8 @@
         "club": false,
         "refresh": false,
         "stock": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4934,7 +5164,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4956,7 +5187,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -4978,7 +5210,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5000,7 +5233,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5022,7 +5256,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5044,7 +5279,8 @@
         "club": false,
         "refresh": false,
         "stock": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5066,7 +5302,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5088,7 +5325,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5110,7 +5348,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5132,7 +5371,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5154,7 +5394,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5176,7 +5417,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5198,7 +5440,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5220,7 +5463,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5242,7 +5486,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5264,7 +5509,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5286,7 +5532,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5308,7 +5555,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5330,7 +5578,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5352,7 +5601,8 @@
         "club": false,
         "refresh": true,
         "stock": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5374,7 +5624,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5396,7 +5647,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5418,7 +5670,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5440,7 +5693,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5462,7 +5716,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5484,7 +5739,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5506,7 +5762,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5528,7 +5785,8 @@
         "club": true,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5550,7 +5808,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5572,7 +5831,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5594,7 +5854,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5616,7 +5877,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5638,7 +5900,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5660,7 +5923,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5682,7 +5946,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5704,7 +5969,8 @@
         "club": true,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5726,7 +5992,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5748,7 +6015,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5770,7 +6038,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5792,7 +6061,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5814,7 +6084,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5836,7 +6107,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5858,7 +6130,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5880,7 +6153,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5902,7 +6176,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5924,7 +6199,8 @@
         "club": false,
         "refresh": false,
         "stock": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5946,7 +6222,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5968,7 +6245,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -5990,7 +6268,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6012,7 +6291,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6034,7 +6314,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6056,7 +6337,8 @@
         "club": true,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6078,7 +6360,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6100,7 +6383,8 @@
         "club": true,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6122,7 +6406,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6144,7 +6429,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6166,7 +6452,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6188,7 +6475,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6210,7 +6498,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6232,7 +6521,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6254,7 +6544,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6276,7 +6567,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6298,7 +6590,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6320,7 +6613,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6342,7 +6636,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6364,7 +6659,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6386,7 +6682,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6408,7 +6705,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6430,7 +6728,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6452,7 +6751,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6474,7 +6774,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6496,7 +6797,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6518,7 +6820,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6540,7 +6843,8 @@
         "club": true,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6562,7 +6866,8 @@
         "club": true,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6584,7 +6889,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6606,7 +6912,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6628,7 +6935,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6650,7 +6958,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6672,7 +6981,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6694,7 +7004,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6716,7 +7027,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6738,7 +7050,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6760,7 +7073,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6782,7 +7096,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6804,7 +7119,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6826,7 +7142,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6848,7 +7165,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6870,7 +7188,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6892,7 +7211,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6914,7 +7234,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6936,7 +7257,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6958,7 +7280,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -6980,7 +7303,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7002,7 +7326,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7024,7 +7349,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7046,7 +7372,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7068,7 +7395,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7090,7 +7418,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7112,7 +7441,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7134,7 +7464,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7156,7 +7487,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7178,7 +7510,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7200,7 +7533,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7222,7 +7556,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7244,7 +7579,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7266,7 +7602,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7288,7 +7625,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7310,7 +7648,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7332,7 +7671,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7354,7 +7694,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7376,7 +7717,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7398,7 +7740,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7420,7 +7763,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7442,7 +7786,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7464,7 +7809,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7486,7 +7832,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7508,7 +7855,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7530,7 +7878,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7552,7 +7901,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7574,7 +7924,8 @@
         "club": false,
         "refresh": true,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7596,7 +7947,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7618,7 +7970,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7640,7 +7993,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7662,7 +8016,8 @@
         "club": true,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7684,7 +8039,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7706,7 +8062,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7728,7 +8085,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7750,7 +8108,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7772,7 +8131,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7794,7 +8154,8 @@
         "club": false,
         "refresh": true,
         "stock": true
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7816,7 +8177,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "jobkorea",
@@ -7838,7 +8200,8 @@
         "club": false,
         "refresh": false,
         "stock": false
-      }
+      },
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7855,7 +8218,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/570760",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7872,7 +8236,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/570189",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7889,7 +8254,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/569876",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7906,7 +8272,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/569112",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7923,7 +8290,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/568223",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7940,7 +8308,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/564453",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7957,7 +8326,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/559925",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7974,7 +8344,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/557765",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     },
     {
       "source": "catch",
@@ -7991,7 +8362,8 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/525564",
-      "flags": {}
+      "flags": {},
+      "first_seen": null
     }
   ]
 }

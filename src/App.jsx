@@ -34,6 +34,26 @@ const CONDITION_GROUPS = {
 // 지역 필터에서 위로 올릴 순서. 나머지는 가나다순으로 뒤에 붙는다.
 const REGION_PRIORITY = ['서울', '경기', '인천', '부산', '충남']
 
+// 요구경력 구간. 사이트마다 표기가 달라 최소 경력 기준으로 묶는다.
+const CAREER_BUCKETS = [
+  { key: 'newbie', label: '신입' },
+  { key: '1-3', label: '1-3년' },
+  { key: '4-6', label: '4-6년' },
+  { key: '7-9', label: '7-9년' },
+  { key: '10+', label: '10년 이상' },
+  { key: 'any', label: '경력무관' },
+]
+
+function careerBucket(job) {
+  if (job.is_newbie) return 'newbie'
+  const from = job.annual_from
+  if (from == null) return 'any'
+  if (from <= 3) return '1-3'
+  if (from <= 6) return '4-6'
+  if (from <= 9) return '7-9'
+  return '10+'
+}
+
 // 필터 상태를 주소에 남긴다. 공고 링크를 눌렀다가 뒤로 와도 필터가 유지된다.
 // 기본값이 모두 켜짐이라, 꺼둔 조건만 off 로 기록해 주소를 짧게 유지한다.
 function readParams() {
@@ -144,12 +164,14 @@ export default function App() {
   const [conditions, setConditions] = useState(initialConditions)
   const [region, setRegion] = useState(() => readParams().get('region') ?? 'all')
   const [source, setSource] = useState(() => readParams().get('source') ?? 'all')
+  const [career, setCareer] = useState(() => readParams().get('career') ?? 'all')
 
   useEffect(() => {
     const params = new URLSearchParams()
     if (query) params.set('q', query)
     if (source !== 'all') params.set('source', source)
     if (region !== 'all') params.set('region', region)
+    if (career !== 'all') params.set('career', career)
 
     const off = Object.keys(conditions).filter((key) => !conditions[key])
     if (off.length) params.set('off', off.join(','))
@@ -160,7 +182,7 @@ export default function App() {
       '',
       search ? `?${search}` : window.location.pathname,
     )
-  }, [query, source, region, conditions])
+  }, [query, source, region, career, conditions])
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}jobs.json`)
@@ -186,6 +208,16 @@ export default function App() {
     )
   }, [data])
 
+  // 구간별 건수를 함께 보여준다. 고르기 전에 몇 건인지 알 수 있다.
+  const careerCounts = useMemo(() => {
+    const counts = {}
+    for (const job of data?.jobs ?? []) {
+      const key = careerBucket(job)
+      counts[key] = (counts[key] ?? 0) + 1
+    }
+    return counts
+  }, [data])
+
   const filtered = useMemo(() => {
     if (!data) return []
     const keyword = query.trim().toLowerCase()
@@ -202,13 +234,14 @@ export default function App() {
       }
 
       if (region !== 'all' && !job.location?.startsWith(region)) return false
+      if (career !== 'all' && careerBucket(job) !== career) return false
       if (keyword) {
         const haystack = `${job.position} ${job.company}`.toLowerCase()
         if (!haystack.includes(keyword)) return false
       }
       return true
     })
-  }, [data, query, conditions, region, source])
+  }, [data, query, conditions, region, career, source])
 
   if (error) {
     return (
@@ -278,6 +311,20 @@ export default function App() {
                   {r}
                 </option>
               ))}
+            </select>
+            <select
+              className="select"
+              value={career}
+              onChange={(e) => setCareer(e.target.value)}
+            >
+              <option value="all">전체 경력</option>
+              {CAREER_BUCKETS.filter(({ key }) => careerCounts[key]).map(
+                ({ key, label }) => (
+                  <option key={key} value={key}>
+                    {label} ({careerCounts[key]})
+                  </option>
+                ),
+              )}
             </select>
             <details className="cond-panel">
               <summary className="cond-summary">사이트별 보기 옵션 설정</summary>

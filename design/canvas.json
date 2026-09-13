@@ -1,0 +1,57 @@
+{
+  "pages": [
+    { "id": "page-3", "name": "F+J 혼합 K" },
+    { "id": "page-1", "name": "1차 시안 A-E" },
+    { "id": "page-2", "name": "2차 시안 F-J" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "title": "A · 토스형 소프트 카드", "page": "page-1", "x": 0, "y": 0, "w": 1120, "h": 880 },
+    { "file": "DirectionB.dc.html", "title": "B · 데이터 밀도형", "page": "page-1", "x": 1240, "y": 0, "w": 1120, "h": 640 },
+    { "file": "DirectionC.dc.html", "title": "C · 에디토리얼", "page": "page-1", "x": 0, "y": 1020, "w": 1120, "h": 900 },
+    { "file": "DirectionD.dc.html", "title": "D · 다크 테크니컬", "page": "page-1", "x": 1240, "y": 1020, "w": 1120, "h": 800 },
+    { "file": "DirectionE.dc.html", "title": "E · 소스 컬러 시스템", "page": "page-1", "x": 2480, "y": 0, "w": 1120, "h": 800 },
+
+    { "file": "DirectionF.dc.html", "title": "F · 다크 소프트 (A+D 혼합)", "page": "page-2", "x": 0, "y": 0, "w": 1120, "h": 880 },
+    { "file": "DirectionG.dc.html", "title": "G · 스위스 그리드", "page": "page-2", "x": 1240, "y": 0, "w": 1120, "h": 700 },
+    { "file": "DirectionH.dc.html", "title": "H · 인사이트 대시보드", "page": "page-2", "x": 2480, "y": 0, "w": 1120, "h": 900 },
+    { "file": "DirectionI.dc.html", "title": "I · 한 건씩 집중", "page": "page-2", "x": 0, "y": 1040, "w": 1000, "h": 760 },
+    { "file": "DirectionJ.dc.html", "title": "J · 신착 타임라인", "page": "page-2", "x": 1240, "y": 1040, "w": 1120, "h": 860 },
+
+    { "file": "DirectionK.dc.html", "title": "K · F+J 혼합 (요구경력 필터 포함)", "page": "page-3", "x": 0, "y": 0, "w": 1180, "h": 1360 }
+  ],
+  "annotations": [
+    {
+      "id": "brief",
+      "x": 0,
+      "y": -190,
+      "w": 520,
+      "page": "page-1",
+      "text": "프론트엔드 채용 모음 사이트 UI 방향.\n실제 수집된 공고 데이터(371건)를 넣어 그렸습니다.\n\n평점 숫자는 잡플래닛 수집이 막혀 있어\n어떻게 보일지 확인용으로만 넣은 예시 값입니다."
+    },
+    {
+      "id": "note-a",
+      "x": 1160,
+      "y": 920,
+      "w": 200,
+      "page": "page-1",
+      "text": "A · D 를 고르셨습니다."
+    },
+    {
+      "id": "brief2",
+      "x": 0,
+      "y": -210,
+      "w": 560,
+      "page": "page-2",
+      "text": "2차 — A·D 계열을 더 밀어본 F, 그리고 완전히 다른 축 네 가지.\n\nF·G 는 겉모습을 바꾸는 안이고,\nH·I·J 는 화면의 목적 자체를 바꾸는 안입니다.\n목록을 보여주는 대신 분석하거나(H),\n한 건씩 결정하게 하거나(I),\n새로 올라온 것만 보게(J) 합니다."
+    },
+    {
+      "id": "brief3",
+      "x": 1260,
+      "y": 0,
+      "w": 480,
+      "page": "page-3",
+      "text": "F(어두운 소프트 카드) + J(신착 타임라인) 혼합.\n\n요구경력 필터를 넣었고, 구간별 건수는\n실제 371건을 집계한 값입니다.\n신입 65 · 1-3년 169 · 4-6년 102 · 7-9년 25 · 10년+ 9\n\n평점 숫자만 여전히 예시 값입니다.\n\n오늘/어제 묶음을 쓰려면 크롤러에\n공고를 처음 본 날짜를 기록해야 합니다.\n지금 데이터에는 그 값이 없습니다."
+    }
+  ],
+  "launch": { "view": "canvas", "page": "page-3" }
+}

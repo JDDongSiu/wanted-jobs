@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", Pretendard,
+        "Malgun Gothic", system-ui, sans-serif;
+      background: #ffffff;
+      color: #111827;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: #111827; text-decoration: none; }
+    a:hover { color: #000000; }
+  </style>
+</helmet>
+
+<div style="display: flex; flex-direction: column; height: 100%">
+
+  <!-- 사이트별 색 띠 -->
+  <div style="display: flex; height: 5px">
+    <div style="flex-grow: 192; background: #2563eb"></div>
+    <div style="flex-grow: 146; background: #ea580c"></div>
+    <div style="flex-grow: 24; background: #db2777"></div>
+    <div style="flex-grow: 9; background: #7c3aed"></div>
+  </div>
+
+  <div style="padding: 32px 40px; display: flex; flex-direction: column; gap: 24px">
+
+    <div style="display: flex; flex-direction: column; gap: 7px">
+      <div style="font-size: 28px; font-weight: 800; letter-spacing: -0.035em; line-height: 1.25">프론트엔드 공고 371건</div>
+      <div style="font-size: 13.5px; color: #6b7280">네 사이트를 하나로 · 2026년 9월 13일 오후 2:57 갱신</div>
+    </div>
+
+    <!-- 사이트 탭 (색상 정체성) -->
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+      <div style="border: 2px solid #2563eb; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px; background: #eff6ff">
+        <div style="font-size: 12px; font-weight: 700; color: #2563eb">원티드</div>
+        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: #1e3a8a">192</div>
+      </div>
+      <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px">
+        <div style="font-size: 12px; font-weight: 700; color: #ea580c">잡코리아</div>
+        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: #111827">146</div>
+      </div>
+      <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px">
+        <div style="font-size: 12px; font-weight: 700; color: #db2777">점핏</div>
+        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: #111827">24</div>
+      </div>
+      <div style="border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 3px">
+        <div style="font-size: 12px; font-weight: 700; color: #7c3aed">캐치</div>
+        <div style="font-size: 22px; font-weight: 800; letter-spacing: -0.03em; color: #111827">9</div>
+      </div>
+    </div>
+
+    <!-- 검색 -->
+    <div style="display: flex; gap: 10px; align-items: center">
+      <div style="flex-grow: 1; display: flex; align-items: center; gap: 9px; border: 1.5px solid #111827; border-radius: 10px; padding: 12px 14px">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+        <span style="font-size: 14px; color: #9ca3af">포지션 · 회사 · 기술스택</span>
+      </div>
+      <div style="border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; font-size: 14px; font-weight: 600">서울</div>
+      <div style="border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; font-size: 14px; font-weight: 600">보기 옵션</div>
+    </div>
+
+    <!-- 좌측 색 막대 카드 -->
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+
+      <div style="display: flex; gap: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden">
+        <div style="width: 6px; background: #2563eb; flex-shrink: 0"></div>
+        <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1">
+          <div style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.38">Staff Frontend Engineer (Coupang Eats)</div>
+          <div style="font-size: 13px; color: #4b5563; font-weight: 600">쿠팡</div>
+          <div style="font-size: 12.5px; color: #9ca3af">서울 강남구 · 경력 7-14년 · 정규직</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px">
+            <span style="font-size: 11px; font-weight: 700; color: #2563eb">원티드</span>
+            <span style="font-size: 11px; color: #d1d5db">|</span>
+            <span style="font-size: 12px; font-weight: 700; color: #00a05a">잡플래닛 4.1</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden">
+        <div style="width: 6px; background: #ea580c; flex-shrink: 0"></div>
+        <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1">
+          <div style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.38">프론트엔드 개발자 - 자산 서비스</div>
+          <div style="font-size: 13px; color: #4b5563; font-weight: 600">㈜카카오페이</div>
+          <div style="font-size: 12.5px; color: #9ca3af">경기 성남시 · 경력 3년 이상 · 정규직</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px">
+            <span style="font-size: 11px; font-weight: 700; color: #ea580c">잡코리아</span>
+            <span style="font-size: 11px; color: #d1d5db">|</span>
+            <span style="font-size: 12px; font-weight: 700; color: #00a05a">잡플래닛 4.3</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden">
+        <div style="width: 6px; background: #db2777; flex-shrink: 0"></div>
+        <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1">
+          <div style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.38">프론트엔드 개발자</div>
+          <div style="font-size: 13px; color: #4b5563; font-weight: 600">와탭랩스</div>
+          <div style="font-size: 12.5px; color: #9ca3af">서울 서초구 · 경력 3-10년 · React, Git</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px">
+            <span style="font-size: 11px; font-weight: 700; color: #db2777">점핏</span>
+            <span style="font-size: 11px; color: #d1d5db">|</span>
+            <span style="font-size: 12px; font-weight: 700; color: #00a05a">잡플래닛 3.8</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden">
+        <div style="width: 6px; background: #7c3aed; flex-shrink: 0"></div>
+        <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1">
+          <div style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.38">프론트엔드 개발자 (전환형 인턴)</div>
+          <div style="font-size: 13px; color: #4b5563; font-weight: 600">넥스트그라운드</div>
+          <div style="font-size: 12.5px; color: #9ca3af">서울 · 경력무관 · 인턴</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px">
+            <span style="font-size: 11px; font-weight: 700; color: #7c3aed">캐치</span>
+            <span style="font-size: 11px; color: #d1d5db">|</span>
+            <span style="font-size: 12px; font-weight: 700; color: #00a05a">잡플래닛 3.6</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden">
+        <div style="width: 6px; background: #2563eb; flex-shrink: 0"></div>
+        <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1">
+          <div style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.38">웹 프론트엔드 개발자 (디자인 시스템)</div>
+          <div style="font-size: 13px; color: #4b5563; font-weight: 600">힐링페이퍼(강남언니)</div>
+          <div style="font-size: 12.5px; color: #9ca3af">서울 강남구 · 경력 5년 이상</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px">
+            <span style="font-size: 11px; font-weight: 700; color: #2563eb">원티드</span>
+            <span style="font-size: 11px; color: #d1d5db">|</span>
+            <span style="font-size: 12px; font-weight: 700; color: #00a05a">잡플래닛 4.0</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden">
+        <div style="width: 6px; background: #ea580c; flex-shrink: 0"></div>
+        <div style="padding: 16px 18px; display: flex; flex-direction: column; gap: 7px; flex-grow: 1">
+          <div style="font-size: 15.5px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.38">Frontend Tech Lead (12년 이상)</div>
+          <div style="font-size: 13px; color: #4b5563; font-weight: 600">㈜에이치나인</div>
+          <div style="font-size: 12.5px; color: #9ca3af">경기 성남시 · 경력 12-20년 · 정규직</div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px">
+            <span style="font-size: 11px; font-weight: 700; color: #ea580c">잡코리아</span>
+            <span style="font-size: 11px; color: #d1d5db">|</span>
+            <span style="font-size: 12px; color: #9ca3af">평점 없음</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
