@@ -13,7 +13,7 @@ const EMPLOYMENT_LABELS = {
 // 두 그룹 모두 체크한 것 중 하나라도 해당하면 통과(OR)한다.
 const CONDITION_GROUPS = {
   wanted: {
-    label: '원티드 조건',
+    label: '원티드',
     labels: {
       established: '설립 4년 이상',
       rapid_growth: '인원 급성장',
@@ -21,7 +21,7 @@ const CONDITION_GROUPS = {
     },
   },
   jobkorea: {
-    label: '잡코리아 복리후생',
+    label: '잡코리아',
     labels: {
       incentive: '인센티브',
       club: '사내 동호회',
@@ -33,6 +33,19 @@ const CONDITION_GROUPS = {
 
 // 지역 필터에서 위로 올릴 순서. 나머지는 가나다순으로 뒤에 붙는다.
 const REGION_PRIORITY = ['서울', '경기', '인천', '부산', '충남']
+
+// 필터 상태를 주소에 남긴다. 공고 링크를 눌렀다가 뒤로 와도 필터가 유지된다.
+// 기본값이 모두 켜짐이라, 꺼둔 조건만 off 로 기록해 주소를 짧게 유지한다.
+function readParams() {
+  return new URLSearchParams(window.location.search)
+}
+
+function initialConditions() {
+  const off = new Set((readParams().get('off') ?? '').split(',').filter(Boolean))
+  return Object.fromEntries(
+    Object.keys(ALL_CONDITION_LABELS).map((key) => [key, !off.has(key)]),
+  )
+}
 
 const ALL_CONDITION_LABELS = Object.fromEntries(
   Object.values(CONDITION_GROUPS).flatMap((g) => Object.entries(g.labels)),
@@ -127,12 +140,27 @@ function JobCard({ job }) {
 export default function App() {
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
-  const [query, setQuery] = useState('')
-  const [conditions, setConditions] = useState(() =>
-    Object.fromEntries(Object.keys(ALL_CONDITION_LABELS).map((key) => [key, true])),
-  )
-  const [region, setRegion] = useState('all')
-  const [source, setSource] = useState('all')
+  const [query, setQuery] = useState(() => readParams().get('q') ?? '')
+  const [conditions, setConditions] = useState(initialConditions)
+  const [region, setRegion] = useState(() => readParams().get('region') ?? 'all')
+  const [source, setSource] = useState(() => readParams().get('source') ?? 'all')
+
+  useEffect(() => {
+    const params = new URLSearchParams()
+    if (query) params.set('q', query)
+    if (source !== 'all') params.set('source', source)
+    if (region !== 'all') params.set('region', region)
+
+    const off = Object.keys(conditions).filter((key) => !conditions[key])
+    if (off.length) params.set('off', off.join(','))
+
+    const search = params.toString()
+    window.history.replaceState(
+      null,
+      '',
+      search ? `?${search}` : window.location.pathname,
+    )
+  }, [query, source, region, conditions])
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}jobs.json`)
@@ -251,27 +279,32 @@ export default function App() {
                 </option>
               ))}
             </select>
-          </div>
-          <details className="cond-panel">
-            <summary className="cond-summary">사이트별 보기 옵션 설정</summary>
-            {Object.entries(CONDITION_GROUPS).map(([source, group]) => (
-              <div className="cond-group" key={source}>
-                <span className="cond-group-label">{group.label}</span>
-                {Object.entries(group.labels).map(([key, label]) => (
-                  <label className="check" key={key}>
-                    <input
-                      type="checkbox"
-                      checked={conditions[key]}
-                      onChange={(e) =>
-                        setConditions((prev) => ({ ...prev, [key]: e.target.checked }))
-                      }
-                    />
-                    {label}
-                  </label>
+            <details className="cond-panel">
+              <summary className="cond-summary">사이트별 보기 옵션 설정</summary>
+              <div className="cond-popover">
+                {Object.entries(CONDITION_GROUPS).map(([source, group]) => (
+                  <div className="cond-group" key={source}>
+                    <span className="cond-group-label">{group.label}</span>
+                    {Object.entries(group.labels).map(([key, label]) => (
+                      <label className="check" key={key}>
+                        <input
+                          type="checkbox"
+                          checked={conditions[key]}
+                          onChange={(e) =>
+                            setConditions((prev) => ({
+                              ...prev,
+                              [key]: e.target.checked,
+                            }))
+                          }
+                        />
+                        {label}
+                      </label>
+                    ))}
+                  </div>
                 ))}
               </div>
-            ))}
-          </details>
+            </details>
+          </div>
 
           <p className="result-count">{filtered.length}건</p>
         </section>

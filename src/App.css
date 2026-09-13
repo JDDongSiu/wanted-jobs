@@ -101,22 +101,47 @@
 }
 
 .cond-panel {
-  margin-top: 12px;
-  padding: 10px 14px;
+  position: relative;
+}
+
+/* 옆의 select 들과 같은 모양으로 맞춘다. */
+.cond-summary {
+  padding: 7px 10px;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.cond-summary::-webkit-details-marker {
+  display: none;
+}
+
+.cond-summary::marker {
+  content: '';
+}
+
+.cond-summary::after {
+  content: ' ▾';
+  color: var(--text-muted);
+}
+
+.cond-popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 20;
+  min-width: 430px;
+  max-width: calc(100vw - 48px);
+  padding: 4px 14px 14px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 8px;
-}
-
-.cond-summary {
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
-}
-
-.cond-panel[open] .cond-summary {
-  margin-bottom: 4px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
 }
 
 .cond-group {
@@ -128,10 +153,9 @@
 }
 
 .cond-group-label {
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 13px;
   color: var(--text-muted);
-  min-width: 168px;
+  min-width: 56px;
 }
 
 .result-count {
