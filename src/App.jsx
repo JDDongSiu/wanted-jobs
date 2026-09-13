@@ -129,82 +129,62 @@ function initialConditions() {
   )
 }
 
-// 알을 깨고 나오는 새. 둥근 실루엣과 점 눈, 볼터치만 남긴 단순한 형태로 그렸다.
-function EggCharacter() {
+// 토끼와 강아지. 둥근 실루엣, 점 눈, 볼터치만 남긴 단순한 형태로 그렸다.
+const INK = '#3B2F16'
+
+function Characters() {
   return (
     <svg
-      className="egg"
-      viewBox="0 0 130 150"
+      className="mascots"
+      viewBox="0 0 250 140"
       role="img"
-      aria-label="알을 깨고 나오는 새"
+      aria-label="나란히 선 토끼와 강아지"
     >
-      <ellipse cx="65" cy="142" rx="30" ry="4.5" fill="#E7D8A4" />
+      {/* 토끼 */}
+      <g className="mascot mascot-rabbit">
+        <ellipse cx="64" cy="28" rx="8" ry="21" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="64" cy="30" rx="3.4" ry="13" fill="#F6BFC4" />
+        <ellipse cx="88" cy="28" rx="8" ry="21" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="88" cy="30" rx="3.4" ry="13" fill="#F6BFC4" />
 
-      {/* 날개 */}
-      <ellipse
-        className="egg-wing egg-wing-l"
-        cx="29"
-        cy="84"
-        rx="9"
-        ry="13"
-        fill="#FFFBF0"
-        stroke="#3B2F16"
-        strokeWidth="3.2"
-      />
-      <ellipse
-        className="egg-wing egg-wing-r"
-        cx="101"
-        cy="84"
-        rx="9"
-        ry="13"
-        fill="#FFFBF0"
-        stroke="#3B2F16"
-        strokeWidth="3.2"
-      />
+        <ellipse cx="58" cy="112" rx="8" ry="11" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="94" cy="112" rx="8" ry="11" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="76" cy="108" rx="25" ry="23" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="65" cy="130" rx="10" ry="6" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="87" cy="130" rx="10" ry="6" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
 
-      {/* 몸통 — 껍데기 밖으로 나온 부분 */}
-      <circle
-        cx="65"
-        cy="76"
-        r="31"
-        fill="#FFFBF0"
-        stroke="#3B2F16"
-        strokeWidth="3.5"
-      />
+        <circle cx="76" cy="68" r="29" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="57" cy="78" rx="5.5" ry="3.2" fill="#F6BFC4" opacity="0.9" />
+        <ellipse cx="95" cy="78" rx="5.5" ry="3.2" fill="#F6BFC4" opacity="0.9" />
+        <circle cx="66" cy="66" r="3.8" fill={INK} />
+        <circle cx="86" cy="66" r="3.8" fill={INK} />
+        <circle cx="67.4" cy="64.6" r="1.4" fill="#FFFDF8" />
+        <circle cx="87.4" cy="64.6" r="1.4" fill="#FFFDF8" />
+        <path d="M73 76h6l-3 3.4z" fill="#E79AA2" stroke={INK} strokeWidth="2" strokeLinejoin="round" />
+      </g>
 
-      {/* 얼굴 */}
-      <circle cx="54" cy="72" r="3.6" fill="#3B2F16" />
-      <circle cx="76" cy="72" r="3.6" fill="#3B2F16" />
-      <circle cx="55.3" cy="70.7" r="1.3" fill="#FFFBF0" />
-      <circle cx="77.3" cy="70.7" r="1.3" fill="#FFFBF0" />
-      <path
-        d="M60 81h10l-5 6z"
-        fill="#F2A03D"
-        stroke="#3B2F16"
-        strokeWidth="2.4"
-        strokeLinejoin="round"
-      />
-      <ellipse cx="42" cy="82" rx="5.5" ry="3.2" fill="#F5B5B0" opacity="0.9" />
-      <ellipse cx="88" cy="82" rx="5.5" ry="3.2" fill="#F5B5B0" opacity="0.9" />
+      {/* 강아지 */}
+      <g className="mascot mascot-dog">
+        {/* 늘어진 귀 */}
+        <ellipse cx="148" cy="72" rx="10" ry="24" fill="#E2AE72" stroke={INK} strokeWidth="3.4" transform="rotate(-16 148 56)" />
+        <ellipse cx="200" cy="72" rx="10" ry="24" fill="#E2AE72" stroke={INK} strokeWidth="3.4" transform="rotate(16 200 56)" />
 
-      {/* 아래 껍데기 — 톱니로 깨진 윗선 */}
-      <path
-        d="M27 100c0 21 17 36 38 36s38-15 38-36c0-2 0-4-1-6l-9 6-8-8-8 8-8-7-8 8-8-8-9 6c-1 2-1 4-1 5z"
-        fill="#FFF6DC"
-        stroke="#3B2F16"
-        strokeWidth="3.5"
-        strokeLinejoin="round"
-      />
+        <ellipse cx="156" cy="112" rx="8" ry="11" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="192" cy="112" rx="8" ry="11" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="174" cy="108" rx="25" ry="23" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="163" cy="130" rx="10" ry="6" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="185" cy="130" rx="10" ry="6" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
 
-      {/* 머리에 얹힌 껍데기 조각 */}
-      <g className="egg-top">
-        <path
-          d="M40 36c0-14 11-25 25-25s25 11 25 25l-7-5-6 6-6-6-6 5-6-6-6 6z"
-          fill="#FFF6DC"
-          stroke="#3B2F16"
-          strokeWidth="3.5"
-          strokeLinejoin="round"
-        />
+        <circle cx="174" cy="68" r="29" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
+        <ellipse cx="155" cy="78" rx="5.5" ry="3.2" fill="#EFAF9E" opacity="0.9" />
+        <ellipse cx="193" cy="78" rx="5.5" ry="3.2" fill="#EFAF9E" opacity="0.9" />
+        <ellipse cx="174" cy="79" rx="13" ry="10" fill="#FFFDF8" stroke={INK} strokeWidth="3" />
+        <circle cx="164" cy="64" r="3.8" fill={INK} />
+        <circle cx="184" cy="64" r="3.8" fill={INK} />
+        <circle cx="165.4" cy="62.6" r="1.4" fill="#FFFDF8" />
+        <circle cx="185.4" cy="62.6" r="1.4" fill="#FFFDF8" />
+        <ellipse cx="174" cy="74" rx="5" ry="3.8" fill={INK} />
+        <path d="M174 78v4" stroke={INK} strokeWidth="2.4" strokeLinecap="round" />
       </g>
     </svg>
   )
@@ -412,11 +392,14 @@ export default function App() {
   return (
     <>
       <section className="hero">
-        <div className="hero-inner">
-          <EggCharacter />
+        {/* 위 1/3 은 흰 바탕. 캐릭터가 그 경계선 위에 서 있다 */}
+        <div className="hero-sky">
+          <Characters />
+        </div>
 
+        <div className="hero-inner">
           <h1 className="hero-brand">
-            리크루트<span className="hero-ext">.zip</span>
+            라보<span className="hero-ext">.azit</span>
           </h1>
 
           <blockquote className="hero-quote">
@@ -445,10 +428,11 @@ export default function App() {
         </div>
       </section>
 
-      <header className="header" id="list">
+      <div className="content" id="list">
+      <header className="header">
         <div className="header-inner">
           <span className="header-brand">
-            리크루트<span className="hero-ext">.zip</span>
+            라보<span className="hero-ext">.azit</span>
           </span>
           <span className="header-sub">
             {Object.entries(data.sources ?? {})
@@ -580,6 +564,7 @@ export default function App() {
           </div>
         )}
       </main>
+      </div>
     </>
   )
 }

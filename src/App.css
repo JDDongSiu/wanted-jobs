@@ -11,21 +11,34 @@
   --hero-contrast: #1d4e89;
 
   min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 64px 24px;
-  background:
-    radial-gradient(ellipse 62% 48% at 50% 38%, #fdf8e2 0%, transparent 72%),
-    var(--hero-bg);
+  /* 위 1/3 흰 바탕, 아래 2/3 노란 바탕. 경계선은 캐릭터가 딛고 선 자리다 */
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  background: linear-gradient(
+    to bottom,
+    #fff 0,
+    #fff 33.3333%,
+    var(--hero-bg) 33.3333%
+  );
 
   /* 표지에서 아래로 밀면 목록 첫머리까지 한 번에 미끄러진다 */
   scroll-snap-align: start;
 }
 
+/* 캐릭터의 발이 경계선에 닿도록 아래로 붙인다 */
+.hero-sky {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 24px 24px 0;
+  min-height: 0;
+}
+
 .hero-inner {
   width: 100%;
   max-width: 620px;
+  margin: 0 auto;
+  padding: 26px 24px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,37 +46,29 @@
   text-align: center;
 }
 
-/* 알 캐릭터 */
-.egg {
-  width: 104px;
-  height: 130px;
-  transform-origin: 50% 92%;
-  animation: egg-wobble 2.6s ease-in-out infinite;
+/* 캐릭터 */
+.mascots {
+  width: min(300px, 78vw);
+  height: auto;
+  max-height: 100%;
 }
 
-@keyframes egg-wobble {
+.mascot {
+  transform-origin: 50% 96%;
+  animation: mascot-wobble 2.8s ease-in-out infinite;
+}
+
+.mascot-dog {
+  animation-delay: 0.5s;
+}
+
+@keyframes mascot-wobble {
   0%,
   100% {
-    transform: rotate(-7deg);
+    transform: rotate(-4deg);
   }
   50% {
-    transform: rotate(7deg);
-  }
-}
-
-/* 윗껍데기는 따로 들썩여 곧 떨어질 듯 보인다 */
-.egg-top {
-  transform-origin: 50% 85%;
-  animation: egg-lid 1.3s ease-in-out infinite;
-}
-
-@keyframes egg-lid {
-  0%,
-  100% {
-    transform: rotate(-2.5deg) translateY(0);
-  }
-  50% {
-    transform: rotate(2.5deg) translateY(-3px);
+    transform: rotate(4deg);
   }
 }
 
@@ -142,30 +147,9 @@
   }
 }
 
-.egg-wing {
-  transform-origin: 50% 30%;
-  animation: egg-flap 1.3s ease-in-out infinite;
-}
-
-.egg-wing-r {
-  animation-delay: 0.15s;
-}
-
-@keyframes egg-flap {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(-12deg);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .hero-scroll svg,
-  .egg,
-  .egg-top,
-  .egg-wing {
+  .mascot {
     animation: none;
   }
 }
@@ -177,13 +161,18 @@
 }
 
 /* 표지를 지나면 붙는 얇은 바 */
+/* 스냅 지점은 고정되지 않은 바깥 요소에 둔다.
+   sticky 헤더에 두면 스냅이 스크롤 위치를 제멋대로 되돌린다. */
+.content {
+  scroll-snap-align: start;
+}
+
 .header {
   border-bottom: 1px solid var(--line);
   background: var(--surface);
   position: sticky;
   top: 0;
   z-index: 30;
-  scroll-snap-align: start;
 }
 
 .header-inner {
