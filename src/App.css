@@ -184,6 +184,11 @@
   background: #ddf3e0;
 }
 
+.source-jobkorea {
+  color: #9c4221;
+  background: #fde8dc;
+}
+
 .card-skills {
   margin: 6px 0 0;
   font-size: 12px;
@@ -262,6 +267,11 @@
   .source-saramin {
     color: #8fd89a;
     background: #14301a;
+  }
+
+  .source-jobkorea {
+    color: #f0ab85;
+    background: #3a2116;
   }
 
   .tag-cond {

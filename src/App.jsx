@@ -20,13 +20,16 @@ const SOURCE_LABELS = {
   wanted: '원티드',
   jumpit: '점핏',
   saramin: '사람인',
+  jobkorea: '잡코리아',
 }
 
+// 상한 없음을 원티드는 100, 잡코리아·사람인은 null 로 표현한다.
 function formatCareer(job) {
   const { annual_from: from, annual_to: to, is_newbie: isNewbie } = job
+  const open = to == null || to >= 100
   if (from == null && to == null) return '경력무관'
-  if (isNewbie) return to >= 100 ? '신입 이상' : `신입-경력 ${to}년`
-  if (to >= 100) return `경력 ${from}년 이상`
+  if (isNewbie) return open ? '신입' : `신입-경력 ${to}년`
+  if (open) return `경력 ${from}년 이상`
   return `경력 ${from}-${to}년`
 }
 

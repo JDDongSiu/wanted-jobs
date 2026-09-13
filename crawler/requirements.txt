@@ -1,2 +1,4 @@
 requests
 truststore
+beautifulsoup4
+lxml

@@ -19,6 +19,16 @@ crawler/saramin.py  ┘                        └→ jobs.csv
 | 원티드 | 비공식 API (`api/chaos/navigation/v1/results`) | 공식 문서 없음. 사이트 변경 시 깨질 수 있음 |
 | 점핏 | 비공식 API (`jumpit-api.saramin.co.kr/api/positions`) | 위와 같음 |
 | 사람인 | 공식 오픈 API (`oapi.saramin.co.kr/job-search`) | `access-key` 필요. 일일 요청 한도 있음 |
+| 잡코리아 | HTML 파싱 (`Recruit/Home/_GI_List/`) | 공식 API 없음. 마크업 변경 시 깨질 수 있음 |
+
+### 수집 대상 선정과 robots.txt
+
+각 사이트의 robots.txt 에서 일반 크롤러(`User-agent: *`) 규칙을 확인하고 정했다.
+
+- **잡코리아**: `/recruit/joblist` 와 `/Recruit/GI_Read` 를 **명시적으로 허용**한다.
+  금지된 것은 로그인·회원 영역과 검색 쿼리 URL(`/Search?TS_Search=`) 이라 목록 수집에는 해당하지 않는다.
+- **인크루트**: `User-agent: *` 에 `Disallow: /` — 전면 금지라 **수집 대상에서 제외**했다.
+- **로켓펀치**: 허용되어 있어 추가 후보다.
 
 사람인은 환경변수 `SARAMIN_API_KEY` 로 키를 넘긴다. 키가 없으면 사람인만 건너뛰고 나머지는 정상 수집한다.
 
