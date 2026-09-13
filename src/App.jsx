@@ -145,6 +145,12 @@ export default function App() {
               .join(', ')}
             ) · 마지막 갱신 {formatUpdatedAt(data.updated_at)}
           </p>
+          {data.stale_sources?.length > 0 && (
+            <p className="header-warn">
+              {data.stale_sources.map((key) => SOURCE_LABELS[key] ?? key).join(', ')}{' '}
+              수집에 실패해 이전 데이터를 표시하고 있습니다
+            </p>
+          )}
         </div>
       </header>
 

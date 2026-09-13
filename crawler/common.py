@@ -15,11 +15,20 @@ except ImportError:
 
 import requests  # noqa: E402
 
+# 채용사이트들이 브라우저가 아닌 요청을 막기 때문에 실제 브라우저와 같은 헤더를 보낸다.
 HEADERS = {
     "User-Agent": (
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-        "(KHTML, like Gecko) Chrome/120.0 Safari/537.36"
-    )
+        "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
+    ),
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+    "sec-ch-ua": '"Chromium";v="131", "Not_A Brand";v="24"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
 }
 
 KST = timezone(timedelta(hours=9))
@@ -33,7 +42,10 @@ CSV_PATH = ROOT / "jobs.csv"
 FE_TITLE = re.compile(r"프론트\s*엔드|프론트|front[\s\-_]?end|frontend", re.IGNORECASE)
 
 
-def get_json(url, params=None, timeout=20):
-    resp = requests.get(url, params=params, headers=HEADERS, timeout=timeout)
+def get_json(url, params=None, timeout=20, referer=None):
+    headers = dict(HEADERS)
+    if referer:
+        headers["Referer"] = referer
+    resp = requests.get(url, params=params, headers=headers, timeout=timeout)
     resp.raise_for_status()
     return resp.json()

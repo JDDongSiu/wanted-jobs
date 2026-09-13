@@ -25,6 +25,7 @@ def fetch_raw():
                 "highlight": "false",
                 "page": page,
             },
+            referer="https://jumpit.saramin.co.kr/positions",
         )
         batch = body.get("result", {}).get("positions", [])
         if not batch:

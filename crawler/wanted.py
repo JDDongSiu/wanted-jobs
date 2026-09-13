@@ -60,6 +60,7 @@ def fetch_raw():
                 "limit": limit,
                 "offset": offset,
             },
+            referer=f"https://www.wanted.co.kr/wdlist/{JOB_GROUP_ID}/{JOB_ID}",
         )
         data = body.get("data", [])
         if not data:

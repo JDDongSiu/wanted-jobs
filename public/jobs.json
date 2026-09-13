@@ -1,10 +1,11 @@
 {
-  "updated_at": "2026-09-12T22:57:13+09:00",
+  "updated_at": "2026-09-13T13:38:31+09:00",
   "sources": {
     "wanted": 192,
-    "jumpit": 25
+    "jumpit": 24
   },
-  "total_count": 217,
+  "stale_sources": [],
+  "total_count": 216,
   "matched_count": 5,
   "conditions": [
     "established",
@@ -2912,27 +2913,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-356194",
-      "position": "핀테크 프론트엔드 개발자 (결제)",
-      "company": "컬리",
-      "location": "서울 강남구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 100,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/356194",
-      "flags": {
-        "established": true,
-        "rapid_growth": false,
-        "equipment": true
-      }
-    },
-    {
-      "source": "wanted",
       "id": "wanted-359782",
       "position": "풀필먼트 시니어 프론트엔드 개발자",
       "company": "컬리",
@@ -2946,6 +2926,27 @@
       "skills": [],
       "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
       "url": "https://www.wanted.co.kr/wd/359782",
+      "flags": {
+        "established": true,
+        "rapid_growth": false,
+        "equipment": true
+      }
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-356194",
+      "position": "핀테크 프론트엔드 개발자 (결제)",
+      "company": "컬리",
+      "location": "서울 강남구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 100,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
+      "url": "https://www.wanted.co.kr/wd/356194",
       "flags": {
         "established": true,
         "rapid_growth": false,
@@ -4046,6 +4047,58 @@
     },
     {
       "source": "jumpit",
+      "id": "jumpit-55000748",
+      "position": "프론트엔드 개발자",
+      "company": "오투플러스",
+      "location": "경기 용인시 수지구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 10,
+      "is_newbie": false,
+      "employment_type": null,
+      "reward_total": "50만원",
+      "skills": [
+        "AngularJS",
+        "Git",
+        "React",
+        "Vue.js",
+        "vuex",
+        "REST API"
+      ],
+      "thumbnail": "https://cdn.jumpit.co.kr/lg/images/gon_38839/20222210142215459_1080_790.webp",
+      "url": "https://jumpit.saramin.co.kr/position/55000748",
+      "flags": {}
+    },
+    {
+      "source": "jumpit",
+      "id": "jumpit-55011246",
+      "position": "App(React Native) 개발자(전문연구요원가능)",
+      "company": "베스텔라랩",
+      "location": "경기 안양시 동안구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 2,
+      "annual_to": 10,
+      "is_newbie": false,
+      "employment_type": null,
+      "reward_total": "50만원",
+      "skills": [
+        "Git",
+        "GitHub",
+        "Kotlin",
+        "Linux",
+        "PHP",
+        "Python",
+        "React",
+        "Spring Framework",
+        "Swift",
+        "AWS"
+      ],
+      "thumbnail": "https://cdn.jumpit.co.kr/lg/images/hr_22955/20211823151843983_2592_1728.webp",
+      "url": "https://jumpit.saramin.co.kr/position/55011246",
+      "flags": {}
+    },
+    {
+      "source": "jumpit",
       "id": "jumpit-55013728",
       "position": "프론트엔드 개발자",
       "company": "와탭랩스",
@@ -4571,86 +4624,6 @@
       ],
       "thumbnail": "https://cdn.jumpit.co.kr/lg/images/dabin_3358/20245813175822390_1095_797.webp",
       "url": "https://jumpit.saramin.co.kr/position/54750529",
-      "flags": {}
-    },
-    {
-      "source": "jumpit",
-      "id": "jumpit-54753069",
-      "position": "자사몰 FE 개발자",
-      "company": "톤28",
-      "location": "경기 성남시 수정구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 7,
-      "is_newbie": false,
-      "employment_type": null,
-      "reward_total": "50만원",
-      "skills": [
-        "Amazon EKS",
-        "Amazon RDS",
-        "Amazon Route 53",
-        "Amazon S3",
-        "ES6",
-        "Git",
-        "JavaScript",
-        "jQuery",
-        "Sass",
-        "AWS"
-      ],
-      "thumbnail": "https://cdn.jumpit.co.kr/lg/images/company/8058800382/20245619165641830/rqxj99_4kas-xr382h_workenv-bg.webp",
-      "url": "https://jumpit.saramin.co.kr/position/54753069",
-      "flags": {}
-    },
-    {
-      "source": "jumpit",
-      "id": "jumpit-54742572",
-      "position": "App(React Native) 개발자(전문연구요원가능)",
-      "company": "베스텔라랩",
-      "location": "경기 안양시 동안구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 2,
-      "annual_to": 10,
-      "is_newbie": false,
-      "employment_type": null,
-      "reward_total": "50만원",
-      "skills": [
-        "Git",
-        "GitHub",
-        "Kotlin",
-        "Linux",
-        "PHP",
-        "Python",
-        "React",
-        "Spring Framework",
-        "Swift",
-        "AWS"
-      ],
-      "thumbnail": "https://cdn.jumpit.co.kr/lg/images/hr_22955/20211823151843983_2592_1728.webp",
-      "url": "https://jumpit.saramin.co.kr/position/54742572",
-      "flags": {}
-    },
-    {
-      "source": "jumpit",
-      "id": "jumpit-54737251",
-      "position": "프론트엔드 개발자",
-      "company": "오투플러스",
-      "location": "경기 용인시 수지구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 10,
-      "is_newbie": false,
-      "employment_type": null,
-      "reward_total": "50만원",
-      "skills": [
-        "AngularJS",
-        "Git",
-        "React",
-        "Vue.js",
-        "vuex",
-        "REST API"
-      ],
-      "thumbnail": "https://cdn.jumpit.co.kr/lg/images/gon_38839/20222210142215459_1080_790.webp",
-      "url": "https://jumpit.saramin.co.kr/position/54737251",
       "flags": {}
     }
   ]

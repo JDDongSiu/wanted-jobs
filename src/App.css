@@ -25,6 +25,19 @@
   color: var(--text-muted);
 }
 
+.header-warn {
+  margin: 6px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #a8500a;
+}
+
+@media (prefers-color-scheme: dark) {
+  .header-warn {
+    color: #ffb872;
+  }
+}
+
 .main {
   max-width: 1120px;
   margin: 0 auto;
