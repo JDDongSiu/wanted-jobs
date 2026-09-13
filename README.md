@@ -75,10 +75,53 @@ npm run build
 
 ## 자동 갱신
 
-`.github/workflows/update-jobs.yml` 이 매일 06:00(KST)에 크롤러를 돌려
-`public/jobs.json` 을 갱신하고 커밋한다. GitHub에 저장소를 올린 뒤부터 동작한다.
-사람인까지 수집하려면 저장소 Settings → Secrets 에 `SARAMIN_API_KEY` 를 등록한다.
-수동 실행은 Actions 탭의 `Run workflow` 로 가능하다.
+갱신 경로가 두 개다. **원티드가 클라우드 IP를 차단(403)하기 때문이다.**
+
+| | 실행 위치 | 주기 | 원티드 수집 |
+| --- | --- | --- | --- |
+| GitHub Actions | GitHub 서버 | 매일 06:00 KST | 실패 (403) |
+| 작업 스케줄러 | 이 PC | 매일 09:00 | 정상 |
+
+GitHub Actions 에서 원티드는 403 으로 실패하지만, 그 경우 **직전 데이터를 그대로 유지**하므로
+기존 공고가 사라지지 않는다. 화면 상단에도 "이전 데이터를 표시하고 있습니다" 안내가 뜬다.
+점핏·사람인은 양쪽 모두에서 정상 수집된다.
+
+브라우저와 동일한 헤더를 붙여도 403 이라 IP 기반 차단으로 판단했다.
+프록시로 우회하는 대신, 일반 가정용 회선인 이 PC에서 수집한다.
+
+### 작업 스케줄러 등록
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\register-task.ps1
+```
+
+`scripts/update-jobs.ps1` 이 수집 → 커밋 → 푸시를 수행하고, 푸시가 일어나면
+GitHub Actions 가 이어받아 사이트를 재배포한다. 실행 기록은 `logs/` 에 월별로 쌓인다.
+PC가 꺼져 있어 놓친 일정은 켜진 뒤에 실행된다(`StartWhenAvailable`).
+
+바로 실행해 보려면:
+
+```powershell
+Start-ScheduledTask -TaskName "wanted-jobs 수집"
+```
+
+해제하려면:
+
+```powershell
+Unregister-ScheduledTask -TaskName "wanted-jobs 수집" -Confirm:$false
+```
+
+### 사람인 키 등록
+
+저장소 Settings → Secrets and variables → Actions 에 `SARAMIN_API_KEY` 를 등록한다.
+이 PC에서는 환경변수로 넣는다.
+
+## 배포
+
+`https://<계정>.github.io/<저장소명>/` 으로 배포된다.
+
+수집과 배포를 한 워크플로에 합쳐 두었다. GITHUB_TOKEN 으로 만든 커밋은 다른 워크플로를
+트리거하지 않아서, 배포를 분리하면 데이터 갱신 후 배포가 실행되지 않기 때문이다.
 
 ## 데이터
 
