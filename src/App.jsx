@@ -10,11 +10,10 @@ const EMPLOYMENT_LABELS = {
 }
 
 // 소스별 조건. 각 사이트 고유 태그라 해당 소스 공고에만 적용한다.
-// 원티드는 모두 만족(AND), 잡코리아는 하나라도 만족(OR).
+// 두 그룹 모두 체크한 것 중 하나라도 해당하면 통과(OR)한다.
 const CONDITION_GROUPS = {
   wanted: {
-    label: '원티드 조건 (모두 만족)',
-    mode: 'and',
+    label: '원티드 조건',
     labels: {
       established: '설립 4년 이상',
       rapid_growth: '인원 급성장',
@@ -22,8 +21,7 @@ const CONDITION_GROUPS = {
     },
   },
   jobkorea: {
-    label: '잡코리아 복리후생 (하나라도)',
-    mode: 'or',
+    label: '잡코리아 복리후생',
     labels: {
       incentive: '인센티브',
       club: '사내 동호회',
@@ -32,6 +30,9 @@ const CONDITION_GROUPS = {
     },
   },
 }
+
+// 지역 필터에서 위로 올릴 순서. 나머지는 가나다순으로 뒤에 붙는다.
+const REGION_PRIORITY = ['서울', '경기', '인천', '부산', '충남']
 
 const ALL_CONDITION_LABELS = Object.fromEntries(
   Object.values(CONDITION_GROUPS).flatMap((g) => Object.entries(g.labels)),
@@ -109,7 +110,14 @@ function JobCard({ job }) {
           target="_blank"
           rel="noreferrer"
         >
-          잡플래닛에서 기업 평점 보기
+          <svg className="jp-mark" viewBox="0 0 16 16" aria-hidden="true">
+            <circle cx="8" cy="8" r="8" fill="currentColor" />
+            <path
+              d="M5 4.4h5.2v6.1a2.6 2.6 0 0 1-2.6 2.6A2.6 2.6 0 0 1 5 10.5h1.9a.7.7 0 0 0 1.4 0V6.3H5z"
+              fill="#fff"
+            />
+          </svg>
+          잡플래닛 평점보기(5점 만점)
         </a>
       )}
     </div>
@@ -141,7 +149,13 @@ export default function App() {
     const set = new Set(
       data.jobs.map((job) => job.location?.split(' ')[0]).filter(Boolean),
     )
-    return [...set].sort((a, b) => a.localeCompare(b, 'ko'))
+    const rank = (name) => {
+      const i = REGION_PRIORITY.indexOf(name)
+      return i === -1 ? REGION_PRIORITY.length : i
+    }
+    return [...set].sort(
+      (a, b) => rank(a) - rank(b) || a.localeCompare(b, 'ko'),
+    )
   }, [data])
 
   const filtered = useMemo(() => {
@@ -155,11 +169,7 @@ export default function App() {
       if (group) {
         const checked = Object.keys(group.labels).filter((key) => conditions[key])
         if (checked.length > 0) {
-          const matched =
-            group.mode === 'or'
-              ? checked.some((key) => job.flags?.[key])
-              : checked.every((key) => job.flags?.[key])
-          if (!matched) return false
+          if (!checked.some((key) => job.flags?.[key])) return false
         }
       }
 
@@ -242,23 +252,26 @@ export default function App() {
               ))}
             </select>
           </div>
-          {Object.entries(CONDITION_GROUPS).map(([source, group]) => (
-            <div className="cond-group" key={source}>
-              <span className="cond-group-label">{group.label}</span>
-              {Object.entries(group.labels).map(([key, label]) => (
-                <label className="check" key={key}>
-                  <input
-                    type="checkbox"
-                    checked={conditions[key]}
-                    onChange={(e) =>
-                      setConditions((prev) => ({ ...prev, [key]: e.target.checked }))
-                    }
-                  />
-                  {label}
-                </label>
-              ))}
-            </div>
-          ))}
+          <details className="cond-panel">
+            <summary className="cond-summary">사이트별 보기 옵션 설정</summary>
+            {Object.entries(CONDITION_GROUPS).map(([source, group]) => (
+              <div className="cond-group" key={source}>
+                <span className="cond-group-label">{group.label}</span>
+                {Object.entries(group.labels).map(([key, label]) => (
+                  <label className="check" key={key}>
+                    <input
+                      type="checkbox"
+                      checked={conditions[key]}
+                      onChange={(e) =>
+                        setConditions((prev) => ({ ...prev, [key]: e.target.checked }))
+                      }
+                    />
+                    {label}
+                  </label>
+                ))}
+              </div>
+            ))}
+          </details>
 
           <p className="result-count">{filtered.length}건</p>
         </section>

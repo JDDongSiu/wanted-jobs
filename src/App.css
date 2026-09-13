@@ -100,6 +100,25 @@
   cursor: pointer;
 }
 
+.cond-panel {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.cond-summary {
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cond-panel[open] .cond-summary {
+  margin-bottom: 4px;
+}
+
 .cond-group {
   display: flex;
   flex-wrap: wrap;
@@ -147,16 +166,31 @@
 }
 
 .card-jp {
-  padding: 9px 16px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #00a05a; /* 잡플래닛 시그니처 그린 */
   text-decoration: none;
   border-top: 1px solid var(--line);
 }
 
 .card-jp:hover {
   text-decoration: underline;
+}
+
+.jp-mark {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card-jp {
+    color: #34c98b;
+  }
 }
 
 .card:hover {
