@@ -136,6 +136,7 @@ function initialConditions() {
 // 두 캐릭터가 같은 바닥에 선다.
 const INK = '#4A3B25'
 const LW = 2.6
+const FUR = '#F8E1A4' // 토끼 몸 색
 const RABBIT_OUTLINE =
   'M55.16 96.28A32 32 0 1 1 96.84 96.28A23 23 0 1 1 55.16 96.28Z'
 const DOG_OUTLINE =
@@ -153,7 +154,7 @@ function Characters() {
       <g transform="translate(0 5.9)">
         <g className="mascot mascot-rabbit">
           {/* 귀 — 밑동은 붙이고 위로 갈수록 살짝 벌어진다 */}
-          <g fill="#FFFDF8" stroke={INK} strokeWidth={LW}>
+          <g fill={FUR} stroke={INK} strokeWidth={LW}>
             <rect x="62" y="8" width="13" height="54" rx="6.5" transform="rotate(-9 68.5 60)" />
             <rect x="77" y="8" width="13" height="54" rx="6.5" transform="rotate(9 83.5 60)" />
           </g>
@@ -161,14 +162,14 @@ function Characters() {
           <rect x="80" y="14" width="7" height="42" rx="3.5" fill="#F7BFC6" transform="rotate(9 83.5 60)" />
 
           {/* 아주 작고 뭉툭한 팔다리 */}
-          <g fill="#FFFDF8" stroke={INK} strokeWidth={LW}>
+          <g fill={FUR} stroke={INK} strokeWidth={LW}>
             <ellipse cx="51" cy="106" rx="5.5" ry="7" transform="rotate(-35 51 106)" />
             <ellipse cx="101" cy="106" rx="5.5" ry="7" transform="rotate(35 101 106)" />
             <ellipse cx="69" cy="128.5" rx="6.2" ry="4.8" />
             <ellipse cx="83" cy="128.5" rx="6.2" ry="4.8" />
           </g>
 
-          <path d={RABBIT_OUTLINE} fill="#FFFDF8" stroke={INK} strokeWidth={LW} strokeLinejoin="round" />
+          <path d={RABBIT_OUTLINE} fill={FUR} stroke={INK} strokeWidth={LW} strokeLinejoin="round" />
 
           {/* 눈썹 — 두껍게, 안쪽을 올리고 바깥을 떨어뜨려 처진 눈썹으로 */}
           <g fill="none" stroke={INK} strokeWidth="4.2" strokeLinecap="round">
@@ -179,6 +180,10 @@ function Characters() {
           {/* 볼터치 */}
           <ellipse cx="56.5" cy="88" rx="6.8" ry="4.6" fill="#F9C9CF" />
           <ellipse cx="95.5" cy="88" rx="6.8" ry="4.6" fill="#F9C9CF" />
+          <g fill="none" stroke={INK} strokeWidth="1.4" strokeLinecap="round">
+            <path d="M52.1 86.2l1.5 4.2M55.7 85.4l1.5 5M59.3 86.2l1.5 4.2" />
+            <path d="M99.9 86.2l-1.5 4.2M96.3 85.4l-1.5 5M92.7 86.2l-1.5 4.2" />
+          </g>
 
           {/* 눈 — 크게 뜬 눈에 하이라이트 두 개와 반짝임 하나 */}
           <circle cx="66.5" cy="76.3" r="7.8" fill={INK} />
