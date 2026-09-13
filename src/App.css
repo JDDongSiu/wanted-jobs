@@ -2,102 +2,104 @@
   color: var(--accent);
 }
 
-/* 표지 화면 */
+/* 표지 화면 — 아래 목록과 반대로 밝게 두어, 알에서 나와 세계로 들어가는 흐름을 만든다 */
 .hero {
+  --hero-bg: #fbf1cd;
+  --hero-ink: #3b2f16;
+  --hero-ink-soft: #6b5a35;
+  --hero-accent: #c2410c;
+  --hero-contrast: #1d4e89;
+
   min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 64px 24px;
-  /* 압축 파일을 여는 느낌으로 가운데에 옅은 빛을 둔다 */
   background:
-    radial-gradient(ellipse 70% 55% at 50% 42%, #1b2740 0%, transparent 70%),
-    var(--bg);
+    radial-gradient(ellipse 62% 48% at 50% 38%, #fdf8e2 0%, transparent 72%),
+    var(--hero-bg);
 }
 
 .hero-inner {
   width: 100%;
-  max-width: 560px;
+  max-width: 620px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 26px;
+  gap: 20px;
   text-align: center;
 }
 
+/* 알 캐릭터 */
+.egg {
+  width: 104px;
+  height: 130px;
+  transform-origin: 50% 92%;
+  animation: egg-wobble 2.6s ease-in-out infinite;
+}
+
+@keyframes egg-wobble {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+
+/* 윗껍데기는 따로 들썩여 곧 떨어질 듯 보인다 */
+.egg-top {
+  transform-origin: 50% 85%;
+  animation: egg-lid 1.3s ease-in-out infinite;
+}
+
+@keyframes egg-lid {
+  0%,
+  100% {
+    transform: rotate(-2.5deg) translateY(0);
+  }
+  50% {
+    transform: rotate(2.5deg) translateY(-3px);
+  }
+}
+
 .hero-brand {
-  font-size: 40px;
-  font-weight: 800;
-  letter-spacing: -0.045em;
-  line-height: 1;
+  margin: 0;
+  font-family: 'Black Han Sans', -apple-system, BlinkMacSystemFont,
+    'Apple SD Gothic Neo', sans-serif;
+  font-size: 58px;
+  font-weight: 400; /* Black Han Sans 는 한 굵기만 제공한다 */
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--hero-ink);
 }
 
 .hero-ext {
-  color: var(--accent);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.78em;
-  letter-spacing: -0.02em;
+  color: var(--hero-accent);
 }
 
-.hero-title {
+.hero-quote {
   margin: 0;
-  font-size: 21px;
-  font-weight: 600;
-  line-height: 1.58;
-  letter-spacing: -0.025em;
-  color: var(--text-dim);
+  max-width: 30em;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 17px;
+  line-height: 1.78;
+  letter-spacing: -0.01em;
+  color: var(--hero-ink-soft);
+  text-wrap: pretty;
+  word-break: keep-all; /* 한글이 단어 중간에서 끊기지 않게 */
 }
 
-/* 압축 파일 안의 목록처럼 */
-.hero-files {
-  width: 100%;
-  margin: 0;
-  padding: 8px;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  background: var(--surface);
-  border: 1px solid var(--card-line);
-  border-radius: 14px;
+.hero-quote-alt {
+  color: var(--hero-contrast);
 }
 
-.hero-file {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 12px;
-  border-radius: 9px;
-  font-size: 14px;
-}
-
-.hero-file:hover {
-  background: var(--chip);
-}
-
-.hero-file-icon {
-  width: 17px;
-  height: 17px;
-  flex-shrink: 0;
-  color: var(--text-faint);
-}
-
-.hero-file-name {
-  font-weight: 600;
-}
-
-.hero-file-count {
-  margin-left: auto;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-.hero-summary {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--text-dim);
+.hero-source {
+  margin: 2px 0 0;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: #9b8a5e;
 }
 
 .hero-scroll {
@@ -105,9 +107,9 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  margin-top: 6px;
+  margin-top: 14px;
   font-size: 12.5px;
-  color: var(--text-faint);
+  color: #9b8a5e;
 }
 
 .hero-scroll svg {
@@ -127,8 +129,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-scroll svg {
+  .hero-scroll svg,
+  .egg,
+  .egg-top {
     animation: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-quote {
+    font-size: 15px;
   }
 }
 
@@ -170,11 +180,7 @@
 
 @media (max-width: 520px) {
   .hero-brand {
-    font-size: 32px;
-  }
-
-  .hero-title {
-    font-size: 18px;
+    font-size: 40px;
   }
 }
 

@@ -129,6 +129,51 @@ function initialConditions() {
   )
 }
 
+// 금이 가기 시작한 알. 아직 깨지지는 않았고 좌우로 흔들린다.
+function EggCharacter() {
+  return (
+    <svg
+      className="egg"
+      viewBox="0 0 120 150"
+      role="img"
+      aria-label="금이 가서 깨지려는 알"
+    >
+      <ellipse cx="60" cy="141" rx="29" ry="4.5" fill="#E4D49A" />
+
+      {/* 갈라진 틈 안쪽. 두 껍데기 사이로 어둡게 비친다 */}
+      <ellipse cx="60" cy="92" rx="37" ry="34" fill="#2A2110" />
+
+      {/* 아래 껍데기 — 위쪽 가장자리가 톱니처럼 깨져 있다 */}
+      <path
+        d="M23 92c0 22 17 38 37 38s37-16 37-38c0-3 0-6-1-9l-10 7-9-9-9 9-10-8-9 9-10-7c-1 3-1 6-1 8z"
+        fill="#FFFDF5"
+        stroke="#3B2F16"
+        strokeWidth="3.5"
+        strokeLinejoin="round"
+      />
+
+      {/* 틈으로 내다보는 눈 */}
+      <circle cx="50" cy="99" r="4.2" fill="#3B2F16" />
+      <circle cx="71" cy="99" r="4.2" fill="#3B2F16" />
+      <circle cx="51.6" cy="97.4" r="1.5" fill="#FFFDF5" />
+      <circle cx="72.6" cy="97.4" r="1.5" fill="#FFFDF5" />
+      <ellipse cx="39" cy="107" rx="5" ry="3" fill="#F2B8A0" opacity="0.9" />
+      <ellipse cx="82" cy="107" rx="5" ry="3" fill="#F2B8A0" opacity="0.9" />
+
+      {/* 위 껍데기 — 들썩이며 곧 떨어질 듯 */}
+      <g className="egg-top">
+        <path
+          d="M24 78c-2-5-3-11-3-17 0-27 17-48 39-48s39 21 39 48c0 6-1 12-3 17l-10-8-9 9-9-9-10 8-9-9-10 9z"
+          fill="#FFFDF5"
+          stroke="#3B2F16"
+          strokeWidth="3.5"
+          strokeLinejoin="round"
+        />
+      </g>
+    </svg>
+  )
+}
+
 function JobCard({ job, isNew }) {
   return (
     <div className="card">
@@ -308,53 +353,23 @@ export default function App() {
     <>
       <section className="hero">
         <div className="hero-inner">
-          <div className="hero-brand">
-            리크루트<span className="hero-ext">.zip</span>
-          </div>
+          <EggCharacter />
 
-          <h1 className="hero-title">
-            네 곳에 흩어진 프론트엔드 공고를
-            <br />
-            하나로 압축했습니다
+          <h1 className="hero-brand">
+            리크루트<span className="hero-ext">.zip</span>
           </h1>
 
-          {/* 압축 파일을 열면 나오는 목록처럼 보이게 한다 */}
-          <ul className="hero-files">
-            {Object.entries(data.sources ?? {}).map(([key, n]) => (
-              <li className="hero-file" key={key}>
-                <svg
-                  className="hero-file-icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
-                  <path d="M14 3v5h5" />
-                </svg>
-                <span className="hero-file-name">
-                  {SOURCE_LABELS[key] ?? key}
-                </span>
-                <span className="hero-file-count">{n}</span>
-              </li>
-            ))}
-          </ul>
+          <blockquote className="hero-quote">
+            새는 알에서 나오려고 투쟁한다. 알은 세계다. 태어나려는 자는 한 세계를
+            파괴해야만 한다.
+          </blockquote>
 
-          <p className="hero-summary">
-            {newCount > 0 ? (
-              <>
-                오늘 <span className="accent">{newCount}건</span>이 새로 올라왔어요 ·
-                전체 {data.total_count}건
-              </>
-            ) : (
-              <>
-                전체 <span className="accent">{data.total_count}건</span> · 매일 아침
-                9시 갱신
-              </>
-            )}
-          </p>
+          <blockquote className="hero-quote hero-quote-alt">
+            내 속에서 솟아 나오려는 것, 바로 그것을 나는 살아 보려고 했다. 왜 그것이
+            그토록 어려웠을까?
+          </blockquote>
+
+          <p className="hero-source">헤르만 헤세, 『데미안』</p>
 
           <div className="hero-scroll">
             <span>아래로 내려서 보기</span>
