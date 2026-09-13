@@ -1,11 +1,13 @@
 {
-  "updated_at": "2026-09-13T14:22:04+09:00",
+  "updated_at": "2026-09-13T14:23:51+09:00",
   "sources": {
     "wanted": 192,
     "jumpit": 24,
     "jobkorea": 146
   },
-  "stale_sources": [],
+  "stale_sources": [
+    "wanted"
+  ],
   "total_count": 362,
   "matched_count": 5,
   "conditions": [
