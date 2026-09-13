@@ -9,12 +9,33 @@ const EMPLOYMENT_LABELS = {
   parttime: '파트타임',
 }
 
-// 크롤러의 CONDITIONS 키와 짝을 이룬다. 원티드 전용 태그라 다른 소스에는 적용하지 않는다.
-const CONDITION_LABELS = {
-  established: '설립 4년 이상',
-  rapid_growth: '인원 급성장',
-  equipment: '장비지원',
+// 소스별 조건. 각 사이트 고유 태그라 해당 소스 공고에만 적용한다.
+// 원티드는 모두 만족(AND), 잡코리아는 하나라도 만족(OR).
+const CONDITION_GROUPS = {
+  wanted: {
+    label: '원티드 조건 (모두 만족)',
+    mode: 'and',
+    labels: {
+      established: '설립 4년 이상',
+      rapid_growth: '인원 급성장',
+      equipment: '장비지원',
+    },
+  },
+  jobkorea: {
+    label: '잡코리아 복리후생 (하나라도)',
+    mode: 'or',
+    labels: {
+      incentive: '인센티브',
+      club: '사내 동호회',
+      refresh: '리프레시 휴가',
+      stock: '스톡옵션',
+    },
+  },
 }
+
+const ALL_CONDITION_LABELS = Object.fromEntries(
+  Object.values(CONDITION_GROUPS).flatMap((g) => Object.entries(g.labels)),
+)
 
 const SOURCE_LABELS = {
   wanted: '원티드',
@@ -63,11 +84,11 @@ function JobCard({ job }) {
           <p className="card-skills">{job.skills.slice(0, 6).join(' · ')}</p>
         )}
         <div className="card-tags">
-          {Object.keys(CONDITION_LABELS)
+          {Object.keys(ALL_CONDITION_LABELS)
             .filter((key) => job.flags?.[key])
             .map((key) => (
               <span key={key} className="tag tag-cond">
-                {CONDITION_LABELS[key]}
+                {ALL_CONDITION_LABELS[key]}
               </span>
             ))}
           {job.reward_total && <span className="tag tag-reward">보상금 {job.reward_total}</span>}
@@ -82,7 +103,7 @@ export default function App() {
   const [error, setError] = useState(null)
   const [query, setQuery] = useState('')
   const [conditions, setConditions] = useState(() =>
-    Object.fromEntries(Object.keys(CONDITION_LABELS).map((key) => [key, true])),
+    Object.fromEntries(Object.keys(ALL_CONDITION_LABELS).map((key) => [key, true])),
   )
   const [region, setRegion] = useState('all')
   const [source, setSource] = useState('all')
@@ -108,11 +129,22 @@ export default function App() {
   const filtered = useMemo(() => {
     if (!data) return []
     const keyword = query.trim().toLowerCase()
-    const required = Object.keys(conditions).filter((key) => conditions[key])
     return data.jobs.filter((job) => {
       if (source !== 'all' && job.source !== source) return false
-      // 조건은 원티드 태그라 다른 소스 공고는 조건과 무관하게 통과시킨다.
-      if (job.source === 'wanted' && required.some((key) => !job.flags?.[key])) return false
+
+      // 조건은 각 사이트 고유 태그라, 해당 소스의 공고에만 적용한다.
+      const group = CONDITION_GROUPS[job.source]
+      if (group) {
+        const checked = Object.keys(group.labels).filter((key) => conditions[key])
+        if (checked.length > 0) {
+          const matched =
+            group.mode === 'or'
+              ? checked.some((key) => job.flags?.[key])
+              : checked.every((key) => job.flags?.[key])
+          if (!matched) return false
+        }
+      }
+
       if (region !== 'all' && !job.location?.startsWith(region)) return false
       if (keyword) {
         const haystack = `${job.position} ${job.company}`.toLowerCase()
@@ -179,18 +211,6 @@ export default function App() {
                 </option>
               ))}
             </select>
-            {Object.entries(CONDITION_LABELS).map(([key, label]) => (
-              <label className="check" key={key}>
-                <input
-                  type="checkbox"
-                  checked={conditions[key]}
-                  onChange={(e) =>
-                    setConditions((prev) => ({ ...prev, [key]: e.target.checked }))
-                  }
-                />
-                {label}
-              </label>
-            ))}
             <select
               className="select"
               value={region}
@@ -204,6 +224,24 @@ export default function App() {
               ))}
             </select>
           </div>
+          {Object.entries(CONDITION_GROUPS).map(([source, group]) => (
+            <div className="cond-group" key={source}>
+              <span className="cond-group-label">{group.label}</span>
+              {Object.entries(group.labels).map(([key, label]) => (
+                <label className="check" key={key}>
+                  <input
+                    type="checkbox"
+                    checked={conditions[key]}
+                    onChange={(e) =>
+                      setConditions((prev) => ({ ...prev, [key]: e.target.checked }))
+                    }
+                  />
+                  {label}
+                </label>
+              ))}
+            </div>
+          ))}
+
           <p className="result-count">{filtered.length}건</p>
         </section>
 

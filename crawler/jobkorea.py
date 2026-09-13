@@ -19,6 +19,15 @@ DUTY_FRONTEND = "1000230"  # 프론트엔드개발자
 
 MAX_PAGES = 25  # 한 페이지 40건. 넉넉히 잡되 무한 루프는 막는다.
 
+# 복리후생 조건. 목록 HTML 에는 복리후생이 없어서, 조건별로 한 번 더 조회해
+# 어떤 공고가 걸리는지 확인한 뒤 표시한다. 화면에서는 OR 로 묶는다.
+WELFARE_CONDITIONS = {
+    "incentive": ("인센티브", 10),
+    "club": ("사내 동호회", 15),
+    "refresh": ("리프레시 휴가", 70),
+    "stock": ("스톡옵션", 7),
+}
+
 CAREER_RANGE = re.compile(r"경력\s*(\d+)\s*~\s*(\d+)\s*년")
 CAREER_MIN = re.compile(r"경력\s*(\d+)\s*년?\s*[↑이상]")
 
@@ -80,25 +89,30 @@ def _parse_row(row):
     }
 
 
-def fetch_raw():
+def _open_session():
     session = requests.Session()
     session.headers.update(HEADERS)
     session.get(REFERER, timeout=30)  # 세션 쿠키 확보
+    return session
 
-    headers = {
-        "Referer": REFERER,
-        "X-Requested-With": "XMLHttpRequest",
-        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-    }
 
+POST_HEADERS = {
+    "Referer": REFERER,
+    "X-Requested-With": "XMLHttpRequest",
+    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+}
+
+
+def _fetch_rows(session, **extra):
+    """조건에 걸리는 공고 행을 끝까지 모은다."""
     rows = []
     seen = set()
 
     for page in range(1, MAX_PAGES + 1):
         resp = session.post(
             LIST_URL,
-            data={"duty": DUTY_FRONTEND, "Page": page},
-            headers=headers,
+            data={"duty": DUTY_FRONTEND, "Page": page, **extra},
+            headers=POST_HEADERS,
             timeout=30,
         )
         resp.raise_for_status()
@@ -124,11 +138,24 @@ def is_frontend(record):
 
 
 def fetch():
-    raw = fetch_raw()
+    session = _open_session()
+
+    raw = _fetch_rows(session)
     records = [r for r in (_parse_row(row) for row in raw) if r]
     records = [r for r in records if is_frontend(r)]
 
     # 같은 공고가 여러 페이지에 걸쳐 나오는 경우가 있어 한 번 더 정리한다.
     unique = {r["id"]: r for r in records}
+
+    # 복리후생 조건별로 다시 조회해 어떤 공고가 걸리는지 표시한다.
+    for key, (label, code) in WELFARE_CONDITIONS.items():
+        gnos = {row.get("data-gno") for row in _fetch_rows(session, wel=code)}
+        hit = 0
+        for record in unique.values():
+            matched = record["id"].removeprefix("jobkorea-") in gnos
+            record["flags"][key] = matched
+            hit += matched
+        print(f"    {label}: {hit}건")
+
     print(f"  잡코리아: 목록 {len(raw)}건 → 프론트엔드 {len(unique)}건")
     return list(unique.values())
