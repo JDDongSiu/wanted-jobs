@@ -137,7 +137,7 @@ function initialConditions() {
 const INK = '#4A3B25'
 const LW = 2.6
 const RABBIT_OUTLINE =
-  'M56.76 97.57A32 32 0 1 1 95.24 97.57A21 21 0 1 1 56.76 97.57Z'
+  'M54.01 95.25A32 32 0 1 1 97.99 95.25A23 23 0 1 1 54.01 95.25Z'
 const DOG_OUTLINE =
   'M58.62 103.22A34 34 0 1 1 93.38 103.22A21 21 0 1 1 58.62 103.22Z'
 
@@ -150,7 +150,7 @@ function Characters() {
       aria-label="나란히 선 토끼와 강아지"
     >
       {/* 자리 이동은 바깥 g 가 맡는다. CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰기 때문이다 */}
-      <g transform="translate(0 9)">
+      <g transform="translate(0 11.7)">
         <g className="mascot mascot-rabbit">
           {/* 귀 — 가운데 붙은 11자. 끝만 둥글고 안쪽은 살색이다 */}
           <rect x="61.5" y="14" width="13" height="48" rx="6.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
@@ -158,45 +158,41 @@ function Characters() {
           <rect x="64.8" y="20" width="6.4" height="38" rx="3.2" fill="#F7BFC6" />
           <rect x="80.8" y="20" width="6.4" height="38" rx="3.2" fill="#F7BFC6" />
 
-          {/* 아주 작은 손발 */}
+          {/* 아주 작고 뭉툭한 팔다리 */}
           <g fill="#FFFDF8" stroke={INK} strokeWidth={LW}>
-            <ellipse cx="55" cy="104" rx="4.5" ry="6" />
-            <ellipse cx="97" cy="104" rx="4.5" ry="6" />
-            <ellipse cx="67" cy="126" rx="6.5" ry="4" />
-            <ellipse cx="85" cy="126" rx="6.5" ry="4" />
+            <ellipse cx="53" cy="100" rx="4" ry="5" />
+            <ellipse cx="99" cy="100" rx="4" ry="5" />
+            <ellipse cx="68" cy="124" rx="6" ry="3.6" />
+            <ellipse cx="84" cy="124" rx="6" ry="3.6" />
           </g>
 
           <path d={RABBIT_OUTLINE} fill="#FFFDF8" stroke={INK} strokeWidth={LW} strokeLinejoin="round" />
 
-          {/* 눈썹 — 얼굴 곡선을 타고 도는 ( ) */}
-          <g fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round">
-            <path d="M56.5 71.5Q54 62 64 57.5" />
-            <path d="M95.5 71.5Q98 62 88 57.5" />
+          {/* 눈썹 — 두껍게 아치를 그리고 바깥 끝을 떨어뜨려 울상을 만든다 */}
+          <g fill="none" stroke={INK} strokeWidth="3.6" strokeLinecap="round">
+            <path d="M56 67Q63 58.5 70.5 57" />
+            <path d="M96 67Q89 58.5 81.5 57" />
           </g>
 
-          {/* 볼터치 — 분홍 바탕에 검은 빗금 세 줄 */}
-          <ellipse cx="53.5" cy="84" rx="7" ry="4.2" fill="#F9C9CF" />
-          <ellipse cx="98.5" cy="84" rx="7" ry="4.2" fill="#F9C9CF" />
-          <g fill="none" stroke={INK} strokeWidth="1.4" strokeLinecap="round">
-            <path d="M50 81.8l1.6 4.4M53.7 81.2l1.6 4.8M57.4 81.8l1.6 4.4" />
-            <path d="M102 81.8l-1.6 4.4M98.3 81.2l-1.6 4.8M94.6 81.8l-1.6 4.4" />
-          </g>
+          {/* 볼터치 — 줄무늬 없이 분홍 동그라미만 */}
+          <circle cx="53.5" cy="84" r="5" fill="#F9C9CF" />
+          <circle cx="98.5" cy="84" r="5" fill="#F9C9CF" />
 
-          {/* 눈 */}
-          <circle cx="66" cy="76" r="4.4" fill={INK} />
-          <circle cx="86" cy="76" r="4.4" fill={INK} />
-          <circle cx="67.6" cy="74.2" r="1.6" fill="#FFFDF8" />
-          <circle cx="87.6" cy="74.2" r="1.6" fill="#FFFDF8" />
-          <circle cx="63.6" cy="78.4" r="0.8" fill="#FFFDF8" />
-          <circle cx="83.6" cy="78.4" r="0.8" fill="#FFFDF8" />
+          {/* 눈 — 크게 뜬 눈에 하이라이트를 여러 겹 넣는다 */}
+          <circle cx="66" cy="76" r="6.5" fill={INK} />
+          <circle cx="86" cy="76" r="6.5" fill={INK} />
+          <ellipse cx="66" cy="80.4" rx="3.8" ry="1.4" fill="#967C55" opacity="0.4" />
+          <ellipse cx="86" cy="80.4" rx="3.8" ry="1.4" fill="#967C55" opacity="0.4" />
+          <circle cx="67.9" cy="73.6" r="3" fill="#FFFDF8" />
+          <circle cx="87.9" cy="73.6" r="3" fill="#FFFDF8" />
+          <circle cx="63.4" cy="78.6" r="1.2" fill="#FFFDF8" />
+          <circle cx="83.4" cy="78.6" r="1.2" fill="#FFFDF8" />
+          <circle cx="68.8" cy="78.8" r="0.8" fill="#FFFDF8" />
+          <circle cx="88.8" cy="78.8" r="0.8" fill="#FFFDF8" />
 
-          {/* 코 */}
-          <ellipse cx="76" cy="83" rx="3.2" ry="2.4" fill={INK} />
-
-          {/* 입 — 혓바닥을 먼저 깔고 입선을 위에 얹는다 */}
-          <path d="M73 87c0 8.5 6 8.5 6 0z" fill="#EF9AA6" stroke={INK} strokeWidth="1.5" strokeLinejoin="round" />
-          <path d="M71.5 86.8q2.25 3.2 4.5 0q2.25 3.2 4.5 0" fill="none" stroke={INK} strokeWidth="2.2" strokeLinecap="round" />
-          <path d="M72.5 96h7" fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round" />
+          {/* 코와 입 — 아주 작은 w 하나 */}
+          <ellipse cx="76" cy="85" rx="2.8" ry="2.1" fill={INK} />
+          <path d="M72.8 88.4q1.6 2.4 3.2 0q1.6 2.4 3.2 0" fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round" />
         </g>
       </g>
 
