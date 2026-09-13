@@ -3,25 +3,30 @@
   background: var(--surface);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 30;
 }
 
 .header-inner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 20px 24px;
+  padding: 26px 24px;
 }
 
 .header-title {
   margin: 0;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.32;
+}
+
+.accent {
+  color: var(--accent);
 }
 
 .header-sub {
-  margin: 6px 0 0;
-  font-size: 13px;
+  margin: 9px 0 0;
+  font-size: 13.5px;
   color: var(--text-muted);
 }
 
@@ -29,90 +34,98 @@
   margin: 6px 0 0;
   font-size: 13px;
   font-weight: 600;
-  color: #a8500a;
-}
-
-@media (prefers-color-scheme: dark) {
-  .header-warn {
-    color: #ffb872;
-  }
+  color: var(--warn);
 }
 
 .main {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 26px 24px 60px;
 }
 
 .filters {
-  margin-bottom: 20px;
+  margin-bottom: 26px;
+}
+
+/* 검색 */
+.search-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 18px;
+  width: 19px;
+  height: 19px;
+  color: var(--text-muted);
+  pointer-events: none;
 }
 
 .search {
   width: 100%;
   box-sizing: border-box;
-  padding: 11px 14px;
+  padding: 15px 18px 15px 46px;
   font-size: 15px;
   font-family: inherit;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 16px;
+}
+
+.search::placeholder {
+  color: var(--text-faint);
 }
 
 .search:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: -1px;
+  outline: none;
+  border-color: var(--accent-line);
 }
 
+/* 필터 줄 */
 .filter-row {
   position: relative; /* 옵션 패널의 기준점. 줄 왼쪽에 맞춰 펼쳐진다 */
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 16px;
+  gap: 8px;
   align-items: center;
   margin-top: 12px;
 }
 
-.check {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.check input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--accent);
-  cursor: pointer;
-}
-
 .select {
-  padding: 7px 10px;
+  padding: 10px 14px;
   font-size: 14px;
+  font-weight: 600;
   font-family: inherit;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
 }
 
+.result-count {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dim);
+}
+
+/* 보기 옵션 패널 */
 .cond-panel {
   position: static;
 }
 
-/* 옆의 select 들과 같은 모양으로 맞춘다. */
 .cond-summary {
-  padding: 7px 10px;
+  padding: 10px 14px;
   font-size: 14px;
+  font-weight: 600;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 12px;
   cursor: pointer;
   user-select: none;
   white-space: nowrap;
@@ -133,27 +146,19 @@
 
 .cond-popover {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 8px);
   left: 0;
   z-index: 20;
   width: 580px;
   max-width: calc(100vw - 48px);
-  padding: 12px 14px 14px;
+  padding: 14px 16px 16px;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 45%);
 }
 
-/* 좁은 화면에서는 열 수를 줄이고 오른쪽에 붙여 화면 밖으로 나가지 않게 한다. */
-@media (max-width: 640px) {
-  .cond-group {
-    grid-template-columns: 56px repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* 그룹마다 같은 열 구조를 써서 항목이 세로로 줄맞춤된다.
-   항목 수가 적은 그룹은 뒤쪽 열이 비워진다. */
+/* 그룹마다 같은 열 구조를 써서 항목이 세로로 줄맞춤된다. */
 .cond-group {
   display: grid;
   grid-template-columns: 60px repeat(4, minmax(0, 1fr));
@@ -172,51 +177,207 @@
   white-space: nowrap;
 }
 
-.cond-group .check {
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14px;
+  cursor: pointer;
+  user-select: none;
   white-space: nowrap;
 }
 
-.result-count {
-  margin: 14px 0 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
+.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
 }
 
-.grid {
+@media (max-width: 640px) {
+  .cond-group {
+    grid-template-columns: 56px repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* 타임라인 */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.day {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+  grid-template-columns: 86px 2px minmax(0, 1fr);
+  gap: 20px;
 }
 
+.day-label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 3px;
+}
+
+.day-name {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.day-count {
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+
+.day-rail {
+  background: var(--line);
+  border-radius: 1px;
+}
+
+.day-rail-new {
+  background: var(--accent-line);
+}
+
+.day-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 카드 */
 .card {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  transition: border-color 0.15s, transform 0.15s;
+  border: 1px solid var(--card-line);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: var(--accent-line);
 }
 
 .card-main {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  gap: 8px;
+  padding: 20px 22px;
   color: inherit;
   text-decoration: none;
+}
+
+.card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-new {
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--bg);
+  background: var(--accent);
+  border-radius: 5px;
+}
+
+.source {
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+.source-wanted {
+  color: #6ea8ff;
+  background: #17274a;
+}
+
+.source-jobkorea {
+  color: #f0ab85;
+  background: #3a2116;
+}
+
+.source-jumpit {
+  color: #f0a3dc;
+  background: #3a1c33;
+}
+
+.source-catch {
+  color: #c9a8f0;
+  background: #2a1c3d;
+}
+
+.source-saramin {
+  color: #8fd89a;
+  background: #14301a;
+}
+
+.card-reward {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.card-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.38;
+  letter-spacing: -0.025em;
+}
+
+.card-meta {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+
+.card-category {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.tag {
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.tag-cond {
+  color: #5fd3a8;
+  background: #10302a;
+}
+
+.tag-skill {
+  color: var(--text-dim);
+  background: var(--chip);
 }
 
 .card-jp {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 11px 16px;
+  padding: 11px 22px;
   font-size: 14px;
   font-weight: 700;
-  color: #00a05a; /* 잡플래닛 시그니처 그린 */
+  color: var(--jp);
   text-decoration: none;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--card-line);
 }
 
 .card-jp:hover {
@@ -229,119 +390,7 @@
   flex-shrink: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  .card-jp {
-    color: #34c98b;
-  }
-}
-
-.card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-}
-
-.card-thumb {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background: var(--line);
-}
-
-.card-body {
-  padding: 14px 16px 16px;
-}
-
-.card-title {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.card-company {
-  margin: 6px 0 0;
-  font-size: 13px;
-  color: var(--text);
-}
-
-.card-meta {
-  margin: 4px 0 0;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.source {
-  display: inline-block;
-  margin-bottom: 8px;
-  padding: 2px 7px;
-  font-size: 11px;
-  font-weight: 700;
-  border-radius: 4px;
-}
-
-.source-wanted {
-  color: #1a4fd6;
-  background: #e3ebff;
-}
-
-.source-jumpit {
-  color: #8a2f7b;
-  background: #fae4f5;
-}
-
-.source-saramin {
-  color: #1f6b2c;
-  background: #ddf3e0;
-}
-
-.source-jobkorea {
-  color: #9c4221;
-  background: #fde8dc;
-}
-
-.source-catch {
-  color: #6b3fa0;
-  background: #ece0fa;
-}
-
-.card-skills {
-  margin: 6px 0 0;
-  font-size: 12px;
-  color: var(--text-muted);
-  overflow-wrap: anywhere;
-}
-
-.card-category {
-  margin: 2px 0 0;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 12px;
-}
-
-.tag {
-  padding: 3px 8px;
-  font-size: 11px;
-  font-weight: 600;
-  border-radius: 4px;
-  white-space: nowrap;
-}
-
-.tag-cond {
-  color: #0b6b5b;
-  background: #d8f3ec;
-}
-
-.tag-reward {
-  color: #3b4a68;
-  background: #e6ebf5;
-}
-
+/* 상태 */
 .empty,
 .state {
   padding: 64px 24px;
@@ -364,43 +413,23 @@
 .state-desc code {
   padding: 2px 6px;
   font-size: 13px;
-  background: var(--line);
+  background: var(--chip);
   border-radius: 4px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .source-wanted {
-    color: #a8c0ff;
-    background: #1b2540;
+@media (max-width: 620px) {
+  .day {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
-  .source-jumpit {
-    color: #f0a8e0;
-    background: #3a1c33;
+  .day-rail {
+    display: none;
   }
 
-  .source-saramin {
-    color: #8fd89a;
-    background: #14301a;
-  }
-
-  .source-jobkorea {
-    color: #f0ab85;
-    background: #3a2116;
-  }
-
-  .source-catch {
-    color: #c9a8f0;
-    background: #2a1c3d;
-  }
-
-  .tag-cond {
-    color: #7fe0cb;
-    background: #10352e;
-  }
-
-  .tag-reward {
-    color: #b9c7e3;
-    background: #252c3a;
+  .day-label {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
   }
 }

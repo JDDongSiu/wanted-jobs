@@ -31,6 +31,18 @@ const CONDITION_GROUPS = {
   },
 }
 
+const ALL_CONDITION_LABELS = Object.fromEntries(
+  Object.values(CONDITION_GROUPS).flatMap((g) => Object.entries(g.labels)),
+)
+
+const SOURCE_LABELS = {
+  wanted: '원티드',
+  jumpit: '점핏',
+  saramin: '사람인',
+  jobkorea: '잡코리아',
+  catch: '캐치',
+}
+
 // 지역 필터에서 위로 올릴 순서. 나머지는 가나다순으로 뒤에 붙는다.
 const REGION_PRIORITY = ['서울', '경기', '인천', '부산', '충남']
 
@@ -54,29 +66,31 @@ function careerBucket(job) {
   return '10+'
 }
 
-// 필터 상태를 주소에 남긴다. 공고 링크를 눌렀다가 뒤로 와도 필터가 유지된다.
-// 기본값이 모두 켜짐이라, 꺼둔 조건만 off 로 기록해 주소를 짧게 유지한다.
-function readParams() {
-  return new URLSearchParams(window.location.search)
-}
+// 공고를 처음 본 날짜로 묶는다. first_seen 이 없는 건 기록을 시작하기 전부터
+// 있던 공고라 언제 올라왔는지 알 수 없으므로 '이전'으로 보낸다.
+const DAY_GROUPS = [
+  { key: 'today', label: '오늘' },
+  { key: 'yesterday', label: '어제' },
+  { key: 'week', label: '최근 7일' },
+  { key: 'older', label: '이전' },
+]
 
-function initialConditions() {
-  const off = new Set((readParams().get('off') ?? '').split(',').filter(Boolean))
-  return Object.fromEntries(
-    Object.keys(ALL_CONDITION_LABELS).map((key) => [key, !off.has(key)]),
+function daysAgo(isoDate) {
+  const seen = new Date(`${isoDate}T00:00:00+09:00`)
+  const now = new Date()
+  const todayKst = new Date(
+    `${now.toLocaleDateString('sv-SE', { timeZone: 'Asia/Seoul' })}T00:00:00+09:00`,
   )
+  return Math.round((todayKst - seen) / 86400000)
 }
 
-const ALL_CONDITION_LABELS = Object.fromEntries(
-  Object.values(CONDITION_GROUPS).flatMap((g) => Object.entries(g.labels)),
-)
-
-const SOURCE_LABELS = {
-  wanted: '원티드',
-  jumpit: '점핏',
-  saramin: '사람인',
-  jobkorea: '잡코리아',
-  catch: '캐치',
+function dayGroup(job) {
+  if (!job.first_seen) return 'older'
+  const diff = daysAgo(job.first_seen)
+  if (diff <= 0) return 'today'
+  if (diff === 1) return 'yesterday'
+  if (diff <= 7) return 'week'
+  return 'older'
 }
 
 // 잡플래닛은 평점 데이터를 스크립트로 가져올 수 없어(검색 경로 차단) 링크만 건다.
@@ -102,39 +116,61 @@ function formatUpdatedAt(iso) {
   })
 }
 
-function JobCard({ job }) {
+// 필터 상태를 주소에 남긴다. 공고 링크를 눌렀다가 뒤로 와도 필터가 유지된다.
+// 기본값이 모두 켜짐이라, 꺼둔 조건만 off 로 기록해 주소를 짧게 유지한다.
+function readParams() {
+  return new URLSearchParams(window.location.search)
+}
+
+function initialConditions() {
+  const off = new Set((readParams().get('off') ?? '').split(',').filter(Boolean))
+  return Object.fromEntries(
+    Object.keys(ALL_CONDITION_LABELS).map((key) => [key, !off.has(key)]),
+  )
+}
+
+function JobCard({ job, isNew }) {
   return (
     <div className="card">
       <a className="card-main" href={job.url} target="_blank" rel="noreferrer">
-        {job.thumbnail && (
-          <img className="card-thumb" src={job.thumbnail} alt="" loading="lazy" />
-        )}
-        <div className="card-body">
-        <span className={`source source-${job.source}`}>
-          {SOURCE_LABELS[job.source] ?? job.source}
-        </span>
+        <div className="card-head">
+          {isNew && <span className="badge-new">NEW</span>}
+          <span className={`source source-${job.source}`}>
+            {SOURCE_LABELS[job.source] ?? job.source}
+          </span>
+          {job.reward_total && (
+            <span className="card-reward">보상금 {job.reward_total}</span>
+          )}
+        </div>
         <h2 className="card-title">{job.position}</h2>
-        <p className="card-company">{job.company}</p>
         <p className="card-meta">
-          {[job.location, formatCareer(job), EMPLOYMENT_LABELS[job.employment_type]]
+          {[
+            job.company,
+            job.location,
+            formatCareer(job),
+            EMPLOYMENT_LABELS[job.employment_type] ?? job.employment_type,
+          ]
             .filter(Boolean)
             .join(' · ')}
         </p>
         {job.category && <p className="card-category">직무 · {job.category}</p>}
-        {job.skills?.length > 0 && (
-          <p className="card-skills">{job.skills.slice(0, 6).join(' · ')}</p>
-        )}
-        <div className="card-tags">
-          {Object.keys(ALL_CONDITION_LABELS)
-            .filter((key) => job.flags?.[key])
-            .map((key) => (
-              <span key={key} className="tag tag-cond">
-                {ALL_CONDITION_LABELS[key]}
+        {(job.skills?.length > 0 ||
+          Object.keys(ALL_CONDITION_LABELS).some((key) => job.flags?.[key])) && (
+          <div className="card-tags">
+            {Object.keys(ALL_CONDITION_LABELS)
+              .filter((key) => job.flags?.[key])
+              .map((key) => (
+                <span key={key} className="tag tag-cond">
+                  {ALL_CONDITION_LABELS[key]}
+                </span>
+              ))}
+            {job.skills?.slice(0, 6).map((skill) => (
+              <span key={skill} className="tag tag-skill">
+                {skill}
               </span>
             ))}
-          {job.reward_total && <span className="tag tag-reward">보상금 {job.reward_total}</span>}
-        </div>
-        </div>
+          </div>
+        )}
       </a>
       {job.company && (
         <a
@@ -147,7 +183,7 @@ function JobCard({ job }) {
             <circle cx="8" cy="8" r="8" fill="currentColor" />
             <path
               d="M5 4.4h5.2v6.1a2.6 2.6 0 0 1-2.6 2.6A2.6 2.6 0 0 1 5 10.5h1.9a.7.7 0 0 0 1.4 0V6.3H5z"
-              fill="#fff"
+              fill="#14161a"
             />
           </svg>
           잡플래닛 평점보기(5점 만점)
@@ -228,8 +264,8 @@ export default function App() {
       const group = CONDITION_GROUPS[job.source]
       if (group) {
         const checked = Object.keys(group.labels).filter((key) => conditions[key])
-        if (checked.length > 0) {
-          if (!checked.some((key) => job.flags?.[key])) return false
+        if (checked.length > 0 && !checked.some((key) => job.flags?.[key])) {
+          return false
         }
       }
 
@@ -242,6 +278,15 @@ export default function App() {
       return true
     })
   }, [data, query, conditions, region, career, source])
+
+  // 처음 본 날짜로 묶어 새로 올라온 공고가 위로 오게 한다.
+  const grouped = useMemo(() => {
+    const buckets = Object.fromEntries(DAY_GROUPS.map((g) => [g.key, []]))
+    for (const job of filtered) buckets[dayGroup(job)].push(job)
+    return DAY_GROUPS.map((g) => ({ ...g, jobs: buckets[g.key] })).filter(
+      (g) => g.jobs.length > 0,
+    )
+  }, [filtered])
 
   if (error) {
     return (
@@ -257,17 +302,30 @@ export default function App() {
 
   if (!data) return <main className="state">불러오는 중...</main>
 
+  const newCount = data.new_count ?? 0
+
   return (
     <>
       <header className="header">
         <div className="header-inner">
-          <h1 className="header-title">원티드 프론트엔드 채용공고</h1>
+          <h1 className="header-title">
+            {newCount > 0 ? (
+              <>
+                오늘 <span className="accent">{newCount}건</span>이 새로 올라왔어요
+              </>
+            ) : (
+              <>
+                프론트엔드 공고 <span className="accent">{data.total_count}건</span>을
+                모았어요
+              </>
+            )}
+          </h1>
           <p className="header-sub">
-            프론트엔드 공고 {data.total_count}건 (
+            매일 아침 9시에 네 사이트를 다시 확인합니다 ·{' '}
             {Object.entries(data.sources ?? {})
               .map(([key, n]) => `${SOURCE_LABELS[key] ?? key} ${n}`)
-              .join(', ')}
-            ) · 마지막 갱신 {formatUpdatedAt(data.updated_at)}
+              .join(' · ')}{' '}
+            · 갱신 {formatUpdatedAt(data.updated_at)}
           </p>
           {data.stale_sources?.length > 0 && (
             <p className="header-warn">
@@ -280,13 +338,28 @@ export default function App() {
 
       <main className="main">
         <section className="filters">
-          <input
-            className="search"
-            type="search"
-            placeholder="포지션 또는 회사명 검색"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
+          <div className="search-wrap">
+            <svg
+              className="search-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.2-3.2" />
+            </svg>
+            <input
+              className="search"
+              type="search"
+              placeholder="포지션, 회사, 기술스택으로 검색해보세요"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+
           <div className="filter-row">
             <select
               className="select"
@@ -329,18 +402,18 @@ export default function App() {
             <details className="cond-panel">
               <summary className="cond-summary">사이트별 보기 옵션 설정</summary>
               <div className="cond-popover">
-                {Object.entries(CONDITION_GROUPS).map(([source, group]) => (
-                  <div className="cond-group" key={source}>
+                {Object.entries(CONDITION_GROUPS).map(([key, group]) => (
+                  <div className="cond-group" key={key}>
                     <span className="cond-group-label">{group.label}</span>
-                    {Object.entries(group.labels).map(([key, label]) => (
-                      <label className="check" key={key}>
+                    {Object.entries(group.labels).map(([condKey, label]) => (
+                      <label className="check" key={condKey}>
                         <input
                           type="checkbox"
-                          checked={conditions[key]}
+                          checked={conditions[condKey]}
                           onChange={(e) =>
                             setConditions((prev) => ({
                               ...prev,
-                              [key]: e.target.checked,
+                              [condKey]: e.target.checked,
                             }))
                           }
                         />
@@ -351,19 +424,31 @@ export default function App() {
                 ))}
               </div>
             </details>
+            <span className="result-count">{filtered.length}건</span>
           </div>
-
-          <p className="result-count">{filtered.length}건</p>
         </section>
 
-        {filtered.length === 0 ? (
+        {grouped.length === 0 ? (
           <p className="empty">조건에 맞는 공고가 없습니다.</p>
         ) : (
-          <section className="grid">
-            {filtered.map((job) => (
-              <JobCard key={job.id} job={job} />
+          <div className="timeline">
+            {grouped.map((group) => (
+              <section className="day" key={group.key}>
+                <div className="day-label">
+                  <span className="day-name">{group.label}</span>
+                  <span className="day-count">{group.jobs.length}건</span>
+                </div>
+                <div
+                  className={`day-rail${group.key === 'today' ? ' day-rail-new' : ''}`}
+                />
+                <div className="day-jobs">
+                  {group.jobs.map((job) => (
+                    <JobCard key={job.id} job={job} isNew={group.key === 'today'} />
+                  ))}
+                </div>
+              </section>
             ))}
-          </section>
+          </div>
         )}
       </main>
     </>
