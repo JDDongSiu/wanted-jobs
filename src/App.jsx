@@ -306,32 +306,88 @@ export default function App() {
 
   return (
     <>
-      <header className="header">
-        <div className="header-inner">
-          <h1 className="header-title">
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="hero-brand">
+            리크루트<span className="hero-ext">.zip</span>
+          </div>
+
+          <h1 className="hero-title">
+            네 곳에 흩어진 프론트엔드 공고를
+            <br />
+            하나로 압축했습니다
+          </h1>
+
+          {/* 압축 파일을 열면 나오는 목록처럼 보이게 한다 */}
+          <ul className="hero-files">
+            {Object.entries(data.sources ?? {}).map(([key, n]) => (
+              <li className="hero-file" key={key}>
+                <svg
+                  className="hero-file-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+                  <path d="M14 3v5h5" />
+                </svg>
+                <span className="hero-file-name">
+                  {SOURCE_LABELS[key] ?? key}
+                </span>
+                <span className="hero-file-count">{n}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="hero-summary">
             {newCount > 0 ? (
               <>
-                오늘 <span className="accent">{newCount}건</span>이 새로 올라왔어요
+                오늘 <span className="accent">{newCount}건</span>이 새로 올라왔어요 ·
+                전체 {data.total_count}건
               </>
             ) : (
               <>
-                프론트엔드 공고 <span className="accent">{data.total_count}건</span>을
-                모았어요
+                전체 <span className="accent">{data.total_count}건</span> · 매일 아침
+                9시 갱신
               </>
             )}
-          </h1>
-          <p className="header-sub">
-            매일 아침 9시에 네 사이트를 다시 확인합니다 ·{' '}
+          </p>
+
+          <div className="hero-scroll">
+            <span>아래로 내려서 보기</span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              strokeLinecap="round"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <header className="header">
+        <div className="header-inner">
+          <span className="header-brand">
+            리크루트<span className="hero-ext">.zip</span>
+          </span>
+          <span className="header-sub">
             {Object.entries(data.sources ?? {})
               .map(([key, n]) => `${SOURCE_LABELS[key] ?? key} ${n}`)
               .join(' · ')}{' '}
             · 갱신 {formatUpdatedAt(data.updated_at)}
-          </p>
+          </span>
           {data.stale_sources?.length > 0 && (
-            <p className="header-warn">
+            <span className="header-warn">
               {data.stale_sources.map((key) => SOURCE_LABELS[key] ?? key).join(', ')}{' '}
-              수집에 실패해 이전 데이터를 표시하고 있습니다
-            </p>
+              수집 실패 · 이전 데이터 표시 중
+            </span>
           )}
         </div>
       </header>
