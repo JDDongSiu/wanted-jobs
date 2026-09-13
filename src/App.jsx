@@ -129,8 +129,9 @@ function initialConditions() {
   )
 }
 
-// 토끼와 강아지. 둥근 실루엣, 점 눈, 볼터치만 남긴 단순한 형태로 그렸다.
-const INK = '#3B2F16'
+// 토끼와 강아지. 머리를 크게, 몸통과 팔다리를 아주 작게 잡은 둥근 형태다.
+const INK = '#4A3B25'
+const LW = 2.6
 
 function Characters() {
   return (
@@ -142,49 +143,70 @@ function Characters() {
     >
       {/* 토끼 */}
       <g className="mascot mascot-rabbit">
-        <ellipse cx="64" cy="28" rx="8" ry="21" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="64" cy="30" rx="3.4" ry="13" fill="#F6BFC4" />
-        <ellipse cx="88" cy="28" rx="8" ry="21" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="88" cy="30" rx="3.4" ry="13" fill="#F6BFC4" />
+        {/* 귀 — 머리 뒤에 먼저 그린다 */}
+        <g fill="#FFFDF8" stroke={INK} strokeWidth={LW}>
+          <ellipse cx="63" cy="26" rx="8.5" ry="22" transform="rotate(-7 63 48)" />
+          <ellipse cx="89" cy="26" rx="8.5" ry="22" transform="rotate(7 89 48)" />
+        </g>
+        <ellipse cx="63" cy="28" rx="4" ry="14" fill="#F7C7CB" transform="rotate(-7 63 48)" />
+        <ellipse cx="89" cy="28" rx="4" ry="14" fill="#F7C7CB" transform="rotate(7 89 48)" />
 
-        <ellipse cx="58" cy="112" rx="8" ry="11" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="94" cy="112" rx="8" ry="11" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="76" cy="108" rx="25" ry="23" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="65" cy="130" rx="10" ry="6" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="87" cy="130" rx="10" ry="6" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
+        {/* 발과 몸통 */}
+        <g fill="#FFFDF8" stroke={INK} strokeWidth={LW}>
+          <ellipse cx="66" cy="133" rx="9" ry="5.5" />
+          <ellipse cx="86" cy="133" rx="9" ry="5.5" />
+          <ellipse cx="56" cy="112" rx="6.5" ry="8.5" />
+          <ellipse cx="96" cy="112" rx="6.5" ry="8.5" />
+          <ellipse cx="76" cy="115" rx="21" ry="21" />
+          <circle cx="76" cy="74" r="34" />
+        </g>
 
-        <circle cx="76" cy="68" r="29" fill="#FFFDF8" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="57" cy="78" rx="5.5" ry="3.2" fill="#F6BFC4" opacity="0.9" />
-        <ellipse cx="95" cy="78" rx="5.5" ry="3.2" fill="#F6BFC4" opacity="0.9" />
-        <circle cx="66" cy="66" r="3.8" fill={INK} />
-        <circle cx="86" cy="66" r="3.8" fill={INK} />
-        <circle cx="67.4" cy="64.6" r="1.4" fill="#FFFDF8" />
-        <circle cx="87.4" cy="64.6" r="1.4" fill="#FFFDF8" />
-        <path d="M73 76h6l-3 3.4z" fill="#E79AA2" stroke={INK} strokeWidth="2" strokeLinejoin="round" />
+        {/* 얼굴 */}
+        <ellipse cx="54" cy="87" rx="6" ry="3.6" fill="#F7C7CB" />
+        <ellipse cx="98" cy="87" rx="6" ry="3.6" fill="#F7C7CB" />
+        <circle cx="63" cy="78" r="3.6" fill={INK} />
+        <circle cx="89" cy="78" r="3.6" fill={INK} />
+        <path
+          d="M71 89q2.5 3.4 5 0q2.5 3.4 5 0"
+          fill="none"
+          stroke={INK}
+          strokeWidth="2.2"
+          strokeLinecap="round"
+        />
       </g>
 
       {/* 강아지 */}
       <g className="mascot mascot-dog">
         {/* 늘어진 귀 */}
-        <ellipse cx="148" cy="72" rx="10" ry="24" fill="#E2AE72" stroke={INK} strokeWidth="3.4" transform="rotate(-16 148 56)" />
-        <ellipse cx="200" cy="72" rx="10" ry="24" fill="#E2AE72" stroke={INK} strokeWidth="3.4" transform="rotate(16 200 56)" />
+        <g fill="#E4B47C" stroke={INK} strokeWidth={LW}>
+          <ellipse cx="143" cy="88" rx="8.5" ry="24" transform="rotate(-12 143 88)" />
+          <ellipse cx="205" cy="88" rx="8.5" ry="24" transform="rotate(12 205 88)" />
+        </g>
 
-        <ellipse cx="156" cy="112" rx="8" ry="11" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="192" cy="112" rx="8" ry="11" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="174" cy="108" rx="25" ry="23" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="163" cy="130" rx="10" ry="6" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="185" cy="130" rx="10" ry="6" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
+        {/* 발과 몸통 */}
+        <g fill="#F9E9D2" stroke={INK} strokeWidth={LW}>
+          <ellipse cx="164" cy="133" rx="9" ry="5.5" />
+          <ellipse cx="184" cy="133" rx="9" ry="5.5" />
+          <ellipse cx="154" cy="112" rx="6.5" ry="8.5" />
+          <ellipse cx="194" cy="112" rx="6.5" ry="8.5" />
+          <ellipse cx="174" cy="115" rx="21" ry="21" />
+          <circle cx="174" cy="74" r="34" />
+        </g>
 
-        <circle cx="174" cy="68" r="29" fill="#F8E7CC" stroke={INK} strokeWidth="3.4" />
-        <ellipse cx="155" cy="78" rx="5.5" ry="3.2" fill="#EFAF9E" opacity="0.9" />
-        <ellipse cx="193" cy="78" rx="5.5" ry="3.2" fill="#EFAF9E" opacity="0.9" />
-        <ellipse cx="174" cy="79" rx="13" ry="10" fill="#FFFDF8" stroke={INK} strokeWidth="3" />
-        <circle cx="164" cy="64" r="3.8" fill={INK} />
-        <circle cx="184" cy="64" r="3.8" fill={INK} />
-        <circle cx="165.4" cy="62.6" r="1.4" fill="#FFFDF8" />
-        <circle cx="185.4" cy="62.6" r="1.4" fill="#FFFDF8" />
-        <ellipse cx="174" cy="74" rx="5" ry="3.8" fill={INK} />
-        <path d="M174 78v4" stroke={INK} strokeWidth="2.4" strokeLinecap="round" />
+        {/* 얼굴 */}
+        <ellipse cx="152" cy="84" rx="6" ry="3.6" fill="#F0B5A2" />
+        <ellipse cx="196" cy="84" rx="6" ry="3.6" fill="#F0B5A2" />
+        <ellipse cx="174" cy="88" rx="14" ry="10.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
+        <circle cx="161" cy="74" r="3.6" fill={INK} />
+        <circle cx="187" cy="74" r="3.6" fill={INK} />
+        <ellipse cx="174" cy="83" rx="4.6" ry="3.4" fill={INK} />
+        <path
+          d="M174 87v3m0 0q-2.6 3-5 0m5 0q2.6 3 5 0"
+          fill="none"
+          stroke={INK}
+          strokeWidth="2.2"
+          strokeLinecap="round"
+        />
       </g>
     </svg>
   )
