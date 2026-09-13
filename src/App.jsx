@@ -129,42 +129,78 @@ function initialConditions() {
   )
 }
 
-// 금이 가기 시작한 알. 아직 깨지지는 않았고 좌우로 흔들린다.
+// 알을 깨고 나오는 새. 둥근 실루엣과 점 눈, 볼터치만 남긴 단순한 형태로 그렸다.
 function EggCharacter() {
   return (
     <svg
       className="egg"
-      viewBox="0 0 120 150"
+      viewBox="0 0 130 150"
       role="img"
-      aria-label="금이 가서 깨지려는 알"
+      aria-label="알을 깨고 나오는 새"
     >
-      <ellipse cx="60" cy="141" rx="29" ry="4.5" fill="#E4D49A" />
+      <ellipse cx="65" cy="142" rx="30" ry="4.5" fill="#E7D8A4" />
 
-      {/* 갈라진 틈 안쪽. 두 껍데기 사이로 어둡게 비친다 */}
-      <ellipse cx="60" cy="92" rx="37" ry="34" fill="#2A2110" />
+      {/* 날개 */}
+      <ellipse
+        className="egg-wing egg-wing-l"
+        cx="29"
+        cy="84"
+        rx="9"
+        ry="13"
+        fill="#FFFBF0"
+        stroke="#3B2F16"
+        strokeWidth="3.2"
+      />
+      <ellipse
+        className="egg-wing egg-wing-r"
+        cx="101"
+        cy="84"
+        rx="9"
+        ry="13"
+        fill="#FFFBF0"
+        stroke="#3B2F16"
+        strokeWidth="3.2"
+      />
 
-      {/* 아래 껍데기 — 위쪽 가장자리가 톱니처럼 깨져 있다 */}
+      {/* 몸통 — 껍데기 밖으로 나온 부분 */}
+      <circle
+        cx="65"
+        cy="76"
+        r="31"
+        fill="#FFFBF0"
+        stroke="#3B2F16"
+        strokeWidth="3.5"
+      />
+
+      {/* 얼굴 */}
+      <circle cx="54" cy="72" r="3.6" fill="#3B2F16" />
+      <circle cx="76" cy="72" r="3.6" fill="#3B2F16" />
+      <circle cx="55.3" cy="70.7" r="1.3" fill="#FFFBF0" />
+      <circle cx="77.3" cy="70.7" r="1.3" fill="#FFFBF0" />
       <path
-        d="M23 92c0 22 17 38 37 38s37-16 37-38c0-3 0-6-1-9l-10 7-9-9-9 9-10-8-9 9-10-7c-1 3-1 6-1 8z"
-        fill="#FFFDF5"
+        d="M60 81h10l-5 6z"
+        fill="#F2A03D"
+        stroke="#3B2F16"
+        strokeWidth="2.4"
+        strokeLinejoin="round"
+      />
+      <ellipse cx="42" cy="82" rx="5.5" ry="3.2" fill="#F5B5B0" opacity="0.9" />
+      <ellipse cx="88" cy="82" rx="5.5" ry="3.2" fill="#F5B5B0" opacity="0.9" />
+
+      {/* 아래 껍데기 — 톱니로 깨진 윗선 */}
+      <path
+        d="M27 100c0 21 17 36 38 36s38-15 38-36c0-2 0-4-1-6l-9 6-8-8-8 8-8-7-8 8-8-8-9 6c-1 2-1 4-1 5z"
+        fill="#FFF6DC"
         stroke="#3B2F16"
         strokeWidth="3.5"
         strokeLinejoin="round"
       />
 
-      {/* 틈으로 내다보는 눈 */}
-      <circle cx="50" cy="99" r="4.2" fill="#3B2F16" />
-      <circle cx="71" cy="99" r="4.2" fill="#3B2F16" />
-      <circle cx="51.6" cy="97.4" r="1.5" fill="#FFFDF5" />
-      <circle cx="72.6" cy="97.4" r="1.5" fill="#FFFDF5" />
-      <ellipse cx="39" cy="107" rx="5" ry="3" fill="#F2B8A0" opacity="0.9" />
-      <ellipse cx="82" cy="107" rx="5" ry="3" fill="#F2B8A0" opacity="0.9" />
-
-      {/* 위 껍데기 — 들썩이며 곧 떨어질 듯 */}
+      {/* 머리에 얹힌 껍데기 조각 */}
       <g className="egg-top">
         <path
-          d="M24 78c-2-5-3-11-3-17 0-27 17-48 39-48s39 21 39 48c0 6-1 12-3 17l-10-8-9 9-9-9-10 8-9-9-10 9z"
-          fill="#FFFDF5"
+          d="M40 36c0-14 11-25 25-25s25 11 25 25l-7-5-6 6-6-6-6 5-6-6-6 6z"
+          fill="#FFF6DC"
           stroke="#3B2F16"
           strokeWidth="3.5"
           strokeLinejoin="round"
@@ -349,6 +385,30 @@ export default function App() {
 
   const newCount = data.new_count ?? 0
 
+  // 헤더가 sticky 라 scrollIntoView 가 듣지 않고, 스냅이 켜져 있으면 브라우저의
+  // 부드러운 스크롤을 표지로 되돌려버린다. 그래서 직접 애니메이션하고 그동안 스냅을 끈다.
+  const scrollToList = () => {
+    const el = document.getElementById('list')
+    if (!el) return
+
+    const html = document.documentElement
+    const target = el.offsetTop
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.scrollTo(0, target)
+      return
+    }
+
+    html.style.scrollSnapType = 'none'
+    window.scrollTo({ top: target, behavior: 'smooth' })
+
+    window.setTimeout(() => {
+      // 탭이 숨겨져 있으면 브라우저가 부드러운 스크롤을 돌리지 않는다. 그때는 바로 맞춘다.
+      if (Math.abs(window.scrollY - target) > 2) window.scrollTo(0, target)
+      html.style.scrollSnapType = ''
+    }, 800)
+  }
+
   return (
     <>
       <section className="hero">
@@ -360,18 +420,16 @@ export default function App() {
           </h1>
 
           <blockquote className="hero-quote">
-            새는 알에서 나오려고 투쟁한다. 알은 세계다. 태어나려는 자는 한 세계를
-            파괴해야만 한다.
+            <span>새는 알에서 나오려고 투쟁한다. 알은 세계다.</span>
+            <span>태어나려는 자는 한 세계를 파괴해야만 한다.</span>
           </blockquote>
 
           <blockquote className="hero-quote hero-quote-alt">
-            내 속에서 솟아 나오려는 것, 바로 그것을 나는 살아 보려고 했다. 왜 그것이
-            그토록 어려웠을까?
+            <span>내 속에서 솟아 나오려는 것, 바로 그것을 나는 살아 보려고 했다.</span>
+            <span>왜 그것이 그토록 어려웠을까?</span>
           </blockquote>
 
-          <p className="hero-source">헤르만 헤세, 『데미안』</p>
-
-          <div className="hero-scroll">
+          <button className="hero-scroll" type="button" onClick={scrollToList}>
             <span>아래로 내려서 보기</span>
             <svg
               viewBox="0 0 24 24"
@@ -383,11 +441,11 @@ export default function App() {
             >
               <path d="m6 9 6 6 6-6" />
             </svg>
-          </div>
+          </button>
         </div>
       </section>
 
-      <header className="header">
+      <header className="header" id="list">
         <div className="header-inner">
           <span className="header-brand">
             리크루트<span className="hero-ext">.zip</span>

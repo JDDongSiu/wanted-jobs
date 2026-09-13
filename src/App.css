@@ -18,6 +18,9 @@
   background:
     radial-gradient(ellipse 62% 48% at 50% 38%, #fdf8e2 0%, transparent 72%),
     var(--hero-bg);
+
+  /* 표지에서 아래로 밀면 목록 첫머리까지 한 번에 미끄러진다 */
+  scroll-snap-align: start;
 }
 
 .hero-inner {
@@ -79,27 +82,22 @@
   color: var(--hero-accent);
 }
 
+/* 각 문장을 한 줄로 고정한다 */
 .hero-quote {
   margin: 0;
-  max-width: 30em;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   font-family: 'Nanum Myeongjo', serif;
   font-size: 17px;
-  line-height: 1.78;
+  line-height: 1.72;
   letter-spacing: -0.01em;
   color: var(--hero-ink-soft);
-  text-wrap: pretty;
-  word-break: keep-all; /* 한글이 단어 중간에서 끊기지 않게 */
+  word-break: keep-all;
 }
 
 .hero-quote-alt {
   color: var(--hero-contrast);
-}
-
-.hero-source {
-  margin: 2px 0 0;
-  font-size: 12.5px;
-  letter-spacing: 0.02em;
-  color: #9b8a5e;
 }
 
 .hero-scroll {
@@ -107,9 +105,25 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  margin-top: 14px;
+  margin-top: 22px;
+  padding: 8px 14px;
+  font-family: inherit;
   font-size: 12.5px;
   color: #9b8a5e;
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.hero-scroll:hover {
+  color: var(--hero-ink);
+  background: rgb(59 47 22 / 6%);
+}
+
+.hero-scroll:focus-visible {
+  outline: 2px solid var(--hero-contrast);
+  outline-offset: 2px;
 }
 
 .hero-scroll svg {
@@ -128,10 +142,30 @@
   }
 }
 
+.egg-wing {
+  transform-origin: 50% 30%;
+  animation: egg-flap 1.3s ease-in-out infinite;
+}
+
+.egg-wing-r {
+  animation-delay: 0.15s;
+}
+
+@keyframes egg-flap {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-12deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-scroll svg,
   .egg,
-  .egg-top {
+  .egg-top,
+  .egg-wing {
     animation: none;
   }
 }
@@ -149,6 +183,7 @@
   position: sticky;
   top: 0;
   z-index: 30;
+  scroll-snap-align: start;
 }
 
 .header-inner {

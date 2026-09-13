@@ -29,6 +29,19 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  /* proximity 라서 목록 안에서 스크롤할 때는 걸리지 않는다 */
+  scroll-snap-type: y proximity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+}
+
 body {
   margin: 0;
   background: var(--bg);
