@@ -1,12 +1,10 @@
 {
-  "updated_at": "2026-09-13T13:54:22+09:00",
+  "updated_at": "2026-09-13T13:55:05+09:00",
   "sources": {
     "wanted": 192,
     "jumpit": 24
   },
-  "stale_sources": [
-    "wanted"
-  ],
+  "stale_sources": [],
   "total_count": 216,
   "matched_count": 5,
   "conditions": [
