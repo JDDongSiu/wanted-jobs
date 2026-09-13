@@ -130,113 +130,121 @@ function initialConditions() {
 }
 
 // 토끼와 강아지.
-// 머리와 몸통은 따로 그리지 않고, 두 원의 합집합을 한 줄기 외곽선으로 그린다.
-// 원 두 개(머리 r34 @76,74 · 몸통 r21 @76,115)가 만나는 점이 (±17.38, +29.22) 이라
-// 그 점에서 큰 호 두 개를 이어 붙이면 목 없는 하나의 실루엣이 된다.
+// 머리와 몸통은 따로 그리지 않고 두 원의 합집합을 한 줄기 외곽선으로 그린다.
+// 두 원이 만나는 점에서 큰 호 두 개를 이어 붙이면 목 없는 하나의 실루엣이 된다.
+// 토끼는 머리(r32)와 몸통 간격을 좁혀 강아지(r34)보다 짧고, 그만큼 아래로 내려
+// 두 캐릭터가 같은 바닥에 선다.
 const INK = '#4A3B25'
 const LW = 2.6
-const BODY_OUTLINE =
+const RABBIT_OUTLINE =
+  'M56.76 97.57A32 32 0 1 1 95.24 97.57A21 21 0 1 1 56.76 97.57Z'
+const DOG_OUTLINE =
   'M58.62 103.22A34 34 0 1 1 93.38 103.22A21 21 0 1 1 58.62 103.22Z'
 
 function Characters() {
   return (
     <svg
       className="mascots"
-      viewBox="0 0 250 140"
+      viewBox="5 0 250 140"
       role="img"
       aria-label="나란히 선 토끼와 강아지"
     >
-      {/* 토끼 */}
-      <g className="mascot mascot-rabbit">
-        {/* 귀 — 가운데 붙은 11자. 끝만 둥글고 안쪽은 살색이다 */}
-        <rect x="61.5" y="14" width="13" height="48" rx="6.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
-        <rect x="77.5" y="14" width="13" height="48" rx="6.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
-        <rect x="64.8" y="20" width="6.4" height="38" rx="3.2" fill="#F7BFC6" />
-        <rect x="80.8" y="20" width="6.4" height="38" rx="3.2" fill="#F7BFC6" />
+      {/* 자리 이동은 바깥 g 가 맡는다. CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰기 때문이다 */}
+      <g transform="translate(0 9)">
+        <g className="mascot mascot-rabbit">
+          {/* 귀 — 가운데 붙은 11자. 끝만 둥글고 안쪽은 살색이다 */}
+          <rect x="61.5" y="14" width="13" height="48" rx="6.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
+          <rect x="77.5" y="14" width="13" height="48" rx="6.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
+          <rect x="64.8" y="20" width="6.4" height="38" rx="3.2" fill="#F7BFC6" />
+          <rect x="80.8" y="20" width="6.4" height="38" rx="3.2" fill="#F7BFC6" />
 
-        {/* 아주 작은 손발 */}
-        <g fill="#FFFDF8" stroke={INK} strokeWidth={LW}>
-          <ellipse cx="55" cy="113" rx="4.5" ry="6" />
-          <ellipse cx="97" cy="113" rx="4.5" ry="6" />
-          <ellipse cx="67" cy="135" rx="6.5" ry="4" />
-          <ellipse cx="85" cy="135" rx="6.5" ry="4" />
+          {/* 아주 작은 손발 */}
+          <g fill="#FFFDF8" stroke={INK} strokeWidth={LW}>
+            <ellipse cx="55" cy="104" rx="4.5" ry="6" />
+            <ellipse cx="97" cy="104" rx="4.5" ry="6" />
+            <ellipse cx="67" cy="126" rx="6.5" ry="4" />
+            <ellipse cx="85" cy="126" rx="6.5" ry="4" />
+          </g>
+
+          <path d={RABBIT_OUTLINE} fill="#FFFDF8" stroke={INK} strokeWidth={LW} strokeLinejoin="round" />
+
+          {/* 눈썹 — 얼굴 곡선을 타고 도는 ( ) */}
+          <g fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round">
+            <path d="M56.5 71.5Q54 62 64 57.5" />
+            <path d="M95.5 71.5Q98 62 88 57.5" />
+          </g>
+
+          {/* 볼터치 — 분홍 바탕에 검은 빗금 세 줄 */}
+          <ellipse cx="53.5" cy="84" rx="7" ry="4.2" fill="#F9C9CF" />
+          <ellipse cx="98.5" cy="84" rx="7" ry="4.2" fill="#F9C9CF" />
+          <g fill="none" stroke={INK} strokeWidth="1.4" strokeLinecap="round">
+            <path d="M50 81.8l1.6 4.4M53.7 81.2l1.6 4.8M57.4 81.8l1.6 4.4" />
+            <path d="M102 81.8l-1.6 4.4M98.3 81.2l-1.6 4.8M94.6 81.8l-1.6 4.4" />
+          </g>
+
+          {/* 눈 */}
+          <circle cx="66" cy="76" r="4.4" fill={INK} />
+          <circle cx="86" cy="76" r="4.4" fill={INK} />
+          <circle cx="67.6" cy="74.2" r="1.6" fill="#FFFDF8" />
+          <circle cx="87.6" cy="74.2" r="1.6" fill="#FFFDF8" />
+          <circle cx="63.6" cy="78.4" r="0.8" fill="#FFFDF8" />
+          <circle cx="83.6" cy="78.4" r="0.8" fill="#FFFDF8" />
+
+          {/* 코 */}
+          <ellipse cx="76" cy="83" rx="3.2" ry="2.4" fill={INK} />
+
+          {/* 입 — 혓바닥을 먼저 깔고 입선을 위에 얹는다 */}
+          <path d="M73 87c0 8.5 6 8.5 6 0z" fill="#EF9AA6" stroke={INK} strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M71.5 86.8q2.25 3.2 4.5 0q2.25 3.2 4.5 0" fill="none" stroke={INK} strokeWidth="2.2" strokeLinecap="round" />
+          <path d="M72.5 96h7" fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round" />
         </g>
-
-        {/* 머리와 몸통이 한 덩어리 */}
-        <path d={BODY_OUTLINE} fill="#FFFDF8" stroke={INK} strokeWidth={LW} strokeLinejoin="round" />
-
-        {/* 눈썹 — 얼굴 곡선을 타고 도는 ( ) */}
-        <g fill="none" stroke={INK} strokeWidth="2.4" strokeLinecap="round">
-          <path d="M57 72Q54.5 65.5 62 62" />
-          <path d="M95 72Q97.5 65.5 90 62" />
-        </g>
-
-        {/* 볼터치 — 분홍 바탕에 선 세 줄 */}
-        <ellipse cx="54.5" cy="88" rx="7" ry="4.2" fill="#F9C9CF" />
-        <ellipse cx="97.5" cy="88" rx="7" ry="4.2" fill="#F9C9CF" />
-        <g fill="none" stroke="#E38F9C" strokeWidth="1.4" strokeLinecap="round">
-          <path d="M51 85.8l1.6 4.4M54.7 85.2l1.6 4.8M58.4 85.8l1.6 4.4" />
-          <path d="M101 85.8l-1.6 4.4M97.3 85.2l-1.6 4.8M93.6 85.8l-1.6 4.4" />
-        </g>
-
-        {/* 눈 — 작은 검은 동그라미에 반짝임 */}
-        <circle cx="63" cy="78" r="3.4" fill={INK} />
-        <circle cx="89" cy="78" r="3.4" fill={INK} />
-        <circle cx="64.2" cy="76.5" r="1.3" fill="#FFFDF8" />
-        <circle cx="90.2" cy="76.5" r="1.3" fill="#FFFDF8" />
-        <circle cx="61.5" cy="79.9" r="0.7" fill="#FFFDF8" />
-        <circle cx="87.5" cy="79.9" r="0.7" fill="#FFFDF8" />
-
-        {/* 입 — 혓바닥을 먼저 깔고 입선을 위에 얹어 살짝만 보이게 한다 */}
-        <path d="M73 89.8q3 6.8 6 0z" fill="#EF9AA6" stroke={INK} strokeWidth="1.5" strokeLinejoin="round" />
-        <path d="M71 89q2.5 3.4 5 0q2.5 3.4 5 0" fill="none" stroke={INK} strokeWidth="2.2" strokeLinecap="round" />
       </g>
 
-      {/* 강아지 */}
-      {/* CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰므로 자리 이동은 바깥 g 가 맡는다 */}
       <g transform="translate(98 0)">
-      <g className="mascot mascot-dog">
-        {/* 늘어진 귀 */}
-        <g fill="#E4B47C" stroke={INK} strokeWidth={LW}>
-          <ellipse cx="45" cy="88" rx="8.5" ry="24" transform="rotate(-12 45 88)" />
-          <ellipse cx="107" cy="88" rx="8.5" ry="24" transform="rotate(12 107 88)" />
+        <g className="mascot mascot-dog">
+          {/* 늘어진 귀 */}
+          <g fill="#E4B47C" stroke={INK} strokeWidth={LW}>
+            <ellipse cx="45" cy="88" rx="8.5" ry="24" transform="rotate(-12 45 88)" />
+            <ellipse cx="107" cy="88" rx="8.5" ry="24" transform="rotate(12 107 88)" />
+          </g>
+
+          <g fill="#F9E9D2" stroke={INK} strokeWidth={LW}>
+            <ellipse cx="55" cy="113" rx="4.5" ry="6" />
+            <ellipse cx="97" cy="113" rx="4.5" ry="6" />
+            <ellipse cx="67" cy="135" rx="6.5" ry="4" />
+            <ellipse cx="85" cy="135" rx="6.5" ry="4" />
+          </g>
+
+          <path d={DOG_OUTLINE} fill="#F9E9D2" stroke={INK} strokeWidth={LW} strokeLinejoin="round" />
+
+          <g fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round">
+            <path d="M56.5 73.5Q54 64 64 59.5" />
+            <path d="M95.5 73.5Q98 64 88 59.5" />
+          </g>
+
+          <ellipse cx="53.5" cy="82" rx="7" ry="4.2" fill="#F3B7A6" />
+          <ellipse cx="98.5" cy="82" rx="7" ry="4.2" fill="#F3B7A6" />
+          <g fill="none" stroke={INK} strokeWidth="1.4" strokeLinecap="round">
+            <path d="M50 79.8l1.6 4.4M53.7 79.2l1.6 4.8M57.4 79.8l1.6 4.4" />
+            <path d="M102 79.8l-1.6 4.4M98.3 79.2l-1.6 4.8M94.6 79.8l-1.6 4.4" />
+          </g>
+
+          {/* 주둥이 */}
+          <ellipse cx="76" cy="88" rx="14" ry="10.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
+
+          <circle cx="66" cy="74" r="4.4" fill={INK} />
+          <circle cx="86" cy="74" r="4.4" fill={INK} />
+          <circle cx="67.6" cy="72.2" r="1.6" fill="#FFFDF8" />
+          <circle cx="87.6" cy="72.2" r="1.6" fill="#FFFDF8" />
+          <circle cx="63.6" cy="76.4" r="0.8" fill="#FFFDF8" />
+          <circle cx="83.6" cy="76.4" r="0.8" fill="#FFFDF8" />
+
+          <ellipse cx="76" cy="81" rx="4" ry="3.2" fill={INK} />
+
+          <path d="M73 87.8c0 8.5 6 8.5 6 0z" fill="#EF9AA6" stroke={INK} strokeWidth="1.5" strokeLinejoin="round" />
+          <path d="M76 84.5v3m0 0q-2.6 3-5 0m5 0q2.6 3 5 0" fill="none" stroke={INK} strokeWidth="2.2" strokeLinecap="round" />
+          <path d="M72.5 96h7" fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round" />
         </g>
-
-        <g fill="#F9E9D2" stroke={INK} strokeWidth={LW}>
-          <ellipse cx="55" cy="113" rx="4.5" ry="6" />
-          <ellipse cx="97" cy="113" rx="4.5" ry="6" />
-          <ellipse cx="67" cy="135" rx="6.5" ry="4" />
-          <ellipse cx="85" cy="135" rx="6.5" ry="4" />
-        </g>
-
-        <path d={BODY_OUTLINE} fill="#F9E9D2" stroke={INK} strokeWidth={LW} strokeLinejoin="round" />
-
-        <g fill="none" stroke={INK} strokeWidth="2.4" strokeLinecap="round">
-          <path d="M57 68Q54.5 61.5 62 58" />
-          <path d="M95 68Q97.5 61.5 90 58" />
-        </g>
-
-        <ellipse cx="54.5" cy="84" rx="7" ry="4.2" fill="#F3B7A6" />
-        <ellipse cx="97.5" cy="84" rx="7" ry="4.2" fill="#F3B7A6" />
-        <g fill="none" stroke="#DE917D" strokeWidth="1.4" strokeLinecap="round">
-          <path d="M51 81.8l1.6 4.4M54.7 81.2l1.6 4.8M58.4 81.8l1.6 4.4" />
-          <path d="M101 81.8l-1.6 4.4M97.3 81.2l-1.6 4.8M93.6 81.8l-1.6 4.4" />
-        </g>
-
-        {/* 주둥이 */}
-        <ellipse cx="76" cy="88" rx="14" ry="10.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
-
-        <circle cx="63" cy="74" r="3.4" fill={INK} />
-        <circle cx="89" cy="74" r="3.4" fill={INK} />
-        <circle cx="64.2" cy="72.5" r="1.3" fill="#FFFDF8" />
-        <circle cx="90.2" cy="72.5" r="1.3" fill="#FFFDF8" />
-        <circle cx="61.5" cy="75.9" r="0.7" fill="#FFFDF8" />
-        <circle cx="87.5" cy="75.9" r="0.7" fill="#FFFDF8" />
-
-        <ellipse cx="76" cy="83" rx="4.6" ry="3.4" fill={INK} />
-        <path d="M73 90.3q3 6.8 6 0z" fill="#EF9AA6" stroke={INK} strokeWidth="1.5" strokeLinejoin="round" />
-        <path d="M76 86.4v3.2m0 0q-2.6 3-5 0m5 0q2.6 3 5 0" fill="none" stroke={INK} strokeWidth="2.2" strokeLinecap="round" />
-      </g>
       </g>
     </svg>
   )
