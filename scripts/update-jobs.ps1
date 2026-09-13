@@ -53,6 +53,10 @@ try {
                 [System.Environment]::GetEnvironmentVariable('Path', 'User')
     $env:PYTHONIOENCODING = 'utf-8'
 
+    # 작업 스케줄러로 실행하면 출력 코드페이지가 cp949 라서
+    # UTF-8 로 나오는 파이썬 출력이 깨진 채로 기록된다.
+    [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding $false
+
     Set-Location $projectRoot
     Write-Log '=== 수집 시작 ==='
 
