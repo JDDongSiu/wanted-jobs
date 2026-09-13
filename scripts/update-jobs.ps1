@@ -1,4 +1,4 @@
-# 이 PC에서 채용공고를 수집해 GitHub에 올린다.
+﻿# 이 PC에서 채용공고를 수집해 GitHub에 올린다.
 # 원티드가 클라우드 IP를 차단해서 GitHub Actions 에서는 원티드 수집이 안 된다.
 # 푸시가 일어나면 GitHub Actions 가 이어받아 사이트를 다시 배포한다.
 #

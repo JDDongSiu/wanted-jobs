@@ -1,4 +1,4 @@
-# update-jobs.ps1 을 매일 실행하도록 Windows 작업 스케줄러에 등록한다.
+﻿# update-jobs.ps1 을 매일 실행하도록 Windows 작업 스케줄러에 등록한다.
 # 한 번만 실행하면 된다. 관리자 권한은 필요 없다.
 #
 #   powershell -ExecutionPolicy Bypass -File scripts\register-task.ps1
