@@ -5,7 +5,7 @@
 
 import time
 
-from common import FE_TITLE, get_json
+from common import FE_TITLE, get_json, normalize_location
 
 API_URL = "https://jumpit-api.saramin.co.kr/api/positions"
 JOB_CATEGORY_FE = 2  # 프론트엔드 개발자
@@ -58,7 +58,7 @@ def to_record(position):
         "id": f"jumpit-{position.get('id')}",
         "position": position.get("title"),
         "company": position.get("companyName"),
-        "location": locations[0] if locations else "",
+        "location": normalize_location(locations[0]) if locations else "",
         "category": position.get("jobCategory"),
         "annual_from": position.get("minCareer"),
         "annual_to": position.get("maxCareer"),

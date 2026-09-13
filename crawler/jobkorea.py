@@ -9,7 +9,7 @@ import re
 import time
 
 from bs4 import BeautifulSoup
-from common import FE_TITLE, HEADERS
+from common import FE_TITLE, HEADERS, REGION_NAMES, normalize_location
 
 import requests
 
@@ -21,6 +21,14 @@ MAX_PAGES = 25  # 한 페이지 40건. 넉넉히 잡되 무한 루프는 막는�
 
 CAREER_RANGE = re.compile(r"경력\s*(\d+)\s*~\s*(\d+)\s*년")
 CAREER_MIN = re.compile(r"경력\s*(\d+)\s*년?\s*[↑이상]")
+
+# cell 순서가 고정이 아니라 지역은 내용으로 골라낸다.
+LOCATION_START = re.compile(r"^(?:%s)" % "|".join(REGION_NAMES))
+
+EMPLOYMENT_TYPES = {
+    "정규직", "계약직", "인턴", "파견직", "도급",
+    "프리랜서", "아르바이트", "병역특례", "위촉직",
+}
 
 
 def _parse_career(cells):
@@ -49,9 +57,8 @@ def _parse_row(row):
     gno = row.get("data-gno")
     cells = [c.get_text(strip=True) for c in row.select("p.etc span.cell") if c.get_text(strip=True)]
 
-    # cell 순서가 고정이 아니라 내용으로 구분한다.
-    location = next((c for c in cells if re.match(r"^(서울|부산|대구|인천|광주|대전|울산|세종|경기|강원|충북|충남|전북|전남|경북|경남|제주|해외)", c)), "")
-    employment = next((c for c in cells if c in ("정규직", "계약직", "인턴", "파견직", "도급", "프리랜서", "아르바이트", "병역특례")), None)
+    location = next((c for c in cells if LOCATION_START.match(c)), "")
+    employment = next((c for c in cells if c in EMPLOYMENT_TYPES), None)
     annual_from, annual_to, is_newbie = _parse_career(cells)
 
     return {
@@ -59,7 +66,7 @@ def _parse_row(row):
         "id": f"jobkorea-{gno}",
         "position": title_el.get("title", "").strip(),
         "company": company_el.get_text(strip=True),
-        "location": location,
+        "location": normalize_location(location),
         "category": "프론트엔드개발자",
         "annual_from": annual_from,
         "annual_to": annual_to,

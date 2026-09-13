@@ -42,6 +42,48 @@ CSV_PATH = ROOT / "jobs.csv"
 FE_TITLE = re.compile(r"프론트\s*엔드|프론트|front[\s\-_]?end|frontend", re.IGNORECASE)
 
 
+# 사이트마다 지역 표기가 달라(세종 / 세종특별자치시) 화면 필터가 갈라진다.
+# 주소의 첫 토큰을 짧은 이름으로 통일한다.
+REGION_ALIASES = {
+    "서울특별시": "서울",
+    "부산광역시": "부산",
+    "대구광역시": "대구",
+    "인천광역시": "인천",
+    "대전광역시": "대전",
+    "울산광역시": "울산",
+    "광주광역시": "광주",
+    "세종특별자치시": "세종",
+    "세종시": "세종",
+    "경기도": "경기",
+    "강원특별자치도": "강원",
+    "강원도": "강원",
+    "충청북도": "충북",
+    "충청남도": "충남",
+    "전북특별자치도": "전북",
+    "전라북도": "전북",
+    "전라남도": "전남",
+    "경상북도": "경북",
+    "경상남도": "경남",
+    "제주특별자치도": "제주",
+    "제주도": "제주",
+    "전남광주통합특별시": "전남광주",
+}
+
+REGION_NAMES = sorted(
+    set(REGION_ALIASES) | set(REGION_ALIASES.values()) | {"해외"},
+    key=len,
+    reverse=True,
+)
+
+
+def normalize_location(location):
+    if not location:
+        return ""
+    parts = location.split()
+    parts[0] = REGION_ALIASES.get(parts[0], parts[0])
+    return " ".join(parts)
+
+
 def get_json(url, params=None, timeout=20, referer=None):
     headers = dict(HEADERS)
     if referer:

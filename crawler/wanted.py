@@ -5,7 +5,7 @@
 
 import time
 
-from common import FE_TITLE, get_json
+from common import FE_TITLE, get_json, normalize_location
 
 API_URL = "https://www.wanted.co.kr/api/chaos/navigation/v1/results"
 JOB_GROUP_ID = 518  # 개발
@@ -86,7 +86,9 @@ def is_frontend(job):
 
 def to_record(job):
     address = job.get("address", {})
-    location = " ".join(filter(None, [address.get("location"), address.get("district")]))
+    location = normalize_location(
+        " ".join(filter(None, [address.get("location"), address.get("district")]))
+    )
     tags = set(job.get("attraction_tags", []))
     category_id = (job.get("category_tag") or {}).get("id")
 

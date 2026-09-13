@@ -1,13 +1,11 @@
 {
-  "updated_at": "2026-09-13T14:13:45+09:00",
+  "updated_at": "2026-09-13T14:22:04+09:00",
   "sources": {
     "wanted": 192,
     "jumpit": 24,
     "jobkorea": 146
   },
-  "stale_sources": [
-    "wanted"
-  ],
+  "stale_sources": [],
   "total_count": 362,
   "matched_count": 5,
   "conditions": [
@@ -4276,7 +4274,7 @@
       "id": "jumpit-54866014",
       "position": "프론트엔드 개발자 (경력)",
       "company": "학교종이",
-      "location": "세종특별자치시",
+      "location": "세종",
       "category": "프론트엔드 개발자",
       "annual_from": 2,
       "annual_to": 3,

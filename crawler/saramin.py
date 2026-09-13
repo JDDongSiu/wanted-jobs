@@ -7,7 +7,7 @@ access-key 는 환경변수 SARAMIN_API_KEY 로 넘긴다. 키가 없으면 이 
 import os
 import time
 
-from common import FE_TITLE, get_json
+from common import FE_TITLE, get_json, normalize_location
 
 API_URL = "https://oapi.saramin.co.kr/job-search"
 KEYWORDS = "프론트엔드"
@@ -65,7 +65,7 @@ def to_record(job):
     experience = position.get("experience-level") or {}
     code = experience.get("code")
 
-    location = _text(position.get("location")).replace(" > ", " ")
+    location = normalize_location(_text(position.get("location")).replace(" > ", " "))
 
     return {
         "source": "saramin",
