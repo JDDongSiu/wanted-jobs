@@ -544,24 +544,6 @@ export default function App() {
     )
   }, [filtered])
 
-  if (error) {
-    return (
-      <main className="state">
-        <p className="state-title">데이터를 불러오지 못했습니다</p>
-        <p className="state-desc">{error}</p>
-        <p className="state-desc">
-          <code>python crawler/build_jobs.py</code> 를 먼저 실행해 주세요.
-        </p>
-      </main>
-    )
-  }
-
-  if (!data) return <main className="state">불러오는 중...</main>
-
-  const newCount = data.new_count ?? 0
-
-  // 헤더가 sticky 라 scrollIntoView 가 듣지 않고, 스냅이 켜져 있으면 브라우저의
-  // 부드러운 스크롤을 표지로 되돌려버린다. 그래서 직접 애니메이션하고 그동안 스냅을 끈다.
   const scrollToList = () => {
     const el = document.getElementById('list')
     if (!el) return
@@ -587,6 +569,67 @@ export default function App() {
     }, 800)
   }
 
+  // 표지에서는 한 번만 밀어도 목록까지 내려간다. 조금씩 걸쳐 멈추지 않게 한다.
+  useEffect(() => {
+    const onCover = () => {
+      const hero = document.querySelector('.hero')
+      return hero ? window.scrollY < hero.offsetHeight * 0.5 : false
+    }
+
+    const glide = (event) => {
+      if (snapLocked.current || !onCover()) return
+      event.preventDefault()
+      scrollToList()
+    }
+
+    const onWheel = (event) => {
+      if (event.deltaY > 0) glide(event)
+    }
+
+    const onKey = (event) => {
+      const tag = event.target?.tagName
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return
+      if (['ArrowDown', 'PageDown', ' '].includes(event.key)) glide(event)
+    }
+
+    let touchStart = 0
+    const onTouchStart = (event) => {
+      touchStart = event.touches[0].clientY
+    }
+    const onTouchMove = (event) => {
+      if (touchStart - event.touches[0].clientY > 12) glide(event)
+    }
+
+    window.addEventListener('wheel', onWheel, { passive: false })
+    window.addEventListener('keydown', onKey)
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+    window.addEventListener('touchmove', onTouchMove, { passive: false })
+    return () => {
+      window.removeEventListener('wheel', onWheel)
+      window.removeEventListener('keydown', onKey)
+      window.removeEventListener('touchstart', onTouchStart)
+      window.removeEventListener('touchmove', onTouchMove)
+    }
+  }, [])
+
+  if (error) {
+    return (
+      <main className="state">
+        <p className="state-title">데이터를 불러오지 못했습니다</p>
+        <p className="state-desc">{error}</p>
+        <p className="state-desc">
+          <code>python crawler/build_jobs.py</code> 를 먼저 실행해 주세요.
+        </p>
+      </main>
+    )
+  }
+
+  if (!data) return <main className="state">불러오는 중...</main>
+
+  const newCount = data.new_count ?? 0
+
+  // 헤더가 sticky 라 scrollIntoView 가 듣지 않고, 스냅이 켜져 있으면 브라우저의
+  // 부드러운 스크롤을 표지로 되돌려버린다. 그래서 직접 애니메이션하고 그동안 스냅을 끈다.
   return (
     <>
       <section className="hero">
