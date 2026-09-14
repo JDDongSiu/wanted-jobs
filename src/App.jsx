@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useState } from 'react'
 import './App.css'
 
 const EMPLOYMENT_LABELS = {
@@ -138,16 +138,30 @@ const FUR = '#FAE8B4' // 토끼 몸 색
 const RABBIT_LW = 1.9 // 토끼는 선을 더 가늘게 쓴다
 // 토끼 몸을 이루는 조각들. 아래에서 두 번 그려 합집합 윤곽만 남긴다.
 // 몸통은 위가 넓고 아래로 갈수록 좁아지며, 발 사이가 벌어져 Y 자로 갈라진다.
+const HEAD_TILT = 'rotate(3 76 100)'
 const RABBIT_PARTS = (
   <>
-    <rect x="62" y="8" width="13" height="54" rx="6.5" transform="rotate(-9 68.5 60)" />
-    <rect x="77" y="8" width="13" height="54" rx="6.5" transform="rotate(9 83.5 60)" />
-    <path d="M76 40C102.94 40 114 49.31 114 72C114 94.69 102.94 104 76 104C49.06 104 38 94.69 38 72C38 49.31 49.06 40 76 40Z" />
-    <path d="M49.5 88L56 118C56 123.5 64 125.5 76 125.5C88 125.5 96 123.5 96 118L102.5 88Z" />
-    <ellipse cx="51.5" cy="110" rx="4.5" ry="8" transform="rotate(-10 51.5 110)" />
+    <rect x="62" y="8" width="13" height="54" rx="6.5" transform={`${HEAD_TILT} rotate(-9 68.5 60)`} />
+    <rect x="77" y="8" width="13" height="54" rx="6.5" transform={`${HEAD_TILT} rotate(9 83.5 60)`} />
+    <path
+      d="M76 40C102.94 40 114 49.31 114 72C114 94.69 102.94 104 76 104C49.06 104 38 94.69 38 72C38 49.31 49.06 40 76 40Z"
+      transform={HEAD_TILT}
+    />
+    <path
+      d="M49.5 88L56 118C56 123.5 64 125.5 76 125.5C88 125.5 96 123.5 96 118L102.5 88Z"
+      transform="rotate(-5 76 125)"
+    />
     <ellipse cx="100.5" cy="110" rx="4.5" ry="8" transform="rotate(10 100.5 110)" />
     <ellipse cx="67" cy="129" rx="5" ry="5" />
     <ellipse cx="85" cy="129" rx="5" ry="5" />
+  </>
+)
+
+// 앞으로 들어올린 팔. 몸을 그린 뒤에 얹어야 앞뒤가 읽힌다.
+const RABBIT_ARM = (
+  <>
+    <ellipse cx="64" cy="107" rx="5" ry="10" transform="rotate(35 64 107)" />
+    <circle cx="69" cy="98.5" r="4" />
   </>
 )
 const DOG_OUTLINE =
@@ -155,6 +169,8 @@ const DOG_OUTLINE =
 
 // mascots.html 미리보기 페이지에서도 쓴다
 export function Characters() {
+  // 한 화면에 여러 번 그려도 그라디언트 id 가 겹치지 않게 한다
+  const gid = useId().replace(/:/g, '')
   return (
     <svg
       className="mascots"
@@ -162,52 +178,102 @@ export function Characters() {
       role="img"
       aria-label="나란히 선 토끼와 강아지"
     >
+      <defs>
+        {/* 위에서 빛이 드는 것처럼 가운데 위가 밝고 가장자리로 갈수록 진해진다 */}
+        <radialGradient id={`${gid}-fur`} gradientUnits="userSpaceOnUse" cx="64" cy="54" r="88">
+          <stop offset="0" stopColor="#FEF8E2" />
+          <stop offset="0.45" stopColor="#FAE8B4" />
+          <stop offset="1" stopColor="#E9CB84" />
+        </radialGradient>
+        {/* 턱 아래에서 시작해 아래로 풀리는 그늘 */}
+        <linearGradient id={`${gid}-shade`} gradientUnits="userSpaceOnUse" x1="0" y1="99" x2="0" y2="126">
+          <stop offset="0" stopColor="#BF8A33" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#BF8A33" stopOpacity="0" />
+        </linearGradient>
+        <radialGradient id={`${gid}-blush`}>
+          <stop offset="0" stopColor="#F19FAE" stopOpacity="0.9" />
+          <stop offset="0.55" stopColor="#F6BCC5" stopOpacity="0.6" />
+          <stop offset="1" stopColor="#F6BCC5" stopOpacity="0" />
+        </radialGradient>
+        {/* 아래쪽이 밝아 구슬처럼 보인다 */}
+        <radialGradient id={`${gid}-eye`} cx="0.5" cy="0.74" r="0.8">
+          <stop offset="0" stopColor="#7E6339" />
+          <stop offset="0.5" stopColor="#3F3221" />
+          <stop offset="1" stopColor="#241C10" />
+        </radialGradient>
+        <filter id={`${gid}-soft`} x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="2.4" />
+        </filter>
+        <clipPath id={`${gid}-clip`}>{RABBIT_PARTS}</clipPath>
+      </defs>
       {/* 자리 이동은 바깥 g 가 맡는다. CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰기 때문이다 */}
       <g transform="translate(0 4.4)">
         <g className="mascot mascot-rabbit">
-          {/* 같은 도형을 두 번 그린다. 먼저 굵은 잉크선으로 통째로 한 번,
-              그 위에 색만 한 번. 그러면 귀·머리·몸·팔다리 경계선이 사라지고
-              바깥 윤곽 하나만 남는다 */}
+          {/* 잉크 실루엣을 먼저 통째로 깔면 조각 경계선이 사라지고 바깥 윤곽만 남는다 */}
           <g fill={INK} stroke={INK} strokeWidth={RABBIT_LW * 2} strokeLinejoin="round">
             {RABBIT_PARTS}
           </g>
-          <g fill={FUR}>{RABBIT_PARTS}</g>
 
-          {/* 귀 안쪽 */}
-          <rect x="65" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(-9 68.5 60)" />
-          <rect x="80" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(9 83.5 60)" />
+          {/* 색을 살짝 왼쪽 위로 밀어 덮는다. 그러면 오른쪽 아래 선이 굵고
+              왼쪽 위가 가늘어져, 손으로 그은 선처럼 굵기가 변한다 */}
+          <g transform="translate(-0.35 -0.5)">
+            <g fill={`url(#${gid}-fur)`}>{RABBIT_PARTS}</g>
 
-          {/* 눈썹 — 가늘게. 안쪽을 올리고 바깥을 떨어뜨려 처진 눈썹으로 */}
-          <g fill="none" stroke={INK} strokeWidth="1.8" strokeLinecap="round">
-            <path d="M51.5 62Q62 54 72 53" />
-            <path d="M100.5 62Q90 54 80 53" />
+            {/* 겹치는 자리마다 그늘. 몸 밖으로 번지지 않게 실루엣으로 잘라낸다 */}
+            <g clipPath={`url(#${gid}-clip)`} filter={`url(#${gid}-soft)`}>
+              <path
+                d="M38 72C38 94.69 49.06 104 76 104C102.94 104 114 94.69 114 72L114 132L38 132Z"
+                fill={`url(#${gid}-shade)`}
+                transform={HEAD_TILT}
+              />
+              <ellipse cx="73" cy="110" rx="7" ry="4.5" fill="#BF8A33" opacity="0.26" transform="rotate(35 73 110)" />
+            </g>
           </g>
 
-          {/* 볼터치 */}
-          <ellipse cx="52" cy="88" rx="8.6" ry="5.2" fill="#F9C9CF" />
-          <ellipse cx="100" cy="88" rx="8.6" ry="5.2" fill="#F9C9CF" />
-          <g fill="none" stroke={INK} strokeWidth="1.2" strokeLinecap="round">
-            <path d="M46.9 85.8l1.8 5M51.1 85.1l1.8 5.7M55.3 85.8l1.8 5" />
-            <path d="M105.1 85.8l-1.8 5M100.9 85.1l-1.8 5.7M96.7 85.8l-1.8 5" />
+          {/* 얼굴은 머리와 같이 기운다 */}
+          <g transform={HEAD_TILT}>
+            <rect x="65" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(-9 68.5 60)" />
+            <rect x="80" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(9 83.5 60)" />
+
+            {/* 눈썹 — 가늘게. 안쪽을 올리고 바깥을 떨어뜨려 처진 눈썹으로 */}
+            <g fill="none" stroke={INK} strokeWidth="1.8" strokeLinecap="round">
+              <path d="M51.5 62Q62 54 72 53" />
+              <path d="M100.5 62Q90 54 80 53" />
+            </g>
+
+            {/* 볼터치 — 가장자리가 번지도록 */}
+            <ellipse cx="52" cy="88" rx="9.4" ry="5.8" fill={`url(#${gid}-blush)`} />
+            <ellipse cx="100" cy="88" rx="9.4" ry="5.8" fill={`url(#${gid}-blush)`} />
+            <g fill="none" stroke={INK} strokeWidth="1.2" strokeLinecap="round">
+              <path d="M46.9 85.8l1.8 5M51.1 85.1l1.8 5.7M55.3 85.8l1.8 5" />
+              <path d="M105.1 85.8l-1.8 5M100.9 85.1l-1.8 5.7M96.7 85.8l-1.8 5" />
+            </g>
+
+            {/* 눈 — 단색 대신 그라디언트를 써서 젖은 구슬처럼 */}
+            <circle cx="64" cy="76.3" r="5.4" fill={`url(#${gid}-eye)`} />
+            <circle cx="88" cy="76.3" r="5.4" fill={`url(#${gid}-eye)`} />
+            <ellipse cx="64" cy="79.9" rx="3.2" ry="1.8" fill="#C9A76A" opacity="0.55" />
+            <ellipse cx="88" cy="79.9" rx="3.2" ry="1.8" fill="#C9A76A" opacity="0.55" />
+            <g fill="#FFFDF8">
+              <circle cx="65.3" cy="74.7" r="2.1" />
+              <circle cx="86.7" cy="74.7" r="2.1" />
+              <circle cx="62.5" cy="78.8" r="1.24" />
+              <circle cx="89.5" cy="78.8" r="1.24" />
+              <path d="M61.4 72.16C61.79 73.16 61.94 73.32 62.94 73.7C61.94 74.09 61.79 74.24 61.4 75.24C61.02 74.24 60.86 74.09 59.86 73.7C60.86 73.32 61.02 73.16 61.4 72.16Z" />
+              <path d="M90.6 72.16C90.21 73.16 90.06 73.32 89.06 73.7C90.06 74.09 90.21 74.24 90.6 75.24C90.99 74.24 91.14 74.09 92.14 73.7C91.14 73.32 90.99 73.16 90.6 72.16Z" />
+            </g>
+
+            <ellipse cx="76" cy="85.6" rx="2" ry="1.6" fill={INK} />
+            <path d="M72.2 88.2q1.9 2.6 3.8 0q1.9 2.6 3.8 0" fill="none" stroke={INK} strokeWidth="1.8" strokeLinecap="round" />
           </g>
 
-          {/* 눈 */}
-          <circle cx="64" cy="76.3" r="5.4" fill={INK} />
-          <circle cx="88" cy="76.3" r="5.4" fill={INK} />
-          <ellipse cx="64" cy="79.7" rx="3.1" ry="1.7" fill="#9A7F58" opacity="0.5" />
-          <ellipse cx="88" cy="79.7" rx="3.1" ry="1.7" fill="#9A7F58" opacity="0.5" />
-          <g fill="#FFFDF8">
-            <circle cx="65.3" cy="74.7" r="2.1" />
-            <circle cx="86.7" cy="74.7" r="2.1" />
-            <circle cx="62.5" cy="78.8" r="1.24" />
-            <circle cx="89.5" cy="78.8" r="1.24" />
-            <path d="M61.4 72.16C61.79 73.16 61.94 73.32 62.94 73.7C61.94 74.09 61.79 74.24 61.4 75.24C61.02 74.24 60.86 74.09 59.86 73.7C60.86 73.32 61.02 73.16 61.4 72.16Z" />
-            <path d="M90.6 72.16C90.21 73.16 90.06 73.32 89.06 73.7C90.06 74.09 90.21 74.24 90.6 75.24C90.99 74.24 91.14 74.09 92.14 73.7C91.14 73.32 90.99 73.16 90.6 72.16Z" />
+          {/* 들어올린 팔. 제 윤곽선을 달고 몸 위에 얹혀 앞에 있다는 게 읽힌다 */}
+          <g fill={INK} stroke={INK} strokeWidth={RABBIT_LW * 2} strokeLinejoin="round">
+            {RABBIT_ARM}
           </g>
-
-          {/* 코와 아주 작은 ω 입 */}
-          <ellipse cx="76" cy="85.6" rx="2" ry="1.6" fill={INK} />
-          <path d="M72.2 88.2q1.9 2.6 3.8 0q1.9 2.6 3.8 0" fill="none" stroke={INK} strokeWidth="1.8" strokeLinecap="round" />
+          <g transform="translate(-0.35 -0.5)" fill={`url(#${gid}-fur)`}>
+            {RABBIT_ARM}
+          </g>
         </g>
       </g>
 
