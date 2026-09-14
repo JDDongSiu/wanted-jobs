@@ -173,15 +173,15 @@ const DOG_HEAD =
 const DOG_PARTS = (
   <>
     {/* 오른쪽 귀를 더 눕혀 좌우가 똑같이 떨어지지 않게 한다 */}
-    <ellipse cx="46" cy="40" rx="10" ry="13.5" transform={`${DOG_TILT} rotate(20 46 40)`} />
-    <ellipse cx="107" cy="39" rx="10.5" ry="13" transform={`${DOG_TILT} rotate(-30 107 39)`} />
+    <ellipse cx="46" cy="40" rx="8.8" ry="12" transform={`${DOG_TILT} rotate(20 46 40)`} />
+    <ellipse cx="107" cy="39" rx="9.2" ry="11.5" transform={`${DOG_TILT} rotate(-30 107 39)`} />
     <path d={DOG_HEAD} transform={DOG_TILT} />
-    <path d="M60 84L62 104C62 109 90 109 90 104L92 84Z" />
-    <ellipse cx="57" cy="100" rx="3.8" ry="6" transform="rotate(-8 57 100)" />
-    <ellipse cx="95" cy="100" rx="3.8" ry="6" transform="rotate(8 95 100)" />
+    <path d="M60 84L62 113C62 118 90 118 90 113L92 84Z" />
+    <ellipse cx="58.5" cy="104" rx="3" ry="5" transform="rotate(-8 58.5 104)" />
+    <ellipse cx="93.5" cy="104" rx="3" ry="5" transform="rotate(8 93.5 104)" />
     {/* 젓가락 같은 다리 */}
-    <rect x="67" y="104" width="6" height="12" rx="3" />
-    <rect x="81" y="104" width="6" height="12" rx="3" />
+    <rect x="67" y="113" width="6" height="12" rx="3" />
+    <rect x="81" y="113" width="6" height="12" rx="3" />
   </>
 )
 
@@ -228,7 +228,7 @@ export function Characters() {
           <stop offset="0.5" stopColor="#FCFAF4" />
           <stop offset="1" stopColor="#EDE6D6" />
         </radialGradient>
-        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="92" x2="0" y2="112">
+        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="92" x2="0" y2="118">
           <stop offset="0" stopColor="#B7A98C" stopOpacity="0.16" />
           <stop offset="1" stopColor="#B7A98C" stopOpacity="0" />
         </linearGradient>
@@ -311,7 +311,7 @@ export function Characters() {
         </g>
       </g>
 
-      <g transform="translate(102 22.4)">
+      <g transform="translate(104 13.4)">
         <g className="mascot mascot-dog">
           {/* 전체를 한 번 흔들어 자로 그은 티를 없앤다 */}
           <g filter={`url(#${gid}-wobble)`}>
@@ -321,7 +321,7 @@ export function Characters() {
             <g transform="translate(-0.3 -0.45)">
               <g fill={`url(#${gid}-dogfur)`}>{DOG_PARTS}</g>
               <path
-                d="M44 82C44 90 50 94 58 94L94 94C102 94 108 90 108 82L108 120L44 120Z"
+                d="M44 82C44 90 50 94 58 94L94 94C102 94 108 90 108 82L108 128L44 128Z"
                 fill={`url(#${gid}-dogshade)`}
                 transform={DOG_TILT}
                 clipPath={`url(#${gid}-dogclip)`}
@@ -332,8 +332,8 @@ export function Characters() {
             <g transform={DOG_TILT}>
               {/* 귀 안쪽 경계. 이 선이 있어야 귀가 머리와 구분된다 */}
               <g fill="none" stroke={INK} strokeWidth={DOG_LW} strokeLinecap="round">
-                <path d="M54.7 30.7Q56.5 46 46.7 52.7" />
-                <path d="M96.8 31.9Q99.5 46 108.1 51.4" />
+                <path d="M53.7 31.7Q55.3 45 46.6 51.3" />
+                <path d="M98 32.7Q100.3 45 108 49.9" />
               </g>
 
               {/* 눈은 위에, 코와 입은 아래에. 코와 입은 붙이지 않는다 */}
