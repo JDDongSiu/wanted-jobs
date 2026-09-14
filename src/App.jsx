@@ -152,7 +152,8 @@ const RABBIT_PARTS = (
 const DOG_OUTLINE =
   'M58.62 103.22A34 34 0 1 1 93.38 103.22A21 21 0 1 1 58.62 103.22Z'
 
-function Characters() {
+// mascots.html 미리보기 페이지에서도 쓴다
+export function Characters() {
   return (
     <svg
       className="mascots"
