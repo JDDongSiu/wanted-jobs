@@ -1,4 +1,4 @@
-import { useEffect, useId, useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import './App.css'
 
 const EMPLOYMENT_LABELS = {
@@ -455,6 +455,27 @@ export default function App() {
     )
   }, [query, source, region, career, conditions])
 
+  // 스냅은 표지와 목록 첫머리 사이에서만 쓸모가 있다. 목록 안으로 충분히 들어오면
+  // 꺼버려서, 아래 정보를 읽을 때는 아무것도 걸리지 않게 한다.
+  const snapLocked = useRef(false)
+  useEffect(() => {
+    const html = document.documentElement
+    const apply = () => {
+      if (snapLocked.current) return
+      const hero = document.querySelector('.hero')
+      const limit = (hero?.offsetHeight ?? 0) * 1.5
+      html.style.scrollSnapType = window.scrollY > limit ? 'none' : ''
+    }
+    apply()
+    window.addEventListener('scroll', apply, { passive: true })
+    window.addEventListener('resize', apply)
+    return () => {
+      window.removeEventListener('scroll', apply)
+      window.removeEventListener('resize', apply)
+      html.style.scrollSnapType = ''
+    }
+  }, [])
+
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}jobs.json`)
       .then((res) => {
@@ -553,12 +574,15 @@ export default function App() {
       return
     }
 
+    // 미끄러지는 동안 스냅이 끼어들지 않게 잠가둔다
+    snapLocked.current = true
     html.style.scrollSnapType = 'none'
     window.scrollTo({ top: target, behavior: 'smooth' })
 
     window.setTimeout(() => {
       // 탭이 숨겨져 있으면 브라우저가 부드러운 스크롤을 돌리지 않는다. 그때는 바로 맞춘다.
       if (Math.abs(window.scrollY - target) > 2) window.scrollTo(0, target)
+      snapLocked.current = false
       html.style.scrollSnapType = ''
     }, 800)
   }

@@ -29,15 +29,15 @@
   box-sizing: border-box;
 }
 
+/* scroll-behavior 를 전역으로 켜면 목록 안에서 키보드나 스크롤바로 움직일 때도
+   전부 스르륵 따라붙는다. 표지에서 목록으로 넘어갈 때만 필요하므로
+   그 버튼에서만 behavior: 'smooth' 를 직접 넘긴다. */
 html {
-  scroll-behavior: smooth;
-  /* proximity 라서 목록 안에서 스크롤할 때는 걸리지 않는다 */
   scroll-snap-type: y proximity;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
-    scroll-behavior: auto;
     scroll-snap-type: none;
   }
 }
