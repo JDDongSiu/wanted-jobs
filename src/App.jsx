@@ -165,16 +165,21 @@ const RABBIT_ARM = (
   </>
 )
 const DOG_LW = 1.9
-// 아래를 내려다보는 각도라 얼굴이 머리 아래쪽 3분의 1에 몰린다. 귀는 머리 위에 붙는다.
-const DOG_TILT = 'rotate(-7 76 58)'
+// 머리는 동그라미가 아니라 모서리만 둥근 네모다. n=3.2 짜리 초타원으로 잡아
+// 옆면이 곧게 떨어지게 했다. 귀는 위 모서리에 붙어 옆으로 늘어진다.
+const DOG_TILT = 'rotate(-2 76 56)'
+const DOG_HEAD =
+  'M76 26C102 26 108 31.6 108 56C108 80.4 102 86 76 86C50 86 44 80.4 44 56C44 31.6 50 26 76 26Z'
 const DOG_PARTS = (
   <>
-    <ellipse cx="50" cy="32" rx="10" ry="13" transform={`${DOG_TILT} rotate(-42 50 32)`} />
-    <ellipse cx="100" cy="30" rx="9" ry="11.5" transform={`${DOG_TILT} rotate(38 100 30)`} />
-    <ellipse cx="76" cy="58" rx="37" ry="33" transform={DOG_TILT} />
-    <path d="M64 84L66 98C66 101 86 101 86 98L88 84Z" />
-    <rect x="58" y="96" width="13" height="11" rx="5.5" />
-    <rect x="81" y="96" width="13" height="11" rx="5.5" />
+    <ellipse cx="46" cy="40" rx="10" ry="13.5" transform={`${DOG_TILT} rotate(20 46 40)`} />
+    <ellipse cx="106" cy="40" rx="10" ry="13.5" transform={`${DOG_TILT} rotate(-20 106 40)`} />
+    <path d={DOG_HEAD} transform={DOG_TILT} />
+    <path d="M58 76L59 98C59 103 93 103 93 98L94 76Z" />
+    <ellipse cx="55.5" cy="88" rx="4" ry="7" transform="rotate(-8 55.5 88)" />
+    <ellipse cx="96.5" cy="88" rx="4" ry="7" transform="rotate(8 96.5 88)" />
+    <path d="M57 96L57 108q2.33 6 4.67 0q2.33 6 4.67 0q2.33 6 4.66 0L71 96Z" />
+    <path d="M81 96L81 108q2.33 6 4.67 0q2.33 6 4.67 0q2.33 6 4.66 0L95 96Z" />
   </>
 )
 
@@ -221,8 +226,8 @@ export function Characters() {
           <stop offset="0.5" stopColor="#FCFAF4" />
           <stop offset="1" stopColor="#EDE6D6" />
         </radialGradient>
-        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="86" x2="0" y2="106">
-          <stop offset="0" stopColor="#B7A98C" stopOpacity="0.2" />
+        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="84" x2="0" y2="104">
+          <stop offset="0" stopColor="#B7A98C" stopOpacity="0.16" />
           <stop offset="1" stopColor="#B7A98C" stopOpacity="0" />
         </linearGradient>
         {/* 선을 조금 흔들어 손으로 그은 느낌을 낸다 */}
@@ -304,7 +309,7 @@ export function Characters() {
         </g>
       </g>
 
-      <g transform="translate(104 31.4)">
+      <g transform="translate(104 27.4)">
         <g className="mascot mascot-dog">
           {/* 전체를 한 번 흔들어 자로 그은 티를 없앤다 */}
           <g filter={`url(#${gid}-wobble)`}>
@@ -314,7 +319,7 @@ export function Characters() {
             <g transform="translate(-0.3 -0.45)">
               <g fill={`url(#${gid}-dogfur)`}>{DOG_PARTS}</g>
               <path
-                d="M39 58A37 33 0 0 0 113 58L113 112L39 112Z"
+                d="M44 56C44 80.4 50 86 76 86C102 86 108 80.4 108 56L108 112L44 112Z"
                 fill={`url(#${gid}-dogshade)`}
                 transform={DOG_TILT}
                 clipPath={`url(#${gid}-dogclip)`}
@@ -325,25 +330,17 @@ export function Characters() {
             <g transform={DOG_TILT}>
               {/* 귀 안쪽 경계. 이 선이 있어야 귀가 머리와 구분된다 */}
               <g fill="none" stroke={INK} strokeWidth={DOG_LW} strokeLinecap="round">
-                <path d="M46.2 20.3Q59 25 61.3 37" />
-                <path d="M102.6 19.4Q91 25 90.3 35.1" />
+                <path d="M54.7 30.7Q56.5 46 46.7 52.7" />
+                <path d="M97.3 30.7Q95.5 46 105.3 52.7" />
               </g>
 
-              {/* 점 눈과 작은 미소 */}
-              <circle cx="64" cy="70" r="3.4" fill={INK} />
-              <circle cx="88" cy="68" r="3.2" fill={INK} />
-              <path
-                d="M72 78.5q4 3.5 8 0"
-                fill="none"
-                stroke={INK}
-                strokeWidth={DOG_LW}
-                strokeLinecap="round"
-              />
-            </g>
-
-            {/* 발가락 */}
-            <g fill="none" stroke={INK} strokeWidth="1.3" strokeLinecap="round">
-              <path d="M62.5 101v3.4M66.8 101v3.4M85.5 101v3.4M89.8 101v3.4" />
+              {/* 점 눈은 위쪽에, 코와 입은 한참 아래에 둔다. 그 사이 빈 공간이 이 캐릭터의 인상이다 */}
+              <circle cx="59.4" cy="46" r="2.9" fill={INK} />
+              <circle cx="92.6" cy="46" r="2.9" fill={INK} />
+              <g fill="none" stroke={INK} strokeLinecap="round">
+                <path d="M72.8 73q3.2 1.1 6.4 0" strokeWidth="2.2" />
+                <path d="M76 74.5v2.8m0 0q-2.8 3-5 0m5 0q2.8 3 5 0" strokeWidth="1.8" />
+              </g>
             </g>
           </g>
         </g>
