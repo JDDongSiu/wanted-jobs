@@ -165,23 +165,26 @@ const RABBIT_ARM = (
   </>
 )
 const DOG_LW = 1.9
-// 머리는 옆면이 곧고 아래턱이 각진 네모꼴. 위 모서리는 넉넉히, 아래 모서리는
-// 좁게 굴려 하관을 각지게 잡았다. 눈과 코 사이를 넓게 벌려 중안부를 길게 뒀다.
+// 머리와 몸을 하나로 합치지 않고 두 덩어리로 나눠 그린다. 머리를 먼저 그리고
+// 그 위에 몸과 팔다리를 얹으면, 머리 아래 선이 그대로 남아 몸이 앞으로 나와 보인다.
+// 팔은 얼굴 옆에서 시작해 몸에 붙지 않고 곧게 내려온다.
 const DOG_TILT = 'rotate(-2 76 58)'
 const DOG_HEAD =
-  'M64 24C52 24 44 32 44 44L44 82C44 90 50 94 58 94L94 94C102 94 108 90 108 82L108 44C108 32 100 24 88 24Z'
-const DOG_PARTS = (
+  'M64 24C52 24 44 32 44 44L44 86C44 94 50 98 58 98L94 98C102 98 108 94 108 86L108 44C108 32 100 24 88 24Z'
+const DOG_BACK = (
   <>
-    {/* 오른쪽 귀를 더 눕혀 좌우가 똑같이 떨어지지 않게 한다 */}
     <ellipse cx="46" cy="40" rx="8.8" ry="12" transform={`${DOG_TILT} rotate(20 46 40)`} />
     <ellipse cx="107" cy="39" rx="9.2" ry="11.5" transform={`${DOG_TILT} rotate(-30 107 39)`} />
     <path d={DOG_HEAD} transform={DOG_TILT} />
-    <path d="M60 84L62 113C62 118 90 118 90 113L92 84Z" />
-    <ellipse cx="58.5" cy="104" rx="3" ry="5" transform="rotate(-8 58.5 104)" />
-    <ellipse cx="93.5" cy="104" rx="3" ry="5" transform="rotate(8 93.5 104)" />
-    {/* 젓가락 같은 다리 */}
-    <rect x="67" y="113" width="6" height="12" rx="3" />
-    <rect x="81" y="113" width="6" height="12" rx="3" />
+  </>
+)
+const DOG_FRONT = (
+  <>
+    <rect x="43.5" y="78" width="7" height="28" rx="3.5" transform="rotate(-4 47 80)" />
+    <rect x="101.5" y="78" width="7" height="28" rx="3.5" transform="rotate(4 105 80)" />
+    <rect x="56" y="92" width="40" height="30" rx="12" />
+    <rect x="67" y="118" width="6" height="12" rx="3" />
+    <rect x="81" y="118" width="6" height="12" rx="3" />
   </>
 )
 
@@ -228,7 +231,7 @@ export function Characters() {
           <stop offset="0.5" stopColor="#FCFAF4" />
           <stop offset="1" stopColor="#EDE6D6" />
         </radialGradient>
-        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="92" x2="0" y2="118">
+        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="88" x2="0" y2="110">
           <stop offset="0" stopColor="#B7A98C" stopOpacity="0.16" />
           <stop offset="1" stopColor="#B7A98C" stopOpacity="0" />
         </linearGradient>
@@ -238,7 +241,7 @@ export function Characters() {
           <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G" />
         </filter>
         <clipPath id={`${gid}-clip`}>{RABBIT_PARTS}</clipPath>
-        <clipPath id={`${gid}-dogclip`}>{DOG_PARTS}</clipPath>
+        <clipPath id={`${gid}-dogclip`}>{DOG_BACK}</clipPath>
       </defs>
       {/* 자리 이동은 바깥 g 가 맡는다. CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰기 때문이다 */}
       <g transform="translate(0 4.4)">
@@ -311,17 +314,18 @@ export function Characters() {
         </g>
       </g>
 
-      <g transform="translate(104 13.4)">
+      <g transform="translate(104 8.4)">
         <g className="mascot mascot-dog">
           {/* 전체를 한 번 흔들어 자로 그은 티를 없앤다 */}
           <g filter={`url(#${gid}-wobble)`}>
+            {/* 1) 머리 */}
             <g fill={INK} stroke={INK} strokeWidth={DOG_LW * 2} strokeLinejoin="round">
-              {DOG_PARTS}
+              {DOG_BACK}
             </g>
             <g transform="translate(-0.3 -0.45)">
-              <g fill={`url(#${gid}-dogfur)`}>{DOG_PARTS}</g>
+              <g fill={`url(#${gid}-dogfur)`}>{DOG_BACK}</g>
               <path
-                d="M44 82C44 90 50 94 58 94L94 94C102 94 108 90 108 82L108 128L44 128Z"
+                d="M44 86C44 94 50 98 58 98L94 98C102 98 108 94 108 86L108 118L44 118Z"
                 fill={`url(#${gid}-dogshade)`}
                 transform={DOG_TILT}
                 clipPath={`url(#${gid}-dogclip)`}
@@ -329,20 +333,26 @@ export function Characters() {
               />
             </g>
 
+            {/* 2) 얼굴 */}
             <g transform={DOG_TILT}>
-              {/* 귀 안쪽 경계. 이 선이 있어야 귀가 머리와 구분된다 */}
               <g fill="none" stroke={INK} strokeWidth={DOG_LW} strokeLinecap="round">
                 <path d="M53.7 31.7Q55.3 45 46.6 51.3" />
                 <path d="M98 32.7Q100.3 45 108 49.9" />
               </g>
-
-              {/* 눈은 위에, 코와 입은 아래에. 코와 입은 붙이지 않는다 */}
               <circle cx="59.4" cy="42" r="2.9" fill={INK} />
               <circle cx="92.6" cy="42" r="2.9" fill={INK} />
               <g fill="none" stroke={INK} strokeLinecap="round">
                 <path d="M72.8 79q3.2 1.1 6.4 0" strokeWidth="2.2" />
                 <path d="M71 85.5q2.5 3 5 0q2.5 3 5 0" strokeWidth="1.8" />
               </g>
+            </g>
+
+            {/* 3) 팔과 몸. 머리 위에 얹혀 제 윤곽선을 그으므로 앞에 있는 것으로 읽힌다 */}
+            <g fill={INK} stroke={INK} strokeWidth={DOG_LW * 2} strokeLinejoin="round">
+              {DOG_FRONT}
+            </g>
+            <g transform="translate(-0.3 -0.45)" fill={`url(#${gid}-dogfur)`}>
+              {DOG_FRONT}
             </g>
           </g>
         </g>
