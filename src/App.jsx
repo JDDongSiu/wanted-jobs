@@ -141,12 +141,12 @@ const RABBIT_PARTS = (
   <>
     <rect x="62" y="8" width="13" height="54" rx="6.5" transform="rotate(-9 68.5 60)" />
     <rect x="77" y="8" width="13" height="54" rx="6.5" transform="rotate(9 83.5 60)" />
-    <ellipse cx="76" cy="72" rx="34" ry="32" />
+    <path d="M76 40C100.1 40 110 49.3 110 72C110 94.7 100.1 104 76 104C51.9 104 42 94.7 42 72C42 49.3 51.9 40 76 40Z" />
     <path d="M52 88L58 118C58 123.5 65 125.5 76 125.5C87 125.5 94 123.5 94 118L100 88Z" />
-    <ellipse cx="52.5" cy="106" rx="4.8" ry="6.8" transform="rotate(-32 52.5 106)" />
-    <ellipse cx="99.5" cy="106" rx="4.8" ry="6.8" transform="rotate(32 99.5 106)" />
-    <ellipse cx="65" cy="128.5" rx="6.8" ry="5.5" />
-    <ellipse cx="87" cy="128.5" rx="6.8" ry="5.5" />
+    <ellipse cx="54" cy="110" rx="4.5" ry="8" transform="rotate(-10 54 110)" />
+    <ellipse cx="98" cy="110" rx="4.5" ry="8" transform="rotate(10 98 110)" />
+    <ellipse cx="67" cy="129" rx="5" ry="5" />
+    <ellipse cx="85" cy="129" rx="5" ry="5" />
   </>
 )
 const DOG_OUTLINE =
@@ -172,13 +172,13 @@ function Characters() {
           <g fill={FUR}>{RABBIT_PARTS}</g>
 
           {/* 귀 안쪽 */}
-          <rect x="65" y="14" width="7" height="42" rx="3.5" fill="#F7BFC6" transform="rotate(-9 68.5 60)" />
-          <rect x="80" y="14" width="7" height="42" rx="3.5" fill="#F7BFC6" transform="rotate(9 83.5 60)" />
+          <rect x="65" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(-9 68.5 60)" />
+          <rect x="80" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(9 83.5 60)" />
 
           {/* 눈썹 — 두껍게, 안쪽을 올리고 바깥을 떨어뜨려 처진 눈썹으로 */}
           <g fill="none" stroke={INK} strokeWidth="4.2" strokeLinecap="round">
-            <path d="M54 65Q63 57.5 72 56.5" />
-            <path d="M98 65Q89 57.5 80 56.5" />
+            <path d="M53.5 62Q63 54.5 72 53.5" />
+            <path d="M98.5 62Q89 54.5 80 53.5" />
           </g>
 
           {/* 볼터치 */}
@@ -190,17 +190,17 @@ function Characters() {
           </g>
 
           {/* 눈 */}
-          <circle cx="66.5" cy="76.3" r="7" fill={INK} />
-          <circle cx="85.5" cy="76.3" r="7" fill={INK} />
-          <ellipse cx="66.5" cy="80.3" rx="4" ry="2.2" fill="#9A7F58" opacity="0.5" />
-          <ellipse cx="85.5" cy="80.3" rx="4" ry="2.2" fill="#9A7F58" opacity="0.5" />
+          <circle cx="66.5" cy="76.3" r="6.3" fill={INK} />
+          <circle cx="85.5" cy="76.3" r="6.3" fill={INK} />
+          <ellipse cx="66.5" cy="79.9" rx="3.6" ry="2" fill="#9A7F58" opacity="0.5" />
+          <ellipse cx="85.5" cy="79.9" rx="3.6" ry="2" fill="#9A7F58" opacity="0.5" />
           <g fill="#FFFDF8">
-            <circle cx="68.2" cy="74.2" r="2.7" />
-            <circle cx="83.8" cy="74.2" r="2.7" />
-            <circle cx="64.5" cy="79.5" r="1.6" />
-            <circle cx="87.5" cy="79.5" r="1.6" />
-            <path d="M63.2 71C63.7 72.3 63.9 72.5 65.2 73C63.9 73.5 63.7 73.7 63.2 75C62.7 73.7 62.5 73.5 61.2 73C62.5 72.5 62.7 72.3 63.2 71Z" />
-            <path d="M88.8 71C88.3 72.3 88.1 72.5 86.8 73C88.1 73.5 88.3 73.7 88.8 75C89.3 73.7 89.5 73.5 90.8 73C89.5 72.5 89.3 72.3 88.8 71Z" />
+            <circle cx="68" cy="74.4" r="2.45" />
+            <circle cx="84" cy="74.4" r="2.45" />
+            <circle cx="64.7" cy="79.2" r="1.45" />
+            <circle cx="87.3" cy="79.2" r="1.45" />
+            <path d="M63.5 71.5C63.95 72.67 64.13 72.85 65.3 73.3C64.13 73.75 63.95 73.93 63.5 75.1C63.05 73.93 62.87 73.75 61.7 73.3C62.87 72.85 63.05 72.67 63.5 71.5Z" />
+            <path d="M88.5 71.5C88.05 72.67 87.87 72.85 86.7 73.3C87.87 73.75 88.05 73.93 88.5 75.1C88.95 73.93 89.13 73.75 90.3 73.3C89.13 72.85 88.95 72.67 88.5 71.5Z" />
           </g>
 
           {/* 코와 아주 작은 ω 입 */}
