@@ -41,7 +41,7 @@ function Preview() {
     <div className="preview">
       <div className="crop-row">
         <Crop label="토끼" from={36} to={120} top={4} scale={3} />
-        <Crop label="강아지" from={134} to={226} top={28} scale={3} />
+        <Crop label="강아지" from={134} to={226} top={30} scale={3} />
       </div>
 
       {/* 실제 표지 배치. 경계선 위에 제대로 서 있는지 눈으로 한 번 더 본다 */}

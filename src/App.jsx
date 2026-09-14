@@ -165,26 +165,21 @@ const RABBIT_ARM = (
   </>
 )
 const DOG_LW = 1.9
-// 머리와 몸을 하나로 합치지 않고 두 덩어리로 나눠 그린다. 머리를 먼저 그리고
-// 그 위에 몸과 팔다리를 얹으면, 머리 아래 선이 그대로 남아 몸이 앞으로 나와 보인다.
-// 팔은 얼굴 옆에서 시작해 몸에 붙지 않고 곧게 내려온다.
+// 바깥 윤곽은 하나로 이어지고, 얼굴과 몸의 구분은 턱선 하나로만 준다.
+// 몸통을 머리 아래 너비보다 조금 넓게 잡아 턱선이 몸 안쪽에 들어오게 했다.
 const DOG_TILT = 'rotate(-2 76 58)'
 const DOG_HEAD =
   'M64 24C52 24 44 32 44 44L44 86C44 94 50 98 58 98L94 98C102 98 108 94 108 86L108 44C108 32 100 24 88 24Z'
-const DOG_BACK = (
+const DOG_PARTS = (
   <>
     <ellipse cx="46" cy="40" rx="8.8" ry="12" transform={`${DOG_TILT} rotate(20 46 40)`} />
     <ellipse cx="107" cy="39" rx="9.2" ry="11.5" transform={`${DOG_TILT} rotate(-30 107 39)`} />
     <path d={DOG_HEAD} transform={DOG_TILT} />
-  </>
-)
-const DOG_FRONT = (
-  <>
-    <rect x="43.5" y="78" width="7" height="28" rx="3.5" transform="rotate(-4 47 80)" />
-    <rect x="101.5" y="78" width="7" height="28" rx="3.5" transform="rotate(4 105 80)" />
-    <rect x="56" y="92" width="40" height="30" rx="12" />
-    <rect x="67" y="118" width="6" height="12" rx="3" />
-    <rect x="81" y="118" width="6" height="12" rx="3" />
+    <path d="M54 88L58 116C58 121 94 121 94 116L98 88Z" />
+    <ellipse cx="54" cy="104" rx="3.5" ry="6" transform="rotate(-6 54 104)" />
+    <ellipse cx="98" cy="104" rx="3.5" ry="6" transform="rotate(6 98 104)" />
+    <rect x="67" y="116" width="6" height="12" rx="3" />
+    <rect x="81" y="116" width="6" height="12" rx="3" />
   </>
 )
 
@@ -241,7 +236,7 @@ export function Characters() {
           <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G" />
         </filter>
         <clipPath id={`${gid}-clip`}>{RABBIT_PARTS}</clipPath>
-        <clipPath id={`${gid}-dogclip`}>{DOG_BACK}</clipPath>
+        <clipPath id={`${gid}-dogclip`}>{DOG_PARTS}</clipPath>
       </defs>
       {/* 자리 이동은 바깥 g 가 맡는다. CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰기 때문이다 */}
       <g transform="translate(0 4.4)">
@@ -314,16 +309,15 @@ export function Characters() {
         </g>
       </g>
 
-      <g transform="translate(104 8.4)">
+      <g transform="translate(104 10.4)">
         <g className="mascot mascot-dog">
           {/* 전체를 한 번 흔들어 자로 그은 티를 없앤다 */}
           <g filter={`url(#${gid}-wobble)`}>
-            {/* 1) 머리 */}
             <g fill={INK} stroke={INK} strokeWidth={DOG_LW * 2} strokeLinejoin="round">
-              {DOG_BACK}
+              {DOG_PARTS}
             </g>
             <g transform="translate(-0.3 -0.45)">
-              <g fill={`url(#${gid}-dogfur)`}>{DOG_BACK}</g>
+              <g fill={`url(#${gid}-dogfur)`}>{DOG_PARTS}</g>
               <path
                 d="M44 86C44 94 50 98 58 98L94 98C102 98 108 94 108 86L108 118L44 118Z"
                 fill={`url(#${gid}-dogshade)`}
@@ -333,26 +327,28 @@ export function Characters() {
               />
             </g>
 
-            {/* 2) 얼굴 */}
             <g transform={DOG_TILT}>
+              {/* 턱선. 얼굴과 몸을 가르는 건 이 선 하나뿐이다 */}
+              <path
+                d="M57.5 97.5Q76 99.8 94.5 97.5"
+                fill="none"
+                stroke={INK}
+                strokeWidth={DOG_LW}
+                strokeLinecap="round"
+              />
+
+              {/* 귀 안쪽 경계 */}
               <g fill="none" stroke={INK} strokeWidth={DOG_LW} strokeLinecap="round">
                 <path d="M53.7 31.7Q55.3 45 46.6 51.3" />
                 <path d="M98 32.7Q100.3 45 108 49.9" />
               </g>
+
               <circle cx="59.4" cy="42" r="2.9" fill={INK} />
               <circle cx="92.6" cy="42" r="2.9" fill={INK} />
               <g fill="none" stroke={INK} strokeLinecap="round">
                 <path d="M72.8 79q3.2 1.1 6.4 0" strokeWidth="2.2" />
                 <path d="M71 85.5q2.5 3 5 0q2.5 3 5 0" strokeWidth="1.8" />
               </g>
-            </g>
-
-            {/* 3) 팔과 몸. 머리 위에 얹혀 제 윤곽선을 그으므로 앞에 있는 것으로 읽힌다 */}
-            <g fill={INK} stroke={INK} strokeWidth={DOG_LW * 2} strokeLinejoin="round">
-              {DOG_FRONT}
-            </g>
-            <g transform="translate(-0.3 -0.45)" fill={`url(#${gid}-dogfur)`}>
-              {DOG_FRONT}
             </g>
           </g>
         </g>
