@@ -1,3 +1,14 @@
+/* 조선일보명조. 신문 활자라 획이 또렷하고 가로세로 굵기 차이가 커서 명조 특유의
+   선명함이 산다. 내려받지 못하면 나눔명조로 떨어진다. */
+@font-face {
+  font-family: 'Chosunilbo Myungjo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Chosunilbo_myungjo.woff')
+    format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 .accent {
   color: var(--accent);
 }
@@ -93,8 +104,8 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  font-family: 'Nanum Myeongjo', serif;
-  font-size: 17px;
+  font-family: 'Chosunilbo Myungjo', 'Nanum Myeongjo', serif;
+  font-size: 18.5px;
   line-height: 1.72;
   letter-spacing: -0.01em;
   color: var(--hero-ink-soft);
@@ -156,7 +167,7 @@
 
 @media (max-width: 520px) {
   .hero-quote {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
