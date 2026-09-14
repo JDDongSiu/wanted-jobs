@@ -164,8 +164,18 @@ const RABBIT_ARM = (
     <circle cx="69" cy="98.5" r="4" />
   </>
 )
-const DOG_OUTLINE =
-  'M58.62 103.22A34 34 0 1 1 93.38 103.22A21 21 0 1 1 58.62 103.22Z'
+const DOG_LW = 1.9
+const DOG_TILT = 'rotate(-6 76 60)'
+const DOG_PARTS = (
+  <>
+    <ellipse cx="40" cy="56" rx="12" ry="19" transform="rotate(25 40 56)" />
+    <ellipse cx="105" cy="42" rx="9" ry="14" transform="rotate(-35 105 42)" />
+    <ellipse cx="76" cy="60" rx="36" ry="38" transform={DOG_TILT} />
+    <path d="M62 88L64 104C64 108 88 108 88 104L90 88Z" />
+    <rect x="57" y="102" width="15" height="13" rx="6" />
+    <rect x="80" y="102" width="15" height="13" rx="6" />
+  </>
+)
 
 // mascots.html 미리보기 페이지에서도 쓴다
 export function Characters() {
@@ -204,7 +214,17 @@ export function Characters() {
         <filter id={`${gid}-soft`} x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="2.4" />
         </filter>
+        <radialGradient id={`${gid}-dogfur`} gradientUnits="userSpaceOnUse" cx="62" cy="42" r="88">
+          <stop offset="0" stopColor="#FFF8EC" />
+          <stop offset="0.45" stopColor="#F9E9D2" />
+          <stop offset="1" stopColor="#E6CEAC" />
+        </radialGradient>
+        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="92" x2="0" y2="116">
+          <stop offset="0" stopColor="#B08A55" stopOpacity="0.32" />
+          <stop offset="1" stopColor="#B08A55" stopOpacity="0" />
+        </linearGradient>
         <clipPath id={`${gid}-clip`}>{RABBIT_PARTS}</clipPath>
+        <clipPath id={`${gid}-dogclip`}>{DOG_PARTS}</clipPath>
       </defs>
       {/* 자리 이동은 바깥 g 가 맡는다. CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰기 때문이다 */}
       <g transform="translate(0 4.4)">
@@ -277,50 +297,44 @@ export function Characters() {
         </g>
       </g>
 
-      <g transform="translate(98 0)">
+      <g transform="translate(105 23.4)">
         <g className="mascot mascot-dog">
-          {/* 늘어진 귀 */}
-          <g fill="#E4B47C" stroke={INK} strokeWidth={LW}>
-            <ellipse cx="45" cy="88" rx="8.5" ry="24" transform="rotate(-12 45 88)" />
-            <ellipse cx="107" cy="88" rx="8.5" ry="24" transform="rotate(12 107 88)" />
+          {/* 토끼와 같은 방식. 잉크 실루엣을 깔고 색으로 덮어 바깥 윤곽만 남긴다.
+              참고 그림처럼 귀가 머리에서 이어져 나온 것처럼 보인다 */}
+          <g fill={INK} stroke={INK} strokeWidth={DOG_LW * 2} strokeLinejoin="round">
+            {DOG_PARTS}
+          </g>
+          <g transform="translate(-0.35 -0.5)">
+            <g fill={`url(#${gid}-dogfur)`}>{DOG_PARTS}</g>
+            <g clipPath={`url(#${gid}-dogclip)`} filter={`url(#${gid}-soft)`}>
+              {/* 귀는 선을 긋지 않고 톤만 살짝 얹어 구분한다 */}
+              <g fill="#E2C79C" opacity="0.5">
+                <ellipse cx="40" cy="56" rx="12" ry="19" transform="rotate(25 40 56)" />
+                <ellipse cx="105" cy="42" rx="9" ry="14" transform="rotate(-35 105 42)" />
+              </g>
+              <path
+                d="M40 60A36 38 0 0 0 112 60L112 122L40 122Z"
+                fill={`url(#${gid}-dogshade)`}
+                transform={DOG_TILT}
+              />
+            </g>
           </g>
 
-          <g fill="#F9E9D2" stroke={INK} strokeWidth={LW}>
-            <ellipse cx="55" cy="113" rx="4.5" ry="6" />
-            <ellipse cx="97" cy="113" rx="4.5" ry="6" />
-            <ellipse cx="67" cy="135" rx="6.5" ry="4" />
-            <ellipse cx="85" cy="135" rx="6.5" ry="4" />
+          {/* 눈 — 참고 그림처럼 점 두 개뿐이다. 고개를 튼 만큼 높이와 크기가 다르다 */}
+          <circle cx="61" cy="61" r="3.9" fill={INK} />
+          <circle cx="92" cy="52" r="3.4" fill={INK} />
+
+          {/* 발가락과 가슴털 */}
+          <g fill="none" stroke={INK} strokeWidth="1.3" strokeLinecap="round">
+            <path d="M62 108.5v3.6M67 108.5v3.6M85 108.5v3.6M90 108.5v3.6" />
+            <path d="M70 99q3 3 6 1M80 98q2 3 5 2" />
           </g>
 
-          <path d={DOG_OUTLINE} fill="#F9E9D2" stroke={INK} strokeWidth={LW} strokeLinejoin="round" />
-
-          <g fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round">
-            <path d="M56.5 73.5Q54 64 64 59.5" />
-            <path d="M95.5 73.5Q98 64 88 59.5" />
+          {/* 귀 안쪽 경계. 이 선이 있어야 귀가 머리 앞에 덮인 것으로 읽힌다 */}
+          <g fill="none" stroke={INK} strokeWidth={DOG_LW} strokeLinecap="round">
+            <path d="M50 36Q53 66 38.5 73.5" />
+            <path d="M95 29Q96 50 108.3 54.5" />
           </g>
-
-          <ellipse cx="53.5" cy="82" rx="7" ry="4.2" fill="#F3B7A6" />
-          <ellipse cx="98.5" cy="82" rx="7" ry="4.2" fill="#F3B7A6" />
-          <g fill="none" stroke={INK} strokeWidth="1.4" strokeLinecap="round">
-            <path d="M50 79.8l1.6 4.4M53.7 79.2l1.6 4.8M57.4 79.8l1.6 4.4" />
-            <path d="M102 79.8l-1.6 4.4M98.3 79.2l-1.6 4.8M94.6 79.8l-1.6 4.4" />
-          </g>
-
-          {/* 주둥이 */}
-          <ellipse cx="76" cy="88" rx="14" ry="10.5" fill="#FFFDF8" stroke={INK} strokeWidth={LW} />
-
-          <circle cx="66" cy="74" r="4.4" fill={INK} />
-          <circle cx="86" cy="74" r="4.4" fill={INK} />
-          <circle cx="67.6" cy="72.2" r="1.6" fill="#FFFDF8" />
-          <circle cx="87.6" cy="72.2" r="1.6" fill="#FFFDF8" />
-          <circle cx="63.6" cy="76.4" r="0.8" fill="#FFFDF8" />
-          <circle cx="83.6" cy="76.4" r="0.8" fill="#FFFDF8" />
-
-          <ellipse cx="76" cy="81" rx="4" ry="3.2" fill={INK} />
-
-          <path d="M73 87.8c0 8.5 6 8.5 6 0z" fill="#EF9AA6" stroke={INK} strokeWidth="1.5" strokeLinejoin="round" />
-          <path d="M76 84.5v3m0 0q-2.6 3-5 0m5 0q2.6 3 5 0" fill="none" stroke={INK} strokeWidth="2.2" strokeLinecap="round" />
-          <path d="M72.5 96h7" fill="none" stroke={INK} strokeWidth="2" strokeLinecap="round" />
         </g>
       </g>
     </svg>
