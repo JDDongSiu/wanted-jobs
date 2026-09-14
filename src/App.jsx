@@ -151,7 +151,7 @@ const RABBIT_PARTS = (
       d="M49.5 88L56 118C56 123.5 64 125.5 76 125.5C88 125.5 96 123.5 96 118L102.5 88Z"
       transform="rotate(-5 76 125)"
     />
-    <ellipse cx="99" cy="110" rx="3.5" ry="6" transform="rotate(10 99 110)" />
+    <ellipse cx="98" cy="110" rx="2.8" ry="4.8" transform="rotate(10 98 110)" />
     <ellipse cx="67" cy="129" rx="5" ry="5" />
     <ellipse cx="85" cy="129" rx="5" ry="5" />
   </>
@@ -160,8 +160,8 @@ const RABBIT_PARTS = (
 // 앞으로 들어올린 팔. 몸을 그린 뒤에 얹어야 앞뒤가 읽힌다.
 const RABBIT_ARM = (
   <>
-    <ellipse cx="64" cy="107" rx="3.6" ry="7.5" transform="rotate(35 64 107)" />
-    <circle cx="68.5" cy="99.5" r="3" />
+    <ellipse cx="64" cy="107" rx="2.8" ry="6" transform="rotate(35 64 107)" />
+    <circle cx="68" cy="100" r="2.5" />
   </>
 )
 const DOG_LW = 1.9
