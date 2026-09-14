@@ -165,15 +165,16 @@ const RABBIT_ARM = (
   </>
 )
 const DOG_LW = 1.9
-const DOG_TILT = 'rotate(-6 76 60)'
+// 아래를 내려다보는 각도라 얼굴이 머리 아래쪽 3분의 1에 몰린다. 귀는 머리 위에 붙는다.
+const DOG_TILT = 'rotate(-7 76 58)'
 const DOG_PARTS = (
   <>
-    <ellipse cx="40" cy="56" rx="12" ry="19" transform="rotate(25 40 56)" />
-    <ellipse cx="105" cy="42" rx="9" ry="14" transform="rotate(-35 105 42)" />
-    <ellipse cx="76" cy="60" rx="36" ry="38" transform={DOG_TILT} />
-    <path d="M62 88L64 104C64 108 88 108 88 104L90 88Z" />
-    <rect x="57" y="102" width="15" height="13" rx="6" />
-    <rect x="80" y="102" width="15" height="13" rx="6" />
+    <ellipse cx="50" cy="32" rx="10" ry="13" transform={`${DOG_TILT} rotate(-42 50 32)`} />
+    <ellipse cx="100" cy="30" rx="9" ry="11.5" transform={`${DOG_TILT} rotate(38 100 30)`} />
+    <ellipse cx="76" cy="58" rx="37" ry="33" transform={DOG_TILT} />
+    <path d="M64 84L66 98C66 101 86 101 86 98L88 84Z" />
+    <rect x="58" y="96" width="13" height="11" rx="5.5" />
+    <rect x="81" y="96" width="13" height="11" rx="5.5" />
   </>
 )
 
@@ -214,15 +215,21 @@ export function Characters() {
         <filter id={`${gid}-soft`} x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="2.4" />
         </filter>
-        <radialGradient id={`${gid}-dogfur`} gradientUnits="userSpaceOnUse" cx="62" cy="42" r="88">
-          <stop offset="0" stopColor="#FFF8EC" />
-          <stop offset="0.45" stopColor="#F9E9D2" />
-          <stop offset="1" stopColor="#E6CEAC" />
+        {/* 하얀 몸. 가장자리만 아주 옅게 눌러 흰 바탕에서도 형태가 보이게 한다 */}
+        <radialGradient id={`${gid}-dogfur`} gradientUnits="userSpaceOnUse" cx="62" cy="34" r="84">
+          <stop offset="0" stopColor="#FFFFFF" />
+          <stop offset="0.5" stopColor="#FCFAF4" />
+          <stop offset="1" stopColor="#EDE6D6" />
         </radialGradient>
-        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="92" x2="0" y2="116">
-          <stop offset="0" stopColor="#B08A55" stopOpacity="0.32" />
-          <stop offset="1" stopColor="#B08A55" stopOpacity="0" />
+        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="86" x2="0" y2="106">
+          <stop offset="0" stopColor="#B7A98C" stopOpacity="0.2" />
+          <stop offset="1" stopColor="#B7A98C" stopOpacity="0" />
         </linearGradient>
+        {/* 선을 조금 흔들어 손으로 그은 느낌을 낸다 */}
+        <filter id={`${gid}-wobble`} x="-12%" y="-12%" width="124%" height="124%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
         <clipPath id={`${gid}-clip`}>{RABBIT_PARTS}</clipPath>
         <clipPath id={`${gid}-dogclip`}>{DOG_PARTS}</clipPath>
       </defs>
@@ -297,43 +304,47 @@ export function Characters() {
         </g>
       </g>
 
-      <g transform="translate(105 23.4)">
+      <g transform="translate(104 31.4)">
         <g className="mascot mascot-dog">
-          {/* 토끼와 같은 방식. 잉크 실루엣을 깔고 색으로 덮어 바깥 윤곽만 남긴다.
-              참고 그림처럼 귀가 머리에서 이어져 나온 것처럼 보인다 */}
-          <g fill={INK} stroke={INK} strokeWidth={DOG_LW * 2} strokeLinejoin="round">
-            {DOG_PARTS}
-          </g>
-          <g transform="translate(-0.35 -0.5)">
-            <g fill={`url(#${gid}-dogfur)`}>{DOG_PARTS}</g>
-            <g clipPath={`url(#${gid}-dogclip)`} filter={`url(#${gid}-soft)`}>
-              {/* 귀는 선을 긋지 않고 톤만 살짝 얹어 구분한다 */}
-              <g fill="#E2C79C" opacity="0.5">
-                <ellipse cx="40" cy="56" rx="12" ry="19" transform="rotate(25 40 56)" />
-                <ellipse cx="105" cy="42" rx="9" ry="14" transform="rotate(-35 105 42)" />
-              </g>
+          {/* 전체를 한 번 흔들어 자로 그은 티를 없앤다 */}
+          <g filter={`url(#${gid}-wobble)`}>
+            <g fill={INK} stroke={INK} strokeWidth={DOG_LW * 2} strokeLinejoin="round">
+              {DOG_PARTS}
+            </g>
+            <g transform="translate(-0.3 -0.45)">
+              <g fill={`url(#${gid}-dogfur)`}>{DOG_PARTS}</g>
               <path
-                d="M40 60A36 38 0 0 0 112 60L112 122L40 122Z"
+                d="M39 58A37 33 0 0 0 113 58L113 112L39 112Z"
                 fill={`url(#${gid}-dogshade)`}
                 transform={DOG_TILT}
+                clipPath={`url(#${gid}-dogclip)`}
+                filter={`url(#${gid}-soft)`}
               />
             </g>
-          </g>
 
-          {/* 눈 — 참고 그림처럼 점 두 개뿐이다. 고개를 튼 만큼 높이와 크기가 다르다 */}
-          <circle cx="61" cy="61" r="3.9" fill={INK} />
-          <circle cx="92" cy="52" r="3.4" fill={INK} />
+            <g transform={DOG_TILT}>
+              {/* 귀 안쪽 경계. 이 선이 있어야 귀가 머리와 구분된다 */}
+              <g fill="none" stroke={INK} strokeWidth={DOG_LW} strokeLinecap="round">
+                <path d="M46.2 20.3Q59 25 61.3 37" />
+                <path d="M102.6 19.4Q91 25 90.3 35.1" />
+              </g>
 
-          {/* 발가락과 가슴털 */}
-          <g fill="none" stroke={INK} strokeWidth="1.3" strokeLinecap="round">
-            <path d="M62 108.5v3.6M67 108.5v3.6M85 108.5v3.6M90 108.5v3.6" />
-            <path d="M70 99q3 3 6 1M80 98q2 3 5 2" />
-          </g>
+              {/* 점 눈과 작은 미소 */}
+              <circle cx="64" cy="70" r="3.4" fill={INK} />
+              <circle cx="88" cy="68" r="3.2" fill={INK} />
+              <path
+                d="M72 78.5q4 3.5 8 0"
+                fill="none"
+                stroke={INK}
+                strokeWidth={DOG_LW}
+                strokeLinecap="round"
+              />
+            </g>
 
-          {/* 귀 안쪽 경계. 이 선이 있어야 귀가 머리 앞에 덮인 것으로 읽힌다 */}
-          <g fill="none" stroke={INK} strokeWidth={DOG_LW} strokeLinecap="round">
-            <path d="M50 36Q53 66 38.5 73.5" />
-            <path d="M95 29Q96 50 108.3 54.5" />
+            {/* 발가락 */}
+            <g fill="none" stroke={INK} strokeWidth="1.3" strokeLinecap="round">
+              <path d="M62.5 101v3.4M66.8 101v3.4M85.5 101v3.4M89.8 101v3.4" />
+            </g>
           </g>
         </g>
       </g>
