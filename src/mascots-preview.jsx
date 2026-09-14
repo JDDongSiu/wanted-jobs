@@ -40,7 +40,7 @@ function Preview() {
   return (
     <div className="preview">
       <div className="crop-row">
-        <Crop label="토끼" from={36} to={120} top={4} scale={3} />
+        <Crop label="토끼" from={38} to={124} top={4} scale={3} />
         <Crop label="강아지" from={134} to={226} top={30} scale={3} />
       </div>
 

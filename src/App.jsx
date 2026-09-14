@@ -138,7 +138,7 @@ const FUR = '#FAE8B4' // 토끼 몸 색
 const RABBIT_LW = 1.9 // 토끼는 선을 더 가늘게 쓴다
 // 토끼 몸을 이루는 조각들. 아래에서 두 번 그려 합집합 윤곽만 남긴다.
 // 몸통은 위가 넓고 아래로 갈수록 좁아지며, 발 사이가 벌어져 Y 자로 갈라진다.
-const HEAD_TILT = 'rotate(3 76 100)'
+const HEAD_TILT = 'rotate(7 76 100)'
 const RABBIT_PARTS = (
   <>
     <rect x="62" y="8" width="13" height="54" rx="6.5" transform={`${HEAD_TILT} rotate(-9 68.5 60)`} />
@@ -167,7 +167,7 @@ const RABBIT_ARM = (
 const DOG_LW = 1.9
 // 바깥 윤곽은 하나로 이어지고, 얼굴과 몸의 구분은 턱선 하나로만 준다.
 // 몸통을 머리 아래 너비보다 조금 넓게 잡아 턱선이 몸 안쪽에 들어오게 했다.
-const DOG_TILT = 'rotate(-2 76 58)'
+const DOG_TILT = 'rotate(-6 76 58)'
 const DOG_HEAD =
   'M64 24C52 24 44 32 44 44L44 86C44 94 50 98 58 98L94 98C102 98 108 94 108 86L108 44C108 32 100 24 88 24Z'
 const DOG_PARTS = (
@@ -239,7 +239,7 @@ export function Characters() {
         <clipPath id={`${gid}-dogclip`}>{DOG_PARTS}</clipPath>
       </defs>
       {/* 자리 이동은 바깥 g 가 맡는다. CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰기 때문이다 */}
-      <g transform="translate(0 4.4)">
+      <g transform="translate(3 4.4)">
         <g className="mascot mascot-rabbit">
           {/* 잉크 실루엣을 먼저 통째로 깔면 조각 경계선이 사라지고 바깥 윤곽만 남는다 */}
           <g fill={INK} stroke={INK} strokeWidth={RABBIT_LW * 2} strokeLinejoin="round">
@@ -262,10 +262,14 @@ export function Characters() {
             </g>
           </g>
 
-          {/* 얼굴은 머리와 같이 기운다 */}
+          {/* 귀 안쪽은 귀에 붙어 있어야 하므로 얼굴과 따로 둔다 */}
           <g transform={HEAD_TILT}>
             <rect x="65" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(-9 68.5 60)" />
             <rect x="80" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(9 83.5 60)" />
+          </g>
+
+          {/* 이목구비를 강아지 쪽으로 밀어 고개를 돌린 것처럼 보이게 한다 */}
+          <g transform={`${HEAD_TILT} translate(5 0)`}>
 
             {/* 눈썹 — 가늘게. 안쪽을 올리고 바깥을 떨어뜨려 처진 눈썹으로 */}
             <g fill="none" stroke={INK} strokeWidth="1.8" strokeLinecap="round">
@@ -282,7 +286,7 @@ export function Characters() {
             </g>
 
             {/* 눈 — 단색 대신 그라디언트를 써서 젖은 구슬처럼 */}
-            <circle cx="64" cy="76.3" r="5.4" fill={`url(#${gid}-eye)`} />
+            <circle cx="64" cy="76.3" r="5" fill={`url(#${gid}-eye)`} />
             <circle cx="88" cy="76.3" r="5.4" fill={`url(#${gid}-eye)`} />
             <ellipse cx="64" cy="79.9" rx="3.2" ry="1.8" fill="#C9A76A" opacity="0.55" />
             <ellipse cx="88" cy="79.9" rx="3.2" ry="1.8" fill="#C9A76A" opacity="0.55" />
@@ -309,7 +313,7 @@ export function Characters() {
         </g>
       </g>
 
-      <g transform="translate(104 10.4)">
+      <g transform="translate(100 10.4)">
         <g className="mascot mascot-dog">
           {/* 전체를 한 번 흔들어 자로 그은 티를 없앤다 */}
           <g filter={`url(#${gid}-wobble)`}>
@@ -342,9 +346,12 @@ export function Characters() {
                 <path d="M53.7 31.7Q55.3 45 46.6 51.3" />
                 <path d="M98 32.7Q100.3 45 108 49.9" />
               </g>
+            </g>
 
-              <circle cx="59.4" cy="42" r="2.9" fill={INK} />
-              <circle cx="92.6" cy="42" r="2.9" fill={INK} />
+            {/* 이목구비를 토끼 쪽으로 민다. 먼 쪽 눈은 조금 작게 */}
+            <g transform={`${DOG_TILT} translate(-3 0)`}>
+              <circle cx="61.5" cy="42" r="2.9" fill={INK} />
+              <circle cx="91.5" cy="42" r="2.6" fill={INK} />
               <g fill="none" stroke={INK} strokeLinecap="round">
                 <path d="M72.8 79q3.2 1.1 6.4 0" strokeWidth="2.2" />
                 <path d="M71 85.5q2.5 3 5 0q2.5 3 5 0" strokeWidth="1.8" />
