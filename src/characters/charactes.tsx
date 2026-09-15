@@ -1,9 +1,9 @@
 import type { JSX } from "react";
 interface CharactersProps {
   className?: string;
-  priority?: boolean;
 }
 
+// fix: reload시 해치만 느린이유?
 const imageList = [
   {
     src: "/images/ganadi-img.png",
@@ -21,7 +21,6 @@ const imageList = [
 
 function Characters({
   className = "",
-  priority = false,
 }: CharactersProps): JSX.Element {
   const containerClassName = ["mascots", className]
     .filter(Boolean)
@@ -37,7 +36,6 @@ function Characters({
           alt={image.alt}
           width={120}
           height={145}
-          loading={priority ? "eager" : "lazy"}
           decoding="async"
         />
       ))}

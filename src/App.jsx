@@ -452,16 +452,12 @@ export default function App() {
   if (!data) return <main className="state">불러오는 중...</main>
 
   const newCount = data.new_count ?? 0
-
-  // 헤더가 sticky 라 scrollIntoView 가 듣지 않고, 스냅이 켜져 있으면 브라우저의
-  // 부드러운 스크롤을 표지로 되돌려버린다. 그래서 직접 애니메이션하고 그동안 스냅을 끈다.
   return (
     <>
-      <section className="hero">
-  {/* 위 1/3 은 흰 바탕. 캐릭터가 그 경계선 위에 서 있다 */}
-<div className="hero-sky">
-  <Character priority />
-</div>
+<section className="hero">
+    <div className="hero-sky">
+      <Character />
+    </div>
 
 
   <div className="hero-inner">
