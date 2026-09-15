@@ -13,7 +13,6 @@
   color: var(--accent);
 }
 
-/* 표지 화면 — 아래 목록과 반대로 밝게 두어, 알에서 나와 세계로 들어가는 흐름을 만든다 */
 .hero {
   --hero-bg: #fbf1cd;
   --hero-ink: #3b2f16;
@@ -22,14 +21,14 @@
   --hero-contrast: #1d4e89;
 
   min-height: 100svh;
-  /* 위 1/3 흰 바탕, 아래 2/3 노란 바탕. 경계선은 캐릭터가 딛고 선 자리다 */
+  /* 캐릭터 이미지 커짐에따라 #fff, #fbf1cd 영역 비율 늘림 */
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 2fr 3fr;
   background: linear-gradient(
-    to bottom,
     #fff 0,
-    #fff 33.3333%,
-    var(--hero-bg) 33.3333%
+    #fff 40%,
+    var(--hero-bg) 40%,
+    var(--hero-bg) 100%
   );
 
   /* 표지에서 아래로 밀면 목록 첫머리까지 한 번에 미끄러진다 */
