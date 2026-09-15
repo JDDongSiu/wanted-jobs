@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T18:37:49+09:00",
+  "updated_at": "2026-09-15T21:55:04+09:00",
   "sources": {
     "wanted": 187,
     "jumpit": 24,
@@ -2152,28 +2152,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-381018",
-      "position": "Product Engineer (Backend/Frontend, 5년 이상)",
-      "company": "빌드잇",
-      "location": "경기 성남시",
-      "category": "서버 개발자",
-      "annual_from": 5,
-      "annual_to": 7,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/22372/i3jvamov9ra2dnvy__400_400.png",
-      "url": "https://www.wanted.co.kr/wd/381018",
-      "flags": {
-        "established": false,
-        "rapid_growth": false,
-        "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
       "id": "wanted-381021",
       "position": "Product Engineer (Frontend, 2년 이하)",
       "company": "빌드잇",
@@ -2187,6 +2165,28 @@
       "skills": [],
       "thumbnail": "https://static.wanted.co.kr/images/company/22372/i3jvamov9ra2dnvy__400_400.png",
       "url": "https://www.wanted.co.kr/wd/381021",
+      "flags": {
+        "established": false,
+        "rapid_growth": false,
+        "equipment": true
+      },
+      "first_seen": null
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-381018",
+      "position": "Product Engineer (Backend/Frontend, 5년 이상)",
+      "company": "빌드잇",
+      "location": "경기 성남시",
+      "category": "서버 개발자",
+      "annual_from": 5,
+      "annual_to": 7,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/22372/i3jvamov9ra2dnvy__400_400.png",
+      "url": "https://www.wanted.co.kr/wd/381018",
       "flags": {
         "established": false,
         "rapid_growth": false,
@@ -8084,7 +8084,7 @@
       "reward_total": null,
       "skills": [],
       "thumbnail": null,
-      "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/570760",
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/570760",
       "flags": {},
       "first_seen": null
     },
@@ -8102,7 +8102,7 @@
       "reward_total": null,
       "skills": [],
       "thumbnail": null,
-      "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/570189",
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/570189",
       "flags": {},
       "first_seen": null
     },
@@ -8120,7 +8120,7 @@
       "reward_total": null,
       "skills": [],
       "thumbnail": null,
-      "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/569876",
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/569876",
       "flags": {},
       "first_seen": null
     },
@@ -8138,7 +8138,7 @@
       "reward_total": null,
       "skills": [],
       "thumbnail": null,
-      "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/568223",
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/568223",
       "flags": {},
       "first_seen": null
     },
@@ -8156,7 +8156,7 @@
       "reward_total": null,
       "skills": [],
       "thumbnail": null,
-      "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/564453",
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/564453",
       "flags": {},
       "first_seen": null
     },
@@ -8174,7 +8174,7 @@
       "reward_total": null,
       "skills": [],
       "thumbnail": null,
-      "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/559925",
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/559925",
       "flags": {},
       "first_seen": null
     },
@@ -8192,7 +8192,7 @@
       "reward_total": null,
       "skills": [],
       "thumbnail": null,
-      "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/557765",
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/557765",
       "flags": {},
       "first_seen": null
     },
@@ -8210,7 +8210,7 @@
       "reward_total": null,
       "skills": [],
       "thumbnail": null,
-      "url": "https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/525564",
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/525564",
       "flags": {},
       "first_seen": null
     }

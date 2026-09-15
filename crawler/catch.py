@@ -94,7 +94,7 @@ def to_record(item):
         "reward_total": None,
         "skills": [],
         "thumbnail": None,
-        "url": f"https://www.catch.co.kr/Comp/CompRecruit/RecruitDetail/{recruit_id}",
+        "url": f"https://www.catch.co.kr/NCS/RecruitInfoDetails/{recruit_id}",
         "flags": {},
     }
 
