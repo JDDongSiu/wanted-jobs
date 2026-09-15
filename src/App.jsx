@@ -122,6 +122,9 @@ function readParams() {
   return new URLSearchParams(window.location.search)
 }
 
+// 공고를 눌러 나갔다 돌아왔을 때 되돌아갈 자리. 탭을 닫으면 같이 지워진다.
+const SCROLL_KEY = 'labo-scroll'
+
 function initialConditions() {
   const off = new Set((readParams().get('off') ?? '').split(',').filter(Boolean))
   return Object.fromEntries(
@@ -475,6 +478,58 @@ export default function App() {
       html.style.scrollSnapType = ''
     }
   }, [])
+
+  // 공고 링크를 눌렀다 돌아오면 보던 자리로 되돌린다.
+  // 목록은 jobs.json 을 받은 뒤에야 그려져서, 브라우저가 스스로 복원하려는 시점에는
+  // 문서가 아직 표지 높이뿐이라 복원이 어긋난다. 그래서 직접 저장하고 직접 되돌린다.
+  useEffect(() => {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+
+    let queued = false
+    const save = () => {
+      if (queued) return
+      queued = true
+      requestAnimationFrame(() => {
+        queued = false
+        try {
+          sessionStorage.setItem(SCROLL_KEY, String(Math.round(window.scrollY)))
+        } catch {
+          // 사생활 보호 모드 등에서 막히면 복원만 포기한다
+        }
+      })
+    }
+    window.addEventListener('scroll', save, { passive: true })
+    return () => window.removeEventListener('scroll', save)
+  }, [])
+
+  useEffect(() => {
+    if (!data) return
+    let saved = 0
+    try {
+      saved = Number(sessionStorage.getItem(SCROLL_KEY)) || 0
+    } catch {
+      return
+    }
+    if (saved < 1) return
+
+    const html = document.documentElement
+    snapLocked.current = true
+    html.style.scrollSnapType = 'none'
+
+    // 카드가 다 그려지기 전에는 문서가 짧아 덜 내려간다. 자리를 잡을 때까지 몇 프레임 더 시도한다.
+    let tries = 0
+    const restore = () => {
+      window.scrollTo(0, saved)
+      if (Math.abs(window.scrollY - saved) > 2 && tries < 30) {
+        tries += 1
+        requestAnimationFrame(restore)
+        return
+      }
+      snapLocked.current = false
+      html.style.scrollSnapType = ''
+    }
+    requestAnimationFrame(restore)
+  }, [data])
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}jobs.json`)
