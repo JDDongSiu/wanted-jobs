@@ -1,4 +1,5 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
+import Quote from './quote/quote.tsx'
 import './App.css'
 
 const EMPLOYMENT_LABELS = {
@@ -633,41 +634,38 @@ export default function App() {
   return (
     <>
       <section className="hero">
-        {/* 위 1/3 은 흰 바탕. 캐릭터가 그 경계선 위에 서 있다 */}
-        <div className="hero-sky">
-          <Characters />
-        </div>
+  {/* 위 1/3 은 흰 바탕. 캐릭터가 그 경계선 위에 서 있다 */}
+  <div className="hero-sky">
+    <Characters />
+  </div>
 
-        <div className="hero-inner">
-          <h1 className="hero-brand">
-            라보<span className="hero-ext">.azit</span>
-          </h1>
+  <div className="hero-inner">
+    <h1 className="hero-brand">
+      라보<span className="hero-ext">.azit</span>
+    </h1>
 
-          <blockquote className="hero-quote">
-            <span>새는 알에서 나오려고 투쟁한다. 알은 세계다.</span>
-            <span>태어나려는 자는 한 세계를 파괴해야만 한다.</span>
-          </blockquote>
+    <Quote />
 
-          <blockquote className="hero-quote hero-quote-alt">
-            <span>내 속에서 솟아 나오려는 것, 바로 그것을 나는 살아 보려고 했다.</span>
-            <span>왜 그것이 그토록 어려웠을까?</span>
-          </blockquote>
+    <button
+      className="hero-scroll"
+      type="button"
+      onClick={scrollToList}
+    >
+      <span>아래로 내려서 보기</span>
 
-          <button className="hero-scroll" type="button" onClick={scrollToList}>
-            <span>아래로 내려서 보기</span>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </button>
-        </div>
-      </section>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        aria-hidden="true"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </button>
+  </div>
+</section>
 
       <div className="content" id="list">
       <header className="header">
