@@ -57,32 +57,6 @@
   text-align: center;
 }
 
-/* 캐릭터 */
-.mascots {
-  width: min(300px, 78vw);
-  height: auto;
-  max-height: 100%;
-}
-
-.mascot {
-  transform-origin: 50% 96%;
-  animation: mascot-wobble 2.8s ease-in-out infinite;
-}
-
-.mascot-dog {
-  animation-delay: 0.5s;
-}
-
-@keyframes mascot-wobble {
-  0%,
-  100% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(4deg);
-  }
-}
-
 .hero-brand {
   margin: 0;
   font-family: 'Black Han Sans', -apple-system, BlinkMacSystemFont,
