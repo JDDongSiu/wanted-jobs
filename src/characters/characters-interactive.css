@@ -1,0 +1,135 @@
+ /* App.jsc의 import 순서에따라 App.css가 최상위로 적용됨 
+ 해당 파일을 최상위로 덮고 App.css 에서 mascot css삭제  */
+.mascots {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* 같은 라인 선상 배치 */
+.mascot {
+  display: block;
+  width: 150px;
+  height: 170px;
+  flex: 0 0 150px;
+
+/* over 비율 컷 */
+  object-fit: cover;
+
+  border-radius: 12px;
+  user-select: none;
+  -webkit-user-drag: none;
+  will-change: transform;
+}
+
+ /* 캐릭터들마다 움직임 다르게 설정 */
+
+/* 가나디 */
+.mascot-1 {
+  object-position: center center;
+  animation: mascot-ganadi 3.4s ease-in-out infinite;
+}
+
+/* 우사기 */
+.mascot-2 {
+  object-position: center center;
+  animation: mascot-usagi 4.1s ease-in-out 0.25s infinite;
+}
+
+/* 해치 */
+.mascot-3 {
+  object-position: center center;
+  animation: mascot-haechi 3.7s ease-in-out 0.5s infinite;
+}
+
+@keyframes mascot-ganadi {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-1deg) scale(1);
+  }
+
+  25% {
+    transform: translate3d(-5px, -7px, 0) rotate(-4deg) scale(1.02);
+  }
+
+  50% {
+    transform: translate3d(2px, -13px, 0) rotate(2deg) scale(1.04);
+  }
+
+  75% {
+    transform: translate3d(6px, -5px, 0) rotate(4deg) scale(1.01);
+  }
+}
+
+@keyframes mascot-usagi {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(1deg) scale(1);
+  }
+
+  20% {
+    transform: translate3d(4px, -5px, 0) rotate(4deg) scale(1.01);
+  }
+
+  45% {
+    transform: translate3d(-3px, -17px, 0) rotate(-3deg) scale(1.05);
+  }
+
+  65% {
+    transform: translate3d(-6px, -6px, 0) rotate(-5deg) scale(1.02);
+  }
+
+  85% {
+    transform: translate3d(3px, -2px, 0) rotate(2deg) scale(1);
+  }
+}
+
+@keyframes mascot-haechi {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+
+  18% {
+    transform: translate3d(-7px, -4px, 0) rotate(-5deg) scale(1.02);
+  }
+
+  36% {
+    transform: translate3d(5px, -10px, 0) rotate(5deg) scale(1.04);
+  }
+
+  55% {
+    transform: translate3d(9px, -2px, 0) rotate(3deg) scale(1.01);
+  }
+
+  75% {
+    transform: translate3d(-4px, -7px, 0) rotate(-4deg) scale(1.03);
+  }
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .mascots {
+    gap: 8px;
+  }
+
+  .mascot {
+    width: 110px;
+    height: 135px;
+    flex-basis: 110px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mascots {
+    gap: 4px;
+  }
+
+  .mascot {
+    width: 90px;
+    height: 115px;
+    flex-basis: 90px;
+    border-radius: 8px;
+  }
+}

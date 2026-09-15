@@ -1,5 +1,9 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
+import Quote from './quote/quote.tsx'
+import Character from './characters/charactes.tsx'
 import './App.css'
+import './characters/characters-interactive.css'
+
 
 const EMPLOYMENT_LABELS = {
   regular: '정규직',
@@ -187,185 +191,6 @@ const DOG_PARTS = (
 )
 
 // mascots.html 미리보기 페이지에서도 쓴다
-export function Characters() {
-  // 한 화면에 여러 번 그려도 그라디언트 id 가 겹치지 않게 한다
-  const gid = useId().replace(/:/g, '')
-  return (
-    <svg
-      className="mascots"
-      viewBox="5 0 250 141"
-      role="img"
-      aria-label="나란히 선 토끼와 강아지"
-    >
-      <defs>
-        {/* 위에서 빛이 드는 것처럼 가운데 위가 밝고 가장자리로 갈수록 진해진다 */}
-        <radialGradient id={`${gid}-fur`} gradientUnits="userSpaceOnUse" cx="64" cy="54" r="88">
-          <stop offset="0" stopColor="#FEF8E2" />
-          <stop offset="0.45" stopColor="#FAE8B4" />
-          <stop offset="1" stopColor="#E9CB84" />
-        </radialGradient>
-        {/* 턱 아래에서 시작해 아래로 풀리는 그늘 */}
-        <linearGradient id={`${gid}-shade`} gradientUnits="userSpaceOnUse" x1="0" y1="99" x2="0" y2="126">
-          <stop offset="0" stopColor="#BF8A33" stopOpacity="0.32" />
-          <stop offset="1" stopColor="#BF8A33" stopOpacity="0" />
-        </linearGradient>
-        <radialGradient id={`${gid}-blush`}>
-          <stop offset="0" stopColor="#F19FAE" stopOpacity="0.9" />
-          <stop offset="0.55" stopColor="#F6BCC5" stopOpacity="0.6" />
-          <stop offset="1" stopColor="#F6BCC5" stopOpacity="0" />
-        </radialGradient>
-        {/* 아래쪽이 밝아 구슬처럼 보인다 */}
-        <radialGradient id={`${gid}-eye`} cx="0.5" cy="0.74" r="0.8">
-          <stop offset="0" stopColor="#7E6339" />
-          <stop offset="0.5" stopColor="#3F3221" />
-          <stop offset="1" stopColor="#241C10" />
-        </radialGradient>
-        <filter id={`${gid}-soft`} x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur stdDeviation="2.4" />
-        </filter>
-        {/* 하얀 몸. 가장자리만 아주 옅게 눌러 흰 바탕에서도 형태가 보이게 한다 */}
-        <radialGradient id={`${gid}-dogfur`} gradientUnits="userSpaceOnUse" cx="62" cy="34" r="84">
-          <stop offset="0" stopColor="#FFFFFF" />
-          <stop offset="0.5" stopColor="#FCFAF4" />
-          <stop offset="1" stopColor="#EDE6D6" />
-        </radialGradient>
-        <linearGradient id={`${gid}-dogshade`} gradientUnits="userSpaceOnUse" x1="0" y1="88" x2="0" y2="110">
-          <stop offset="0" stopColor="#B7A98C" stopOpacity="0.16" />
-          <stop offset="1" stopColor="#B7A98C" stopOpacity="0" />
-        </linearGradient>
-        {/* 선을 조금 흔들어 손으로 그은 느낌을 낸다 */}
-        <filter id={`${gid}-wobble`} x="-12%" y="-12%" width="124%" height="124%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" xChannelSelector="R" yChannelSelector="G" />
-        </filter>
-        <clipPath id={`${gid}-clip`}>{RABBIT_PARTS}</clipPath>
-        <clipPath id={`${gid}-dogclip`}>{DOG_PARTS}</clipPath>
-      </defs>
-      {/* 자리 이동은 바깥 g 가 맡는다. CSS 애니메이션의 transform 이 속성 transform 을 덮어쓰기 때문이다 */}
-      <g transform="translate(3 4.4)">
-        <g className="mascot mascot-rabbit">
-          {/* 잉크 실루엣을 먼저 통째로 깔면 조각 경계선이 사라지고 바깥 윤곽만 남는다 */}
-          <g fill={INK} stroke={INK} strokeWidth={RABBIT_LW * 2} strokeLinejoin="round">
-            {RABBIT_PARTS}
-          </g>
-
-          {/* 색을 살짝 왼쪽 위로 밀어 덮는다. 그러면 오른쪽 아래 선이 굵고
-              왼쪽 위가 가늘어져, 손으로 그은 선처럼 굵기가 변한다 */}
-          <g transform="translate(-0.35 -0.5)">
-            <g fill={`url(#${gid}-fur)`}>{RABBIT_PARTS}</g>
-
-            {/* 겹치는 자리마다 그늘. 몸 밖으로 번지지 않게 실루엣으로 잘라낸다 */}
-            <g clipPath={`url(#${gid}-clip)`} filter={`url(#${gid}-soft)`}>
-              <path
-                d="M38 72C38 94.69 49.06 104 76 104C102.94 104 114 94.69 114 72L114 132L38 132Z"
-                fill={`url(#${gid}-shade)`}
-                transform={HEAD_TILT}
-              />
-              <ellipse cx="73" cy="110" rx="7" ry="4.5" fill="#BF8A33" opacity="0.26" transform="rotate(35 73 110)" />
-            </g>
-          </g>
-
-          {/* 귀 안쪽은 귀에 붙어 있어야 하므로 얼굴과 따로 둔다 */}
-          <g transform={HEAD_TILT}>
-            <rect x="65" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(-9 68.5 60)" />
-            <rect x="80" y="14" width="7" height="24" rx="3.5" fill="#F7BFC6" transform="rotate(9 83.5 60)" />
-          </g>
-
-          {/* 이목구비를 강아지 쪽으로 밀어 고개를 돌린 것처럼 보이게 한다 */}
-          <g transform={`${HEAD_TILT} translate(5 0)`}>
-
-            {/* 눈썹 — 가늘게. 안쪽을 올리고 바깥을 떨어뜨려 처진 눈썹으로 */}
-            <g fill="none" stroke={INK} strokeWidth="1.8" strokeLinecap="round">
-              <path d="M51.5 62Q62 54 72 53" />
-              <path d="M100.5 62Q90 54 80 53" />
-            </g>
-
-            {/* 볼터치 — 가장자리가 번지도록 */}
-            <ellipse cx="52" cy="88" rx="9.4" ry="5.8" fill={`url(#${gid}-blush)`} />
-            <ellipse cx="100" cy="88" rx="9.4" ry="5.8" fill={`url(#${gid}-blush)`} />
-            <g fill="none" stroke={INK} strokeWidth="1.2" strokeLinecap="round">
-              <path d="M46.9 85.8l1.8 5M51.1 85.1l1.8 5.7M55.3 85.8l1.8 5" />
-              <path d="M105.1 85.8l-1.8 5M100.9 85.1l-1.8 5.7M96.7 85.8l-1.8 5" />
-            </g>
-
-            {/* 눈 — 단색 대신 그라디언트를 써서 젖은 구슬처럼 */}
-            <circle cx="64" cy="76.3" r="5" fill={`url(#${gid}-eye)`} />
-            <circle cx="88" cy="76.3" r="5.4" fill={`url(#${gid}-eye)`} />
-            <ellipse cx="64" cy="79.9" rx="3.2" ry="1.8" fill="#C9A76A" opacity="0.55" />
-            <ellipse cx="88" cy="79.9" rx="3.2" ry="1.8" fill="#C9A76A" opacity="0.55" />
-            <g fill="#FFFDF8">
-              <circle cx="65.3" cy="74.7" r="2.1" />
-              <circle cx="86.7" cy="74.7" r="2.1" />
-              <circle cx="62.5" cy="78.8" r="1.24" />
-              <circle cx="89.5" cy="78.8" r="1.24" />
-              <path d="M61.4 72.16C61.79 73.16 61.94 73.32 62.94 73.7C61.94 74.09 61.79 74.24 61.4 75.24C61.02 74.24 60.86 74.09 59.86 73.7C60.86 73.32 61.02 73.16 61.4 72.16Z" />
-              <path d="M90.6 72.16C90.21 73.16 90.06 73.32 89.06 73.7C90.06 74.09 90.21 74.24 90.6 75.24C90.99 74.24 91.14 74.09 92.14 73.7C91.14 73.32 90.99 73.16 90.6 72.16Z" />
-            </g>
-
-            <ellipse cx="76" cy="85.6" rx="2" ry="1.6" fill={INK} />
-            <path d="M72.2 88.2q1.9 2.6 3.8 0q1.9 2.6 3.8 0" fill="none" stroke={INK} strokeWidth="1.8" strokeLinecap="round" />
-          </g>
-
-          {/* 들어올린 팔. 제 윤곽선을 달고 몸 위에 얹혀 앞에 있다는 게 읽힌다 */}
-          <g fill={INK} stroke={INK} strokeWidth={RABBIT_LW * 2} strokeLinejoin="round">
-            {RABBIT_ARM}
-          </g>
-          <g transform="translate(-0.35 -0.5)" fill={`url(#${gid}-fur)`}>
-            {RABBIT_ARM}
-          </g>
-        </g>
-      </g>
-
-      <g transform="translate(100 10.4)">
-        <g className="mascot mascot-dog">
-          {/* 전체를 한 번 흔들어 자로 그은 티를 없앤다 */}
-          <g filter={`url(#${gid}-wobble)`}>
-            <g fill={INK} stroke={INK} strokeWidth={DOG_LW * 2} strokeLinejoin="round">
-              {DOG_PARTS}
-            </g>
-            <g transform="translate(-0.3 -0.45)">
-              <g fill={`url(#${gid}-dogfur)`}>{DOG_PARTS}</g>
-              <path
-                d="M44 86C44 94 50 98 58 98L94 98C102 98 108 94 108 86L108 118L44 118Z"
-                fill={`url(#${gid}-dogshade)`}
-                transform={DOG_TILT}
-                clipPath={`url(#${gid}-dogclip)`}
-                filter={`url(#${gid}-soft)`}
-              />
-            </g>
-
-            <g transform={DOG_TILT}>
-              {/* 턱선. 얼굴과 몸을 가르는 건 이 선 하나뿐이다 */}
-              <path
-                d="M57.5 97.5Q76 99.8 94.5 97.5"
-                fill="none"
-                stroke={INK}
-                strokeWidth={DOG_LW}
-                strokeLinecap="round"
-              />
-
-              {/* 귀 안쪽 경계 */}
-              <g fill="none" stroke={INK} strokeWidth={DOG_LW} strokeLinecap="round">
-                <path d="M53.7 31.7Q55.3 45 46.6 51.3" />
-                <path d="M98 32.7Q100.3 45 108 49.9" />
-              </g>
-            </g>
-
-            {/* 이목구비를 토끼 쪽으로 민다. 먼 쪽 눈은 조금 작게 */}
-            <g transform={`${DOG_TILT} translate(-3 0)`}>
-              <circle cx="61.5" cy="42" r="2.9" fill={INK} />
-              <circle cx="91.5" cy="42" r="2.6" fill={INK} />
-              <g fill="none" stroke={INK} strokeLinecap="round">
-                <path d="M72.8 79q3.2 1.1 6.4 0" strokeWidth="2.2" />
-                <path d="M71 85.5q2.5 3 5 0q2.5 3 5 0" strokeWidth="1.8" />
-              </g>
-            </g>
-          </g>
-        </g>
-      </g>
-    </svg>
-  )
-}
 
 function JobCard({ job, isNew }) {
   return (
@@ -682,47 +507,41 @@ export default function App() {
   if (!data) return <main className="state">불러오는 중...</main>
 
   const newCount = data.new_count ?? 0
-
-  // 헤더가 sticky 라 scrollIntoView 가 듣지 않고, 스냅이 켜져 있으면 브라우저의
-  // 부드러운 스크롤을 표지로 되돌려버린다. 그래서 직접 애니메이션하고 그동안 스냅을 끈다.
   return (
     <>
-      <section className="hero">
-        {/* 위 1/3 은 흰 바탕. 캐릭터가 그 경계선 위에 서 있다 */}
-        <div className="hero-sky">
-          <Characters />
-        </div>
+<section className="hero">
+    <div className="hero-sky">
+      <Character />
+    </div>
 
-        <div className="hero-inner">
-          <h1 className="hero-brand">
-            라보<span className="hero-ext">.azit</span>
-          </h1>
 
-          <blockquote className="hero-quote">
-            <span>새는 알에서 나오려고 투쟁한다. 알은 세계다.</span>
-            <span>태어나려는 자는 한 세계를 파괴해야만 한다.</span>
-          </blockquote>
+  <div className="hero-inner">
+    <h1 className="hero-brand">
+      라보<span className="hero-ext">.azit</span>
+    </h1>
 
-          <blockquote className="hero-quote hero-quote-alt">
-            <span>내 속에서 솟아 나오려는 것, 바로 그것을 나는 살아 보려고 했다.</span>
-            <span>왜 그것이 그토록 어려웠을까?</span>
-          </blockquote>
+    <Quote />
 
-          <button className="hero-scroll" type="button" onClick={scrollToList}>
-            <span>아래로 내려서 보기</span>
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              aria-hidden="true"
-            >
-              <path d="m6 9 6 6 6-6" />
-            </svg>
-          </button>
-        </div>
-      </section>
+    <button
+      className="hero-scroll"
+      type="button"
+      onClick={scrollToList}
+    >
+      <span>아래로 내려서 보기</span>
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        aria-hidden="true"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </button>
+  </div>
+</section>
 
       <div className="content" id="list">
       <header className="header">
