@@ -3,18 +3,20 @@ interface CharactersProps {
   className?: string;
 }
 
+const BASE_URL = "/wanted-jobs/";
+
 // fix: reload시 해치만 느린이유?
 const imageList = [
   {
-    src: "/images/ganadi-img.png",
+    src: `${BASE_URL}images/ganadi-img.png`,
     alt: "가나디",
   },
   {
-    src: "/images/usagi-img.jpg",
+    src: `${BASE_URL}images/usagi-img.jpg`,
     alt: "우사기",
   },
   {
-    src: "/images/heachi-img.jpeg",
+    src: `${BASE_URL}images/haechi-img.jpeg`,
     alt: "해치",
   },
 ] as const;
