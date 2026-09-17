@@ -46,6 +46,14 @@ jobs:
         env:
           SARAMIN_API_KEY: ${{ secrets.SARAMIN_API_KEY }}
 
+      # 보건관리자·HSE 공고. NAVER_CLIENT_ID/SECRET 이 없으면 네이버 블로그만 건너뛴다.
+      - name: Crawl health-manager postings
+        run: python build_hse.py
+        working-directory: crawler
+        env:
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

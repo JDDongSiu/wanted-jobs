@@ -1,0 +1,28 @@
+/* 프론트엔드 쪽 화면(App.css)의 카드·필터 모양을 그대로 쓰고,
+   이 사이트에만 있는 소스 색과 표지 문구만 여기에 둔다. */
+
+.source-peoplenjob {
+  color: #8fc9f0;
+  background: #14293a;
+}
+
+.source-naverblog {
+  color: #7fd99a;
+  background: #143020;
+}
+
+/* 표지를 따로 두지 않아 목록이 바로 나온다. 제목 줄만 조금 크게 잡는다. */
+.hse-title {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.hse-title-ext {
+  color: var(--accent);
+}
+
+/* 지역·경력이 적히지 않은 공고(특히 블로그 글)를 흐리게 표시한다. */
+.card-meta-faint {
+  color: var(--text-faint);
+}

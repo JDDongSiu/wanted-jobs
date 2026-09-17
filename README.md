@@ -186,3 +186,67 @@ Unregister-ScheduledTask -TaskName "wanted-jobs 수집" -Confirm:$false
 
 화면의 요구경력 필터는 `annual_from` 과 `is_newbie` 로 구간을 나눈다
 (`src/App.jsx` 의 `careerBucket`). 사이트마다 경력 표기가 달라 최소 경력을 기준으로 묶는다.
+
+## 보건관리자·HSE 공고 (별도 사이트)
+
+프론트엔드와 데이터·화면·주소를 모두 나눠 둔 두 번째 사이트다.
+
+```
+crawler/hse_jobkorea.py    ┐
+crawler/hse_catch.py       ├→ crawler/build_hse.py → public/jobs-hse.json → src/hse/ 화면
+crawler/hse_peoplenjob.py  │                       └→ jobs-hse.csv
+crawler/hse_naverblog.py   ┘
+```
+
+| | 프론트엔드 | 보건관리자·HSE |
+| --- | --- | --- |
+| 주소 | `/<저장소명>/` | `/<저장소명>/hse/` |
+| 데이터 | `public/jobs.json` | `public/jobs-hse.json` |
+| 수집 | `crawler/build_jobs.py` | `crawler/build_hse.py` |
+| 화면 | `src/App.jsx` | `src/hse/HseApp.jsx` |
+
+화면 모양(`src/App.css`)만 함께 쓰고 나머지는 겹치지 않는다.
+필터는 **지역·경력·사이트** 세 가지뿐이다.
+
+```bash
+python crawler/build_hse.py
+```
+
+### 수집 소스
+
+| 소스 | 방식 | 비고 |
+| --- | --- | --- |
+| 잡코리아 | HTML 파싱 (`Recruit/Home/_GI_List/`) | 직무코드 `1000410` 보건관리자, `1000361` 안전관리자 |
+| 캐치 | 비공식 API (`getRecruitList`) | 키워드 6개(보건관리자·안전보건·산업보건·EHS·HSE·SHE)로 나눠 조회 |
+| 피플앤잡 | HTML 파싱 (`/jobs`) | robots.txt 가 허용하는 '오늘의 채용공고' 한 장만 읽는다 |
+| 네이버 블로그 | 공식 오픈 API (`openapi.naver.com/v1/search/blog.json`) | Client ID/Secret 필요. 최근 7일 글만 |
+
+#### robots.txt 때문에 좁힌 부분
+
+- **피플앤잡**: `Disallow: /jobs?` 와 `Disallow: /jobs/*?` 로 검색·직종별 목록 주소를
+  모든 크롤러에게 막아 놓았다(개별 공고 `/jobs/<번호>` 만 허용). sitemap.xml 도 `/jobs` 하나뿐이다.
+  그래서 그날 올라온 30건만 읽고 제목이 걸리는 것만 담는다. 하루 0건일 수 있다.
+- **네이버**: `search.naver.com` 과 `section.blog.naver.com` 모두 `Disallow: /` 다.
+  긁는 대신 정식 경로인 검색 오픈 API를 쓴다.
+
+### 공고 선별 기준
+
+채용사이트들은 보건관리자 직무로 조회해도 같은 회사가 함께 올린 품질·전기·토목 공고까지
+딸려 보낸다. 제목에 아래가 있는 것만 남긴다 (`crawler/hse_common.py` 의 `matches`).
+
+- `보건`, `산업위생`, `health manager` (대소문자 무관)
+- `HSE` `EHS` `SHE` `ESH` `QHSE` `HSEQ` `SHEQ` (대문자일 때만. 소문자까지 받으면 영어 문장의 `she` 가 전부 걸린다)
+
+잡코리아 보건관리자 171 → 63건, 안전관리자 1,475 → 74건, 캐치 197 → 26건.
+
+### 네이버 키 등록
+
+developers.naver.com 에서 애플리케이션을 만들고 '검색' API를 추가하면 Client ID/Secret 이 나온다.
+저장소 Settings → Secrets and variables → Actions 에 `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET` 을 등록한다.
+키가 없으면 네이버 블로그만 건너뛰고 나머지는 정상 수집한다.
+
+```bash
+# Windows PowerShell
+$env:NAVER_CLIENT_ID = "발급받은ID"
+$env:NAVER_CLIENT_SECRET = "발급받은Secret"
+```
