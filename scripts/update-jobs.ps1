@@ -1,5 +1,6 @@
 ﻿# 이 PC에서 채용공고를 수집해 GitHub에 올린다.
-# 원티드가 클라우드 IP를 차단해서 GitHub Actions 에서는 원티드 수집이 안 된다.
+# 원티드와 캐치가 클라우드 IP를 차단해서 GitHub Actions 에서는 두 곳 수집이 안 된다.
+# 프론트엔드(build_jobs.py)와 보건관리자(build_hse.py) 둘 다 여기서 수집해 올린다.
 # 푸시가 일어나면 GitHub Actions 가 이어받아 사이트를 다시 배포한다.
 #
 # 작업 스케줄러 등록은 scripts/register-task.ps1 참고.
@@ -47,6 +48,21 @@ function Invoke-Git {
     return $output
 }
 
+# 두 사이트의 크롤러가 같은 방식으로 돈다.
+function Invoke-Crawler {
+    param([string]$Script)
+
+    $output = & python (Join-Path $projectRoot $Script) 2>&1 |
+        ForEach-Object { $_.ToString() }
+    $code = $LASTEXITCODE
+    foreach ($line in $output) {
+        if ($line.Trim()) { Write-Log ('  ' + $line) }
+    }
+    if ($code -ne 0) {
+        throw ('{0} 실패 (exit {1})' -f $Script, $code)
+    }
+}
+
 try {
     # 작업 스케줄러는 로그인 세션의 PATH를 물려받지 않는다.
     $env:Path = [System.Environment]::GetEnvironmentVariable('Path', 'Machine') + ';' +
@@ -61,7 +77,8 @@ try {
     Write-Log '=== 수집 시작 ==='
 
     # 작업 중인 변경을 건드리지 않도록, 데이터 파일 외 변경이 없을 때만 진행한다.
-    $dirty = & git status --porcelain -- . ':!public/jobs.json' ':!jobs.csv'
+    $dirty = & git status --porcelain -- . `
+        ':!public/jobs.json' ':!jobs.csv' ':!public/jobs-hse.json' ':!jobs-hse.csv'
     if ($dirty) {
         throw ('커밋하지 않은 변경이 있어 중단합니다: {0}' -f ($dirty -join ', '))
     }
@@ -70,17 +87,10 @@ try {
     Invoke-Git pull --rebase origin main | Out-Null
 
     $env:PYTHONPATH = Join-Path $projectRoot 'crawler'
-    $output = & python (Join-Path $projectRoot 'crawler\build_jobs.py') 2>&1 |
-        ForEach-Object { $_.ToString() }
-    $crawlCode = $LASTEXITCODE
-    foreach ($line in $output) {
-        if ($line.Trim()) { Write-Log ('  ' + $line) }
-    }
-    if ($crawlCode -ne 0) {
-        throw ('크롤러 실패 (exit {0})' -f $crawlCode)
-    }
+    Invoke-Crawler 'crawler\build_jobs.py'
+    Invoke-Crawler 'crawler\build_hse.py'
 
-    Invoke-Git add public/jobs.json jobs.csv | Out-Null
+    Invoke-Git add public/jobs.json jobs.csv public/jobs-hse.json jobs-hse.csv | Out-Null
 
     & git diff --staged --quiet
     if ($LASTEXITCODE -eq 0) {
