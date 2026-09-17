@@ -5,6 +5,7 @@
 
 import csv
 import json
+import re
 import sys
 from datetime import datetime
 
@@ -16,6 +17,13 @@ from common import KST, ROOT
 from hse_common import CSV_PATH, JSON_PATH
 
 SOURCES = (hse_jobkorea, hse_catch, hse_peoplenjob, hse_naverblog)
+
+# 같은 공고가 여러 사이트에 올라왔을 때 남길 순서.
+# 잡코리아가 경력·고용형태를 가장 잘 채워 준다.
+SOURCE_PRIORITY = ("jobkorea", "catch", "peoplenjob")
+
+# 사이트마다 같은 공고를 '채용' 과 '영입' 으로 다르게 적는다.
+HIRING_WORDS = re.compile(r"채용|영입|모집|구인|공고")
 
 CSV_FIELDS = [
     "source",
@@ -48,6 +56,43 @@ def group_by_source(jobs):
     for job in jobs:
         by_source.setdefault(job["source"], []).append(job)
     return by_source
+
+
+def _same_posting(job):
+    """같은 공고인지 판단할 열쇠.
+
+    회사명은 사이트마다 표기가 갈리고(SK㈜ AX / SK AX), 제목은 끝에 붙는
+    '채용'·'영입' 만 다른 경우가 많다. 둘 다 지우고 비교한다.
+    """
+    def flat(text):
+        return re.sub(r"[^0-9a-z가-힣]", "", (text or "").lower())
+
+    return flat(job["company"]), flat(HIRING_WORDS.sub("", job["position"] or ""))
+
+
+def drop_duplicates(jobs):
+    """같은 공고를 하나만 남긴다.
+
+    회사가 잡코리아와 캐치에 같이 올리거나, 한 사이트에 두 번 올리는 일이 흔하다.
+    블로그 글은 공고가 아니라 공고를 소개하는 글이라 대상에서 뺀다.
+    """
+    rank = {name: i for i, name in enumerate(SOURCE_PRIORITY)}
+    chosen = {}
+    blogs = []
+
+    for job in jobs:
+        if job["source"] == "naverblog":
+            blogs.append(job)
+            continue
+
+        key = _same_posting(job)
+        kept = chosen.get(key)
+        if kept is None or rank.get(job["source"], 99) < rank.get(kept["source"], 99):
+            chosen[key] = job
+
+    picked = list(chosen.values())
+    dropped = len(jobs) - len(blogs) - len(picked)
+    return picked + blogs, dropped
 
 
 def apply_first_seen(jobs, previous):
@@ -98,6 +143,10 @@ def main():
     if len(stale) == len(SOURCES):
         print("\n모든 소스 수집에 실패했습니다.")
         sys.exit(1)
+
+    jobs, duplicates = drop_duplicates(jobs)
+    if duplicates:
+        print(f"중복 공고 {duplicates}건 정리")
 
     new_count = apply_first_seen(jobs, previous)
 
