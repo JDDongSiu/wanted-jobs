@@ -18,12 +18,26 @@ from hse_common import CSV_PATH, JSON_PATH
 
 SOURCES = (hse_jobkorea, hse_catch, hse_peoplenjob, hse_naverblog)
 
-# 같은 공고가 여러 사이트에 올라왔을 때 남길 순서.
-# 잡코리아가 경력·고용형태를 가장 잘 채워 준다.
-SOURCE_PRIORITY = ("jobkorea", "catch", "peoplenjob")
+# 같은 공고가 여러 곳에 올라왔을 때 남길 순서.
+# 블로그 글은 보건관리자가 직접 정리한 것이라 기업리뷰·근무지 같은 설명이 함께 붙는다.
+SOURCE_PRIORITY = ("naverblog", "jobkorea", "catch", "peoplenjob")
 
 # 사이트마다 같은 공고를 '채용' 과 '영입' 으로 다르게 적는다.
 HIRING_WORDS = re.compile(r"채용|영입|모집|구인|공고")
+
+# 회사명에 붙는 법인격 표기. ㈜ 는 기호라 저절로 빠지지만 (주) 는 '주' 가 남는다.
+ENTITY_MARK = re.compile(r"주식회사|유한회사|\(주\)|\(유\)")
+
+# 잡코리아는 한글 음차로, 캐치·블로그는 영문 약자로 적는 회사가 있다
+# (에스케이실트론 / SK실트론). 같은 회사로 읽히도록 맞춘다. 새로 보이면 한 줄 더한다.
+COMPANY_ALIASES = {
+    "에스케이": "sk", "엘지": "lg", "엘엑스": "lx", "지에스": "gs",
+    "씨제이": "cj", "에이치디": "hd", "엘에스": "ls", "제이에스알": "jsr",
+    "이앤에이": "ea", "마이크로": "micro", "코리아": "korea",
+}
+
+# 블로그 제목에서 회사를 찾을 때, 이름이 짧으면 엉뚱한 글에 걸린다.
+MIN_COMPANY_LEN = 3
 
 CSV_FIELDS = [
     "source",
@@ -58,41 +72,57 @@ def group_by_source(jobs):
     return by_source
 
 
+def _flat(text):
+    """표기 차이를 지운 비교용 문자열. 기호·공백을 빼고 회사명 표기를 맞춘다."""
+    text = ENTITY_MARK.sub("", text or "").lower()
+    for korean, english in COMPANY_ALIASES.items():
+        text = text.replace(korean, english)
+    return re.sub(r"[^0-9a-z가-힣]", "", text)
+
+
 def _same_posting(job):
     """같은 공고인지 판단할 열쇠.
 
-    회사명은 사이트마다 표기가 갈리고(SK㈜ AX / SK AX), 제목은 끝에 붙는
+    회사명은 사이트마다 표기가 갈리고(SK㈜ AX / SK(주) AX), 제목은 끝에 붙는
     '채용'·'영입' 만 다른 경우가 많다. 둘 다 지우고 비교한다.
     """
-    def flat(text):
-        return re.sub(r"[^0-9a-z가-힣]", "", (text or "").lower())
+    return _flat(job["company"]), _flat(HIRING_WORDS.sub("", job["position"] or ""))
 
-    return flat(job["company"]), flat(HIRING_WORDS.sub("", job["position"] or ""))
+
+def _covered_by_blog(job, blog_titles):
+    """이 공고를 다룬 블로그 글이 이미 있는지.
+
+    블로그 글은 회사명 자리에 글쓴이가 들어가 있어 회사로 짝지을 수 없다.
+    대신 공고의 회사명이 블로그 제목 안에 있는지 본다.
+    """
+    company = _flat(job["company"])
+    if len(company) < MIN_COMPANY_LEN:
+        return False
+    return any(company in title for title in blog_titles)
 
 
 def drop_duplicates(jobs):
-    """같은 공고를 하나만 남긴다.
+    """같은 공고를 하나만 남긴다. 짝짓는 방법이 달라 두 단계로 나눈다.
 
     회사가 잡코리아와 캐치에 같이 올리거나, 한 사이트에 두 번 올리는 일이 흔하다.
-    블로그 글은 공고가 아니라 공고를 소개하는 글이라 대상에서 뺀다.
     """
     rank = {name: i for i, name in enumerate(SOURCE_PRIORITY)}
+    blogs = [job for job in jobs if job["source"] == "naverblog"]
+    posts = [job for job in jobs if job["source"] != "naverblog"]
+
+    # 1단계: 공고끼리. 회사와 제목이 같으면 우선순위가 높은 쪽만 남긴다.
     chosen = {}
-    blogs = []
-
-    for job in jobs:
-        if job["source"] == "naverblog":
-            blogs.append(job)
-            continue
-
+    for job in posts:
         key = _same_posting(job)
         kept = chosen.get(key)
         if kept is None or rank.get(job["source"], 99) < rank.get(kept["source"], 99):
             chosen[key] = job
 
-    picked = list(chosen.values())
-    dropped = len(jobs) - len(blogs) - len(picked)
-    return picked + blogs, dropped
+    # 2단계: 블로그가 이미 다룬 공고는 블로그 글만 남긴다.
+    blog_titles = [_flat(blog["position"]) for blog in blogs]
+    picked = [job for job in chosen.values() if not _covered_by_blog(job, blog_titles)]
+
+    return blogs + picked, len(posts) - len(picked), len(chosen) - len(picked)
 
 
 def apply_first_seen(jobs, previous):
@@ -144,9 +174,9 @@ def main():
         print("\n모든 소스 수집에 실패했습니다.")
         sys.exit(1)
 
-    jobs, duplicates = drop_duplicates(jobs)
+    jobs, duplicates, by_blog = drop_duplicates(jobs)
     if duplicates:
-        print(f"중복 공고 {duplicates}건 정리")
+        print(f"중복 공고 {duplicates}건 정리 (블로그 글과 겹친 {by_blog}건 포함)")
 
     new_count = apply_first_seen(jobs, previous)
 
