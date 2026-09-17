@@ -33,6 +33,20 @@ REGION_IN_TITLE = re.compile(
     r"서울|부산|대구|인천|대전|울산|광주|세종|경기|강원|충북|충남|전북|전남|경북|경남|제주"
 )
 
+# '보건관리자 채용' 으로 검색해도 자격증 학원 광고, 안전보건 위탁기관 영업글,
+# 면접학원 후기, 다른 직무 채용글이 함께 걸린다. 제목을 세 겹으로 거른다.
+# 직무와 채용을 둘 다 말하면서, 공고가 아닌 글의 표시어가 없어야 남긴다.
+ROLE = re.compile(r"보건\s*관리자|산업\s*간호사|health\s*manager", re.IGNORECASE)
+HIRING = re.compile(r"채용|공고|모집|구인|영입")
+NOT_POSTING = re.compile(
+    r"응시\s*자격|선임\s*자격|자격증|시험|합격|면접|학원|되는\s*법|난이도"
+)
+
+
+def is_posting(title):
+    """공고를 소개하는 글인지. 정보글·광고글을 걸러낸다."""
+    return bool(ROLE.search(title) and HIRING.search(title)) and not NOT_POSTING.search(title)
+
 
 def _clean(text):
     """검색어와 겹치는 부분에 <b> 태그가 붙어 온다."""
@@ -84,6 +98,7 @@ def fetch():
 
     unique = {}
     total = 0
+    dropped = 0
     # 최신순으로 받다가 기간을 벗어나는 글이 나오면 멈춘다.
     for start in range(1, MAX_START + 1, DISPLAY):
         resp = requests.get(
@@ -101,14 +116,21 @@ def fetch():
 
         for item in items:
             posted = _posted(item)
-            if posted and posted >= cutoff:
-                record = to_record(item, posted)
-                unique.setdefault(record["id"], record)
+            if not posted or posted < cutoff:
+                continue
+            record = to_record(item, posted)
+            if not is_posting(record["position"]):
+                dropped += 1
+                continue
+            unique.setdefault(record["id"], record)
 
         oldest = _posted(items[-1])
         if oldest and oldest < cutoff:
             break
         time.sleep(0.2)  # 서버 부하 방지
 
-    print(f"  네이버블로그: 검색 {total}건 → 최근 {RECENT_DAYS}일 {len(unique)}건")
+    print(
+        f"  네이버블로그: 검색 {total}건 → 최근 {RECENT_DAYS}일 {len(unique)}건"
+        f" (공고 아닌 글 {dropped}건 제외)"
+    )
     return list(unique.values())
