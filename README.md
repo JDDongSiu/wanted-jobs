@@ -219,7 +219,7 @@ python crawler/build_hse.py
 | 잡코리아 | HTML 파싱 (`Recruit/Home/_GI_List/`) | 직무코드 `1000410` 보건관리자, `1000361` 안전관리자 |
 | 캐치 | 비공식 API (`getRecruitList`) | 키워드 6개(보건관리자·안전보건·산업보건·EHS·HSE·SHE)로 나눠 조회 |
 | 피플앤잡 | HTML 파싱 (`/jobs`) | robots.txt 가 허용하는 '오늘의 채용공고' 한 장만 읽는다 |
-| 네이버 블로그 | 공식 오픈 API (`openapi.naver.com/v1/search/blog.json`) | Client ID/Secret 필요. 최근 7일 글만 |
+| 네이버 블로그 | 공식 검색 API (`naverapihub.apigw.ntruss.com/search/v1/blog`) | 검색어 `보건관리자 채용`, 최근 7일 글만. Client ID/Secret 필요 |
 
 #### robots.txt 때문에 좁힌 부분
 
@@ -241,7 +241,15 @@ python crawler/build_hse.py
 
 ### 네이버 키 등록
 
-developers.naver.com 에서 애플리케이션을 만들고 '검색' API를 추가하면 Client ID/Secret 이 나온다.
+검색 API는 네이버 개발자센터에서 **네이버 클라우드 플랫폼 API Hub** 로 옮겨갔다.
+주소와 인증 헤더가 함께 바뀌었으니 예전 예제를 그대로 쓰면 401 이 난다.
+
+| | 예전 (개발자센터) | 지금 (NCP API Hub) |
+| --- | --- | --- |
+| 주소 | `openapi.naver.com/v1/search/blog.json` | `naverapihub.apigw.ntruss.com/search/v1/blog` |
+| 헤더 | `X-Naver-Client-Id` / `X-Naver-Client-Secret` | `X-NCP-APIGW-API-KEY-ID` / `X-NCP-APIGW-API-KEY` |
+
+NCP 콘솔에서 애플리케이션을 만들고 검색 API를 추가하면 Client ID/Secret 이 나온다.
 저장소 Settings → Secrets and variables → Actions 에 `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET` 을 등록한다.
 키가 없으면 네이버 블로그만 건너뛰고 나머지는 정상 수집한다.
 
@@ -250,3 +258,6 @@ developers.naver.com 에서 애플리케이션을 만들고 '검색' API를 추�
 $env:NAVER_CLIENT_ID = "발급받은ID"
 $env:NAVER_CLIENT_SECRET = "발급받은Secret"
 ```
+
+검색어는 `crawler/hse_naverblog.py` 의 `QUERY` 하나뿐이다(`보건관리자 채용`).
+최신순으로 받다가 7일을 벗어나는 글이 나오면 멈춘다.

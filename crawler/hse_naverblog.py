@@ -1,7 +1,11 @@
-"""네이버 블로그에 올라온 보건관리자·HSE 채용글 수집(최근 1주일).
+"""네이버 블로그에 올라온 보건관리자 채용글 수집(최근 1주일).
 
 네이버는 robots.txt 로 검색·블로그 페이지를 모든 크롤러에게 막아 놓았다.
-정식 경로인 네이버 검색 오픈 API(https://developers.naver.com)를 쓴다.
+정식 경로인 검색 API를 쓴다.
+
+검색 API는 네이버 개발자센터에서 네이버 클라우드 플랫폼 API Hub 로 옮겨갔다.
+주소가 openapi.naver.com → naverapihub.apigw.ntruss.com 으로 바뀌었고
+인증 헤더 이름도 X-Naver-Client-* → X-NCP-APIGW-API-KEY* 로 바뀌었다.
 NAVER_CLIENT_ID / NAVER_CLIENT_SECRET 환경변수가 없으면 이 소스는 건너뛴다.
 """
 
@@ -11,23 +15,17 @@ import re
 import time
 from datetime import datetime, timedelta
 
-from common import HEADERS, KST
+from common import KST
 from hse_common import to_location
 
 import requests
 
-API_URL = "https://openapi.naver.com/v1/search/blog.json"
+API_URL = "https://naverapihub.apigw.ntruss.com/search/v1/blog"
 
-# 블로그 글은 제목이 자유로워서 채용 글만 남기려면 직무와 채용을 같이 걸어야 한다.
-QUERIES = (
-    "보건관리자 채용",
-    "보건관리자 구인",
-    "안전보건관리자 채용",
-    "EHS 채용",
-    "HSE 채용",
-)
+QUERY = "보건관리자 채용"
 
 DISPLAY = 100  # API 최대값
+MAX_START = 1000  # API 가 받는 start 최대값
 RECENT_DAYS = 7
 
 TAG = re.compile(r"<[^>]+>")
@@ -41,15 +39,11 @@ def _clean(text):
     return html.unescape(TAG.sub("", text or "")).strip()
 
 
-def fetch_query(query, headers):
-    resp = requests.get(
-        API_URL,
-        params={"query": query, "display": DISPLAY, "sort": "date"},
-        headers=headers,
-        timeout=20,
-    )
-    resp.raise_for_status()
-    return resp.json().get("items") or []
+def _posted(item):
+    try:
+        return datetime.strptime(item.get("postdate", ""), "%Y%m%d").date()
+    except ValueError:
+        return None
 
 
 def to_record(item, posted):
@@ -83,26 +77,37 @@ def fetch():
         return []
 
     headers = {
-        **HEADERS,
-        "X-Naver-Client-Id": client_id,
-        "X-Naver-Client-Secret": client_secret,
+        "X-NCP-APIGW-API-KEY-ID": client_id,
+        "X-NCP-APIGW-API-KEY": client_secret,
     }
     cutoff = datetime.now(KST).date() - timedelta(days=RECENT_DAYS - 1)
 
     unique = {}
     total = 0
-    for query in QUERIES:
-        items = fetch_query(query, headers)
+    # 최신순으로 받다가 기간을 벗어나는 글이 나오면 멈춘다.
+    for start in range(1, MAX_START + 1, DISPLAY):
+        resp = requests.get(
+            API_URL,
+            params={"query": QUERY, "display": DISPLAY, "start": start, "sort": "date"},
+            headers=headers,
+            timeout=20,
+        )
+        resp.raise_for_status()
+
+        items = resp.json().get("items") or []
+        if not items:
+            break
         total += len(items)
+
         for item in items:
-            try:
-                posted = datetime.strptime(item.get("postdate", ""), "%Y%m%d").date()
-            except ValueError:
-                continue
-            if posted < cutoff:
-                continue
-            record = to_record(item, posted)
-            unique.setdefault(record["id"], record)
+            posted = _posted(item)
+            if posted and posted >= cutoff:
+                record = to_record(item, posted)
+                unique.setdefault(record["id"], record)
+
+        oldest = _posted(items[-1])
+        if oldest and oldest < cutoff:
+            break
         time.sleep(0.2)  # 서버 부하 방지
 
     print(f"  네이버블로그: 검색 {total}건 → 최근 {RECENT_DAYS}일 {len(unique)}건")
