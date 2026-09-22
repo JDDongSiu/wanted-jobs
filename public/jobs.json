@@ -1,21 +1,219 @@
 {
-  "updated_at": "2026-09-21T18:37:35+09:00",
+  "updated_at": "2026-09-22T18:35:28+09:00",
   "sources": {
-    "wanted": 192,
+    "wanted": 190,
     "jumpit": 25,
-    "jobkorea": 147,
+    "jobkorea": 154,
     "catch": 10
   },
   "stale_sources": [],
-  "total_count": 374,
+  "total_count": 379,
   "matched_count": 1,
-  "new_count": 35,
+  "new_count": 18,
   "conditions": [
     "established",
     "rapid_growth",
     "equipment"
   ],
   "jobs": [
+    {
+      "source": "wanted",
+      "id": "wanted-388693",
+      "position": "Frontend Engineer - 미들(리드)",
+      "company": "벳칭",
+      "location": "서울 서초구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 7,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/38319/bo7arhpbxllsqymm__400_400.jpg",
+      "url": "https://www.wanted.co.kr/wd/388693",
+      "flags": {
+        "established": false,
+        "rapid_growth": true,
+        "equipment": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-388614",
+      "position": "[CC CTO] Frontend Engineer",
+      "company": "커넥트웨이브",
+      "location": "서울 금천구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 15,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/13957/tubr6sjbiycpz226__400_400.png",
+      "url": "https://www.wanted.co.kr/wd/388614",
+      "flags": {
+        "established": true,
+        "rapid_growth": false,
+        "equipment": true
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-378301",
+      "position": "웹 프론트엔드 개발자 (React)",
+      "company": "피트크루",
+      "location": "서울 성동구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 10,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/25211/94p1nowkulfcaue8__400_400.jpg",
+      "url": "https://www.wanted.co.kr/wd/378301",
+      "flags": {
+        "established": false,
+        "rapid_growth": false,
+        "equipment": false
+      },
+      "first_seen": null
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-325713",
+      "position": "iOS Developer",
+      "company": "페이타랩(패스오더)",
+      "location": "서울 강남구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 0,
+      "annual_to": 10,
+      "is_newbie": true,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/15353/ya4dr2v1bfroezwy__400_400.png",
+      "url": "https://www.wanted.co.kr/wd/325713",
+      "flags": {
+        "established": false,
+        "rapid_growth": true,
+        "equipment": true
+      },
+      "first_seen": null
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-388553",
+      "position": "숙박 예약·커뮤니티 플랫폼 프론트엔드 개발자(Next.js, 1-3년)",
+      "company": "알아",
+      "location": "서울 강남구",
+      "category": "웹 개발자",
+      "annual_from": 1,
+      "annual_to": 100,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/59266/fyt0r9is11ctqd8u__400_400.jpg",
+      "url": "https://www.wanted.co.kr/wd/388553",
+      "flags": {
+        "established": true,
+        "rapid_growth": false,
+        "equipment": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-375692",
+      "position": "프론트엔드 엔지니어 (Growth Frontend Engineer)",
+      "company": "일레븐",
+      "location": "경기 용인시",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 100,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/55236/a1lsmenzvlzwimd3__400_400.png",
+      "url": "https://www.wanted.co.kr/wd/375692",
+      "flags": {
+        "established": false,
+        "rapid_growth": false,
+        "equipment": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-388548",
+      "position": "프론트엔드 개발자",
+      "company": "해빗팩토리",
+      "location": "서울 강남구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 10,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/11470/3ipzqwhddjcqaqoe__400_400.png",
+      "url": "https://www.wanted.co.kr/wd/388548",
+      "flags": {
+        "established": true,
+        "rapid_growth": false,
+        "equipment": true
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-388524",
+      "position": "프론트엔드 & UI/UX 개발",
+      "company": "더픽트",
+      "location": "강원 춘천시",
+      "category": "파이썬 개발자",
+      "annual_from": 2,
+      "annual_to": 3,
+      "is_newbie": false,
+      "employment_type": "contract",
+      "reward_total": "",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/36018/e0r6uifojkfkuqfm__400_400.png",
+      "url": "https://www.wanted.co.kr/wd/388524",
+      "flags": {
+        "established": false,
+        "rapid_growth": true,
+        "equipment": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-377955",
+      "position": "Frontend Developer",
+      "company": "비비티에이아이코리아",
+      "location": "서울 마포구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 5,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/35500/jcnj8lqy7pgagxju__400_400.jpg",
+      "url": "https://www.wanted.co.kr/wd/377955",
+      "flags": {
+        "established": false,
+        "rapid_growth": true,
+        "equipment": false
+      },
+      "first_seen": null
+    },
     {
       "source": "wanted",
       "id": "wanted-372316",
@@ -194,28 +392,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-388102",
-      "position": "프론트엔드/퍼블리싱(1~3년)",
-      "company": "오직",
-      "location": "서울 금천구",
-      "category": "웹 퍼블리셔",
-      "annual_from": 1,
-      "annual_to": 3,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/48385/db3yqu6wsa9fwdme__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/388102",
-      "flags": {
-        "established": true,
-        "rapid_growth": false,
-        "equipment": false
-      },
-      "first_seen": "2026-09-21"
-    },
-    {
-      "source": "wanted",
       "id": "wanted-388099",
       "position": "옥외광고 플랫폼 서비스 프론트엔드 개발자",
       "company": "애드메카",
@@ -276,28 +452,6 @@
       "flags": {
         "established": true,
         "rapid_growth": false,
-        "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
-      "id": "wanted-325713",
-      "position": "iOS Developer",
-      "company": "페이타랩(패스오더)",
-      "location": "서울 강남구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 0,
-      "annual_to": 10,
-      "is_newbie": true,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/15353/ya4dr2v1bfroezwy__400_400.png",
-      "url": "https://www.wanted.co.kr/wd/325713",
-      "flags": {
-        "established": false,
-        "rapid_growth": true,
         "equipment": true
       },
       "first_seen": null
@@ -365,28 +519,6 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
-      "id": "wanted-279935",
-      "position": "Frontend Engineer",
-      "company": "바카티오(Vacatio)",
-      "location": "서울 마포구",
-      "category": "웹 개발자",
-      "annual_from": 0,
-      "annual_to": 1,
-      "is_newbie": true,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/51428/ifkfztq7puttlkoz__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/279935",
-      "flags": {
-        "established": false,
-        "rapid_growth": false,
-        "equipment": false
       },
       "first_seen": null
     },
@@ -475,28 +607,6 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
-      "id": "wanted-286057",
-      "position": "[인턴] Frontend Engineer",
-      "company": "바카티오(Vacatio)",
-      "location": "서울 마포구",
-      "category": "웹 개발자",
-      "annual_from": 0,
-      "annual_to": 1,
-      "is_newbie": true,
-      "employment_type": "intern",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/51428/ifkfztq7puttlkoz__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/286057",
-      "flags": {
-        "established": false,
-        "rapid_growth": false,
-        "equipment": false
       },
       "first_seen": null
     },
@@ -1514,28 +1624,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-378301",
-      "position": "웹 프론트엔드 프로덕트 개발자 (React)",
-      "company": "피트크루",
-      "location": "서울 성동구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 10,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/25211/94p1nowkulfcaue8__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/378301",
-      "flags": {
-        "established": false,
-        "rapid_growth": false,
-        "equipment": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
       "id": "wanted-384654",
       "position": "Lucy Studio Front 개발자 (신입/주니어)",
       "company": "이든크루",
@@ -1795,28 +1883,6 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
-      "id": "wanted-383285",
-      "position": "숙박·여행 커뮤니티 플랫폼 프론트엔드 개발자 (1~3년)",
-      "company": "알챗",
-      "location": "서울 강남구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 1,
-      "annual_to": 3,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/52679/x2dmetrnokbscmiy__400_400.png",
-      "url": "https://www.wanted.co.kr/wd/383285",
-      "flags": {
-        "established": true,
-        "rapid_growth": false,
-        "equipment": false
       },
       "first_seen": null
     },
@@ -2570,28 +2636,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-360360",
-      "position": "BE Developer (주문, 결제)",
-      "company": "마켓보로",
-      "location": "경기 성남시",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 100,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/6788/nnbwp1sonzbbwvah__400_400.png",
-      "url": "https://www.wanted.co.kr/wd/360360",
-      "flags": {
-        "established": true,
-        "rapid_growth": false,
-        "equipment": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
       "id": "wanted-380606",
       "position": "프론트엔드 개발자",
       "company": "아타드(ATAD)",
@@ -2812,28 +2856,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-379407",
-      "position": "[인턴] Software Engineer - Full Stack (전환형)",
-      "company": "링글잉글리시에듀케이션서비스",
-      "location": "서울 강남구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 0,
-      "annual_to": 1,
-      "is_newbie": true,
-      "employment_type": "intern",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/6073/kqftnpvijlqlouvp__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/379407",
-      "flags": {
-        "established": true,
-        "rapid_growth": false,
-        "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
       "id": "wanted-378559",
       "position": "프론트 엔지니어",
       "company": "지신",
@@ -2895,28 +2917,6 @@
         "established": true,
         "rapid_growth": false,
         "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
-      "id": "wanted-377955",
-      "position": "Frontend Developper",
-      "company": "비비티에이아이코리아",
-      "location": "서울 마포구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 5,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/35500/jcnj8lqy7pgagxju__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/377955",
-      "flags": {
-        "established": false,
-        "rapid_growth": true,
-        "equipment": false
       },
       "first_seen": null
     },
@@ -3560,28 +3560,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-368831",
-      "position": "주니어 프론트엔드 엔지니어 (React/Next.js)",
-      "company": "알로카도스",
-      "location": "서울 강남구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 0,
-      "annual_to": 2,
-      "is_newbie": true,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/29418/b4lqdbv8y5ay9fe3__400_400.png",
-      "url": "https://www.wanted.co.kr/wd/368831",
-      "flags": {
-        "established": false,
-        "rapid_growth": true,
-        "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
       "id": "wanted-334027",
       "position": "클라이언트개발팀 FE개발 담당자",
       "company": "엔에이치엔링크",
@@ -4149,28 +4127,6 @@
         "established": false,
         "rapid_growth": true,
         "equipment": true
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
-      "id": "wanted-299746",
-      "position": "프론트엔드 개발자",
-      "company": "그린재킷",
-      "location": "서울 강남구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 100,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/35077/f9mwpwevifnwekir__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/299746",
-      "flags": {
-        "established": true,
-        "rapid_growth": false,
-        "equipment": false
       },
       "first_seen": null
     },
@@ -4877,8 +4833,261 @@
     },
     {
       "source": "jobkorea",
+      "id": "jobkorea-50041490",
+      "position": "C# FrontEnd 개발자 채용",
+      "company": "㈜씨에스피아이",
+      "location": "경기 수원시 외",
+      "category": "프론트엔드개발자",
+      "annual_from": 2,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50041490",
+      "flags": {
+        "incentive": true,
+        "club": true,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50041312",
+      "position": "Frontend Engineer (클라이언트 플랫폼)",
+      "company": "넥스트증권㈜",
+      "location": "서울 영등포구",
+      "category": "프론트엔드개발자",
+      "annual_from": null,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50041312",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50041292",
+      "position": "Frontend Engineer (채널 서비스)",
+      "company": "넥스트증권㈜",
+      "location": "서울 영등포구",
+      "category": "프론트엔드개발자",
+      "annual_from": null,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50041292",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50041280",
+      "position": "Frontend Engineer (채널 서비스/클라이언트 플랫폼)",
+      "company": "넥스트증권㈜",
+      "location": "서울 영등포구",
+      "category": "프론트엔드개발자",
+      "annual_from": null,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50041280",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50040393",
+      "position": "[CC CTO] Frontend Engineer",
+      "company": "㈜커넥트웨이브",
+      "location": "서울 금천구",
+      "category": "프론트엔드개발자",
+      "annual_from": 3,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50040393",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50039577",
+      "position": "[과천/인덕원역] 통신사 프론트개발(빌링 경험 우대)",
+      "company": "㈜마이플랫",
+      "location": "경기 과천시",
+      "category": "프론트엔드개발자",
+      "annual_from": 9,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "프리랜서",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50039577",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50038417",
+      "position": "[경력]React Native, Web 프론트엔드, 하이브리드 앱 개발자 (AI코딩)",
+      "company": "㈜큐센텍",
+      "location": "서울 영등포구",
+      "category": "프론트엔드개발자",
+      "annual_from": 3,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50038417",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50038107",
+      "position": "(주)엘토브 - AX사업부 퍼블리셔(프론트)개발 경력 채용",
+      "company": "㈜엘토브",
+      "location": "서울 강남구",
+      "category": "프론트엔드개발자",
+      "annual_from": 5,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": null,
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50038107",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50037537",
+      "position": "숙박 예약·커뮤니티 플랫폼 프론트엔드 개발자(Next.js, 1-3년)",
+      "company": "㈜알아",
+      "location": "서울 강남구",
+      "category": "프론트엔드개발자",
+      "annual_from": 1,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50037537",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50034227",
+      "position": "[베트남] 개발자 채용(앱개발자/프론트엔드/백엔드/AI엔지니어)",
+      "company": "주식회사 솔트룩스",
+      "location": "서울 송파구 외",
+      "category": "프론트엔드개발자",
+      "annual_from": null,
+      "annual_to": null,
+      "is_newbie": true,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50034227",
+      "flags": {
+        "incentive": true,
+        "club": true,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50034198",
+      "position": "[가산] 프론트 개발자(신입/경력) 채용",
+      "company": "로동",
+      "location": "서울 금천구",
+      "category": "프론트엔드개발자",
+      "annual_from": null,
+      "annual_to": null,
+      "is_newbie": true,
+      "employment_type": null,
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50034198",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "jobkorea",
       "id": "jobkorea-50033779",
-      "position": "JAVA,프론트, 백엔드개발자(장기프로젝트)",
+      "position": "JAVA,프론트, 백엔드개발자(장기프로젝트)/프리,정규직",
       "company": "㈜미래인테크놀러지",
       "location": "경기 성남시 외",
       "category": "프론트엔드개발자",
@@ -4915,29 +5124,6 @@
       "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50033657",
       "flags": {
         "incentive": true,
-        "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": "2026-09-21"
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-50032572",
-      "position": "[프로젝트/광화문] 커머스 프론트엔드 및 백엔드 개발 경력직 채용",
-      "company": "㈜유니베이아이엔씨",
-      "location": "서울 종로구",
-      "category": "프론트엔드개발자",
-      "annual_from": 6,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": null,
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50032572",
-      "flags": {
-        "incentive": false,
         "club": false,
         "refresh": false,
         "stock": false
@@ -5495,29 +5681,6 @@
         "stock": false
       },
       "first_seen": "2026-09-17"
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-49997902",
-      "position": "업무시스템 운영[JAVA/프론트 백앤드/중급이상/경기 이천/즉시-장기계약]",
-      "company": "㈜이음아이앤씨",
-      "location": "경기 이천시",
-      "category": "프론트엔드개발자",
-      "annual_from": 5,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "프리랜서",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49997902",
-      "flags": {
-        "incentive": false,
-        "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": "2026-09-15"
     },
     {
       "source": "jobkorea",
@@ -6510,29 +6673,6 @@
     },
     {
       "source": "jobkorea",
-      "id": "jobkorea-49935271",
-      "position": "프론트엔드 개발자 채용",
-      "company": "㈜아티클",
-      "location": "서울 중구",
-      "category": "프론트엔드개발자",
-      "annual_from": 2,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": null,
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49935271",
-      "flags": {
-        "incentive": false,
-        "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "jobkorea",
       "id": "jobkorea-49934942",
       "position": "[본사운영본부] Web Frontend Engineer",
       "company": "스마일드래곤㈜",
@@ -7239,29 +7379,6 @@
       "flags": {
         "incentive": true,
         "club": true,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-49876353",
-      "position": "숙박 예약·커뮤니티 플랫폼 프론트엔드 개발자(Next.js, 1-3년)",
-      "company": "㈜알챗",
-      "location": "서울 강남구",
-      "category": "프론트엔드개발자",
-      "annual_from": 1,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "정규직",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49876353",
-      "flags": {
-        "incentive": false,
-        "club": false,
         "refresh": false,
         "stock": false
       },
@@ -8258,6 +8375,24 @@
     },
     {
       "source": "catch",
+      "id": "catch-572916",
+      "position": "[JNPMEDI] Front-end Software Engineer",
+      "company": "제이앤피메디",
+      "location": "인천",
+      "category": "웹개발",
+      "annual_from": 4,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/572916",
+      "flags": {},
+      "first_seen": "2026-09-22"
+    },
+    {
+      "source": "catch",
       "id": "catch-572536",
       "position": "2026년 (주)티시스아이티 서버/웹프론트엔지니어 경력사원 모집(~9/30)",
       "company": "티시스아이티",
@@ -8325,24 +8460,6 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/570189",
-      "flags": {},
-      "first_seen": null
-    },
-    {
-      "source": "catch",
-      "id": "catch-569876",
-      "position": "[JNPMEDI] Front-end Software Engineer",
-      "company": "제이앤피메디",
-      "location": "인천",
-      "category": "웹개발",
-      "annual_from": 4,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "정규직",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/569876",
       "flags": {},
       "first_seen": null
     },
