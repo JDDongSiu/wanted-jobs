@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-09-26T09:34:55+09:00",
+  "updated_at": "2026-09-27T10:25:27+09:00",
   "sources": {
-    "wanted": 191,
+    "wanted": 190,
     "jumpit": 19,
     "jobkorea": 150,
     "catch": 9
   },
   "stale_sources": [],
-  "total_count": 369,
+  "total_count": 368,
   "matched_count": 1,
-  "new_count": 2,
+  "new_count": 0,
   "conditions": [
     "established",
     "rapid_growth",
@@ -3208,28 +3208,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-356194",
-      "position": "핀테크 프론트엔드 개발자 (결제)",
-      "company": "컬리",
-      "location": "서울 강남구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 100,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/356194",
-      "flags": {
-        "established": true,
-        "rapid_growth": false,
-        "equipment": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
       "id": "wanted-359782",
       "position": "풀필먼트 시니어 프론트엔드 개발자",
       "company": "컬리",
@@ -3243,6 +3221,28 @@
       "skills": [],
       "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
       "url": "https://www.wanted.co.kr/wd/359782",
+      "flags": {
+        "established": true,
+        "rapid_growth": false,
+        "equipment": false
+      },
+      "first_seen": null
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-356194",
+      "position": "핀테크 프론트엔드 개발자 (결제)",
+      "company": "컬리",
+      "location": "서울 강남구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 100,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
+      "url": "https://www.wanted.co.kr/wd/356194",
       "flags": {
         "established": true,
         "rapid_growth": false,
@@ -3510,28 +3510,6 @@
       "flags": {
         "established": false,
         "rapid_growth": false,
-        "equipment": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
-      "id": "wanted-370109",
-      "position": "웹/앱 프론트엔드 개발자 (Flutter/React)",
-      "company": "띵킹프렌즈",
-      "location": "서울 강남구",
-      "category": "웹 퍼블리셔",
-      "annual_from": 1,
-      "annual_to": 5,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/23243/xsvxkxqyeo90ai55__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/370109",
-      "flags": {
-        "established": false,
-        "rapid_growth": true,
         "equipment": false
       },
       "first_seen": null
