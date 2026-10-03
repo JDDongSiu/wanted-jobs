@@ -45,6 +45,7 @@ const SOURCE_LABELS = {
   saramin: '사람인',
   jobkorea: '잡코리아',
   catch: '캐치',
+  remember: '리멤버',
 }
 
 // 지역 필터에서 위로 올릴 순서. 나머지는 가나다순으로 뒤에 붙는다.

@@ -21,6 +21,7 @@ crawler/saramin.py  ┘                        └→ jobs.csv
 | 사람인 | 공식 오픈 API (`oapi.saramin.co.kr/job-search`) | `access-key` 필요. 일일 요청 한도 있음 |
 | 잡코리아 | HTML 파싱 (`Recruit/Home/_GI_List/`) | 공식 API 없음. 마크업 변경 시 깨질 수 있음 |
 | 캐치 | 비공식 API (`api/v1.0/recruit/information/getRecruitList`) | robots.txt 가 로그 경로만 금지 |
+| 리멤버 | 비공식 API (`career-api.rememberapp.co.kr/job_postings/search`) | 로그인 없이 공개 공고만. 키워드 검색이라 제목으로 한 번 더 거름 |
 
 ### 수집 대상 선정과 robots.txt
 
@@ -29,6 +30,7 @@ crawler/saramin.py  ┘                        └→ jobs.csv
 - **잡코리아**: `/recruit/joblist` 와 `/Recruit/GI_Read` 를 **명시적으로 허용**한다.
   금지된 것은 로그인·회원 영역과 검색 쿼리 URL(`/Search?TS_Search=`) 이라 목록 수집에는 해당하지 않는다.
 - **캐치**: `Allow: /` 이고 `/api/v1.0/recruit/` 중 로그 수집 경로만 금지한다. 목록 조회는 해당 없다.
+- **리멤버**: `Allow: /job/` 이고 금지 경로는 비공개 포지션·지원 관련·B2B 페이지다. 공고 상세(`/job/posting/`)는 해당 없다.
 - **인크루트**: `User-agent: *` 에 `Disallow: /` — 전면 금지라 **수집 대상에서 제외**했다.
 - **링크드인**: `User-agent: *` 에 `Disallow: /` 이고, 크롤링하려면 화이트리스트를 신청하라고
   robots.txt 에 명시했다. **제외**.
