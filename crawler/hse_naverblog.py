@@ -133,4 +133,6 @@ def fetch():
         f"  네이버블로그: 검색 {total}건 → 최근 {RECENT_DAYS}일 {len(unique)}건"
         f" (공고 아닌 글 {dropped}건 제외)"
     )
+    if total >= MAX_START:
+        print(f"  네이버블로그: API 한도 {MAX_START}건에 닿아 {oldest} 이후 글만 받음")
     return list(unique.values())

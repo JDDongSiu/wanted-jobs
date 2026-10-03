@@ -5,6 +5,7 @@ import './hse.css'
 const SOURCE_LABELS = {
   jobkorea: '잡코리아',
   catch: '캐치',
+  remember: '리멤버',
   peoplenjob: '피플앤잡',
   naverblog: '네이버블로그',
 }

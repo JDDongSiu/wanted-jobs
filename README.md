@@ -198,7 +198,8 @@ Unregister-ScheduledTask -TaskName "wanted-jobs 수집" -Confirm:$false
 
 ```
 crawler/hse_jobkorea.py    ┐
-crawler/hse_catch.py       ├→ crawler/build_hse.py → public/jobs-hse.json → src/hse/ 화면
+crawler/hse_catch.py       │
+crawler/hse_remember.py    ├→ crawler/build_hse.py → public/jobs-hse.json → src/hse/ 화면
 crawler/hse_peoplenjob.py  │                       └→ jobs-hse.csv
 crawler/hse_naverblog.py   ┘
 ```
@@ -223,6 +224,7 @@ python crawler/build_hse.py
 | --- | --- | --- |
 | 잡코리아 | HTML 파싱 (`Recruit/Home/_GI_List/`) | 직무코드 `1000410` 보건관리자, `1000361` 안전관리자 |
 | 캐치 | 비공식 API (`getRecruitList`) | 키워드 6개(보건관리자·안전보건·산업보건·EHS·HSE·SHE)로 나눠 조회 |
+| 리멤버 | 비공식 API (`career-api.rememberapp.co.kr/job_postings/search`) | 캐치와 같은 키워드 6개. 검색어를 형태소로 쪼개 넓게 걸리므로 제목으로 거른다 |
 | 피플앤잡 | HTML 파싱 (`/jobs`) | robots.txt 가 허용하는 '오늘의 채용공고' 한 장만 읽는다 |
 | 네이버 블로그 | 공식 검색 API (`naverapihub.apigw.ntruss.com/search/v1/blog`) | 검색어 `보건관리자 채용`, 최근 7일 글만. Client ID/Secret 필요 |
 
@@ -233,6 +235,11 @@ python crawler/build_hse.py
   그래서 그날 올라온 30건만 읽고 제목이 걸리는 것만 담는다. 하루 0건일 수 있다.
 - **네이버**: `search.naver.com` 과 `section.blog.naver.com` 모두 `Disallow: /` 다.
   긁는 대신 정식 경로인 검색 오픈 API를 쓴다.
+- **리멤버**: 검색 목록은 화면이 자바스크립트로 불러와 HTML 에 없다. 사이트맵(`sitemap-jobs.xml`)은
+  공고 1만 3천여 개의 주소만 있고 제목이 없어 쓸 수 없다. 화면이 부르는 검색 API 를 쓴다.
+  API 호스트에는 robots.txt 가 없고(404), 공고 상세 주소 `/job/` 은 웹 쪽 robots.txt 가 허용한다.
+- **링크드인**: `User-agent: *` 에 `Disallow: /` 이고, 허가 없는 자동 접근을 금지한다는
+  법적 고지를 robots.txt 맨 위에 붙여 두었다. **제외.**
 
 ### 공고 선별 기준
 
@@ -267,16 +274,30 @@ $env:NAVER_CLIENT_SECRET = "발급받은Secret"
 검색어는 `crawler/hse_naverblog.py` 의 `QUERY` 하나뿐이다(`보건관리자 채용`).
 최신순으로 받다가 7일을 벗어나는 글이 나오면 멈춘다.
 
+API 는 최신순으로 **1,000건까지만** 넘겨준다. 2026년 10월부터 같은 검색어의 결과가
+1만 3천 → 19만 건으로 늘어 하루에 수백 건씩 걸리면서, 1,000건 안에 7일치가 다 안 들어온다
+(5일치에서 잘린다). 정확도순으로 바꾸면 공고글이 3건밖에 안 잡혀 쓸 수 없다.
+대신 매일 돌면서 받아둔 글 중 7일 안의 것을 **이어 붙여** 기간을 채운다
+(`build_hse.py` 의 `keep_recent_blogs`). 키가 없어 블로그를 건너뛴 날에도 받아둔 글은 남는다.
+
 ### 중복 공고 정리
 
 회사가 잡코리아와 캐치에 같은 공고를 올리거나, 한 사이트에 두 번 올리는 일이 흔하다.
-남길 순서는 `SOURCE_PRIORITY`(**네이버블로그 → 잡코리아 → 캐치 → 피플앤잡**)를 따른다.
+남길 순서는 `SOURCE_PRIORITY`(**네이버블로그 → 잡코리아 → 캐치 → 리멤버 → 피플앤잡**)를 따른다.
 `crawler/build_hse.py` 의 `drop_duplicates` 가 두 단계로 나눠 처리한다.
 
 **1단계 — 공고끼리.** 회사명과 제목을 다듬어 같으면 하나만 남긴다.
 
 - 회사명은 표기가 갈린다 — `SK㈜ AX` / `SK(주) AX`, `에스케이실트론` / `SK실트론`
+- 리멤버는 회사명을 줄여 쓴다 — `SK㈜ AX` 를 `SK(주)` 로
 - 제목은 끝에 붙는 말만 다른 경우가 많다 — `구성원 영입 (여수)` / `구성원 (여수) 채용`
+- 한쪽 제목이 다른 쪽에 통째로 들어 있기도 하다 — `Global EHS Manager` / `QEHS Global EHS Manager 경력사원`
+
+그래서 회사가 같으면 제목이 한쪽에 포함돼도 같은 공고로 보고,
+회사명이 한쪽에 포함되면(`sk` / `skax`) 제목이 완전히 같을 때만 같은 공고로 본다.
+두 경우 모두 제목이 12글자(기호·공백 제외) 이상일 때만 적용한다(`MIN_TITLE_LEN`).
+`EHS 안전관리자` 같은 짧은 직무명은 한 회사가 사업장마다 따로 올려서
+`EHS 안전관리자 (김포)` 와 `EHS 안전관리자` 가 서로 다른 공고인 경우가 실제로 있다.
 
 그래서 기호·공백과 `채용`·`영입`·`모집`·`구인`·`공고` 를 지우고 비교한다.
 `(주)` 는 기호가 아니라 `주` 가 남으므로 `ENTITY_MARK` 로 따로 지운다.

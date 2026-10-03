@@ -7,20 +7,21 @@ import csv
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import hse_catch
 import hse_jobkorea
 import hse_naverblog
 import hse_peoplenjob
+import hse_remember
 from common import KST, ROOT
 from hse_common import CSV_PATH, JSON_PATH
 
-SOURCES = (hse_jobkorea, hse_catch, hse_peoplenjob, hse_naverblog)
+SOURCES = (hse_jobkorea, hse_catch, hse_remember, hse_peoplenjob, hse_naverblog)
 
 # 같은 공고가 여러 곳에 올라왔을 때 남길 순서.
 # 블로그 글은 보건관리자가 직접 정리한 것이라 기업리뷰·근무지 같은 설명이 함께 붙는다.
-SOURCE_PRIORITY = ("naverblog", "jobkorea", "catch", "peoplenjob")
+SOURCE_PRIORITY = ("naverblog", "jobkorea", "catch", "remember", "peoplenjob")
 
 # 사이트마다 같은 공고를 '채용' 과 '영입' 으로 다르게 적는다.
 HIRING_WORDS = re.compile(r"채용|영입|모집|구인|공고")
@@ -38,6 +39,11 @@ COMPANY_ALIASES = {
 
 # 블로그 제목에서 회사를 찾을 때, 이름이 짧으면 엉뚱한 글에 걸린다.
 MIN_COMPANY_LEN = 3
+
+# 제목이 한쪽에 포함되는지로 같은 공고를 볼 때의 최소 길이(기호·공백 뺀 글자 수).
+# 'EHS 안전관리자' 같은 짧은 직무명은 한 회사가 사업장마다 따로 올려서
+# '(김포)' 가 붙은 공고와 안 붙은 공고가 서로 다른 경우가 있다.
+MIN_TITLE_LEN = 12
 
 CSV_FIELDS = [
     "source",
@@ -80,13 +86,32 @@ def _flat(text):
     return re.sub(r"[^0-9a-z가-힣]", "", text)
 
 
-def _same_posting(job):
-    """같은 공고인지 판단할 열쇠.
+def _title(job):
+    """제목 끝에 붙는 '채용'·'영입' 까지 지운 비교용 제목."""
+    return _flat(HIRING_WORDS.sub("", job["position"] or ""))
 
-    회사명은 사이트마다 표기가 갈리고(SK㈜ AX / SK(주) AX), 제목은 끝에 붙는
-    '채용'·'영입' 만 다른 경우가 많다. 둘 다 지우고 비교한다.
+
+def _same_posting(a, b):
+    """두 공고가 같은 공고인지.
+
+    회사명은 사이트마다 표기가 갈리고(SK㈜ AX / SK(주) AX), 리멤버는 'SK(주)' 처럼
+    줄여 쓰기도 한다. 제목은 한쪽이 앞뒤에 말을 더 붙이는 경우가 있다
+    (Global EHS Manager / QEHS Global EHS Manager 경력사원).
+    제목이 짧으면 '보건관리자' 처럼 흔한 말이라 같은 공고로 보지 않는다.
     """
-    return _flat(job["company"]), _flat(HIRING_WORDS.sub("", job["position"] or ""))
+    ca, cb = _flat(a["company"]), _flat(b["company"])
+    ta, tb = _title(a), _title(b)
+
+    if ca == cb:
+        if ta == tb:
+            return True
+        short, long_ = sorted((ta, tb), key=len)
+        return len(short) >= MIN_TITLE_LEN and short in long_
+
+    if ca and cb and (ca in cb or cb in ca):
+        return ta == tb and len(ta) >= MIN_TITLE_LEN
+
+    return False
 
 
 def _covered_by_blog(job, blog_titles):
@@ -110,19 +135,37 @@ def drop_duplicates(jobs):
     blogs = [job for job in jobs if job["source"] == "naverblog"]
     posts = [job for job in jobs if job["source"] != "naverblog"]
 
-    # 1단계: 공고끼리. 회사와 제목이 같으면 우선순위가 높은 쪽만 남긴다.
-    chosen = {}
-    for job in posts:
-        key = _same_posting(job)
-        kept = chosen.get(key)
-        if kept is None or rank.get(job["source"], 99) < rank.get(kept["source"], 99):
-            chosen[key] = job
+    # 1단계: 공고끼리. 우선순위가 높은 것부터 담고, 이미 담은 것과 같으면 버린다.
+    chosen = []
+    for job in sorted(posts, key=lambda j: rank.get(j["source"], 99)):
+        if not any(_same_posting(job, kept) for kept in chosen):
+            chosen.append(job)
 
     # 2단계: 블로그가 이미 다룬 공고는 블로그 글만 남긴다.
     blog_titles = [_flat(blog["position"]) for blog in blogs]
-    picked = [job for job in chosen.values() if not _covered_by_blog(job, blog_titles)]
+    picked = [job for job in chosen if not _covered_by_blog(job, blog_titles)]
 
     return blogs + picked, len(posts) - len(picked), len(chosen) - len(picked)
+
+
+def keep_recent_blogs(jobs, previous):
+    """직전 수집에서 받아둔 블로그 글 중 아직 기간 안인 것을 이어 붙인다.
+
+    네이버 API 는 최신순으로 1,000건까지만 넘겨준다. 글이 많은 주에는 그 안에
+    7일치가 다 안 들어와 앞쪽 며칠이 잘린다. 매일 돌기 때문에 오늘 못 닿은 글은
+    전날 이미 받아 두었으니, 그것을 살려 7일을 채운다.
+    키가 없어 블로그를 건너뛴 날에도 받아둔 글이 사라지지 않는다.
+    """
+    cutoff = datetime.now(KST).date() - timedelta(days=hse_naverblog.RECENT_DAYS - 1)
+    have = {job["id"] for job in jobs}
+    kept = [
+        job
+        for job in previous
+        if job["source"] == "naverblog"
+        and job["id"] not in have
+        and (job.get("first_seen") or "") >= cutoff.isoformat()
+    ]
+    return jobs + kept, len(kept)
 
 
 def apply_first_seen(jobs, previous):
@@ -173,6 +216,10 @@ def main():
     if len(stale) == len(SOURCES):
         print("\n모든 소스 수집에 실패했습니다.")
         sys.exit(1)
+
+    jobs, carried = keep_recent_blogs(jobs, previous)
+    if carried:
+        print(f"직전 수집의 블로그 글 {carried}건을 이어 붙임 (최근 {hse_naverblog.RECENT_DAYS}일 안)")
 
     jobs, duplicates, by_blog = drop_duplicates(jobs)
     if duplicates:
