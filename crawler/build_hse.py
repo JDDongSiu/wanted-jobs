@@ -21,7 +21,7 @@ SOURCES = (hse_jobkorea, hse_catch, hse_remember, hse_peoplenjob, hse_naverblog)
 
 # 같은 공고가 여러 곳에 올라왔을 때 남길 순서.
 # 블로그 글은 보건관리자가 직접 정리한 것이라 기업리뷰·근무지 같은 설명이 함께 붙는다.
-SOURCE_PRIORITY = ("naverblog", "jobkorea", "catch", "remember", "peoplenjob")
+SOURCE_PRIORITY = ("naverblog", "jobkorea", "remember", "catch", "peoplenjob")
 
 # 사이트마다 같은 공고를 '채용' 과 '영입' 으로 다르게 적는다.
 HIRING_WORDS = re.compile(r"채용|영입|모집|구인|공고")
