@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-10-03T21:35:48+09:00",
+  "updated_at": "2026-10-04T11:34:08+09:00",
   "sources": {
     "wanted": 179,
     "jumpit": 20,
-    "jobkorea": 144,
-    "catch": 7,
+    "jobkorea": 141,
+    "catch": 6,
     "remember": 67
   },
   "stale_sources": [],
-  "total_count": 417,
+  "total_count": 413,
   "matched_count": 0,
-  "new_count": 81,
+  "new_count": 0,
   "conditions": [
     "established",
     "rapid_growth",
@@ -3099,28 +3099,6 @@
     },
     {
       "source": "wanted",
-      "id": "wanted-356194",
-      "position": "핀테크 프론트엔드 개발자 (결제)",
-      "company": "컬리",
-      "location": "서울 강남구",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 100,
-      "is_newbie": false,
-      "employment_type": "regular",
-      "reward_total": "100만원",
-      "skills": [],
-      "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
-      "url": "https://www.wanted.co.kr/wd/356194",
-      "flags": {
-        "established": true,
-        "rapid_growth": false,
-        "equipment": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "wanted",
       "id": "wanted-359782",
       "position": "풀필먼트 시니어 프론트엔드 개발자",
       "company": "컬리",
@@ -3134,6 +3112,28 @@
       "skills": [],
       "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
       "url": "https://www.wanted.co.kr/wd/359782",
+      "flags": {
+        "established": true,
+        "rapid_growth": false,
+        "equipment": false
+      },
+      "first_seen": null
+    },
+    {
+      "source": "wanted",
+      "id": "wanted-356194",
+      "position": "핀테크 프론트엔드 개발자 (결제)",
+      "company": "컬리",
+      "location": "서울 강남구",
+      "category": "프론트엔드 개발자",
+      "annual_from": 3,
+      "annual_to": 100,
+      "is_newbie": false,
+      "employment_type": "regular",
+      "reward_total": "100만원",
+      "skills": [],
+      "thumbnail": "https://static.wanted.co.kr/images/company/426/kzslm49iecovfi0j__400_400.jpg",
+      "url": "https://www.wanted.co.kr/wd/356194",
       "flags": {
         "established": true,
         "rapid_growth": false,
@@ -6815,29 +6815,6 @@
     },
     {
       "source": "jobkorea",
-      "id": "jobkorea-49926579",
-      "position": "[하이브랩] 프론트엔드 개발자 채용 (6년차 이상)",
-      "company": "㈜하이브랩",
-      "location": "경기 성남시",
-      "category": "프론트엔드개발자",
-      "annual_from": 6,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "정규직",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49926579",
-      "flags": {
-        "incentive": true,
-        "club": true,
-        "refresh": true,
-        "stock": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "jobkorea",
       "id": "jobkorea-49923704",
       "position": "[캐시워크애즈] 프론트엔드개발 산업기능요원 모집",
       "company": "넛지헬스케어㈜",
@@ -6907,29 +6884,6 @@
     },
     {
       "source": "jobkorea",
-      "id": "jobkorea-49919940",
-      "position": "[솔로몬엠] 프론트엔드 개발 경력자 채용",
-      "company": "㈜솔로몬엠",
-      "location": "서울 금천구",
-      "category": "프론트엔드개발자",
-      "annual_from": 5,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "정규직",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49919940",
-      "flags": {
-        "incentive": false,
-        "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "jobkorea",
       "id": "jobkorea-49917562",
       "position": "웹/앱 프론트엔드 개발자 채용",
       "company": "㈜파란샘",
@@ -6945,29 +6899,6 @@
       "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49917562",
       "flags": {
         "incentive": true,
-        "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": null
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-49915906",
-      "position": "[씨메디에이아이] 프론트엔드 담당자 채용",
-      "company": "씨메디에이아이㈜",
-      "location": "서울 서초구",
-      "category": "프론트엔드개발자",
-      "annual_from": 2,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "정규직",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49915906",
-      "flags": {
-        "incentive": false,
         "club": false,
         "refresh": false,
         "stock": false
@@ -7848,24 +7779,6 @@
       "skills": [],
       "thumbnail": null,
       "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/568223",
-      "flags": {},
-      "first_seen": null
-    },
-    {
-      "source": "catch",
-      "id": "catch-564453",
-      "position": "커머스 주니어 프론트엔드 개발자",
-      "company": "컬리",
-      "location": "서울",
-      "category": "웹개발",
-      "annual_from": 4,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "정규직",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/564453",
       "flags": {},
       "first_seen": null
     },
