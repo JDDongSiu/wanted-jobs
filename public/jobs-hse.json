@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-10-15T22:55:25+09:00",
+  "updated_at": "2026-10-16T09:01:59+09:00",
   "sources": {
-    "naverblog": 37,
-    "jobkorea": 105,
+    "naverblog": 36,
+    "jobkorea": 104,
     "remember": 16,
-    "catch": 7
+    "catch": 5
   },
   "stale_sources": [],
-  "total_count": 165,
-  "new_count": 18,
+  "total_count": 161,
+  "new_count": 1,
   "jobs": [
     {
       "source": "naverblog",
@@ -156,22 +156,6 @@
     },
     {
       "source": "naverblog",
-      "id": "naverblog-https://blog.naver.com/happynurse7/224441397943",
-      "position": "[정규직,경력] 일미농수산 보건관리자 채용(기업리뷰, 산업간호사, ....",
-      "company": "보건관리자&산업간호사 일기",
-      "location": "",
-      "region": "",
-      "category": "블로그 글",
-      "annual_from": null,
-      "annual_to": null,
-      "is_newbie": false,
-      "career_text": "",
-      "employment_type": null,
-      "url": "https://blog.naver.com/happynurse7/224441397943",
-      "first_seen": "2026-10-14"
-    },
-    {
-      "source": "naverblog",
       "id": "naverblog-https://blog.naver.com/happynurse7/224441545971",
       "position": "[계약직,경력] 대전광역시서구청 보건관리자 채용(연봉 4398만원, 기....",
       "company": "보건관리자&산업간호사 일기",
@@ -184,6 +168,22 @@
       "career_text": "",
       "employment_type": null,
       "url": "https://blog.naver.com/happynurse7/224441545971",
+      "first_seen": "2026-10-14"
+    },
+    {
+      "source": "naverblog",
+      "id": "naverblog-https://blog.naver.com/happynurse7/224441397943",
+      "position": "[정규직,경력] 일미농수산 보건관리자 채용(기업리뷰, 산업간호사, ....",
+      "company": "보건관리자&산업간호사 일기",
+      "location": "",
+      "region": "",
+      "category": "블로그 글",
+      "annual_from": null,
+      "annual_to": null,
+      "is_newbie": false,
+      "career_text": "",
+      "employment_type": null,
+      "url": "https://blog.naver.com/happynurse7/224441397943",
       "first_seen": "2026-10-14"
     },
     {
@@ -587,20 +587,20 @@
       "first_seen": "2026-10-10"
     },
     {
-      "source": "naverblog",
-      "id": "naverblog-https://blog.naver.com/ohealthnurse/224436549977",
-      "position": "[보건관리자 채용] KT&G 대전보건관리자 계약직 채용",
-      "company": "산업간호사 지혜 블로그(Since 2016)",
-      "location": "대전",
-      "region": "대전",
-      "category": "블로그 글",
+      "source": "jobkorea",
+      "id": "jobkorea-50180106",
+      "position": "[KD운송그룹] 안전보건실 본부(이천지역) 보건관리자 모집",
+      "company": "경기고속 [대원고속]",
+      "location": "경기 이천시",
+      "region": "경기",
+      "category": "보건관리자",
       "annual_from": null,
       "annual_to": null,
       "is_newbie": false,
-      "career_text": "",
-      "employment_type": null,
-      "url": "https://blog.naver.com/ohealthnurse/224436549977",
-      "first_seen": "2026-10-09"
+      "career_text": "경력무관",
+      "employment_type": "정규직",
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50180106",
+      "first_seen": "2026-10-16"
     },
     {
       "source": "jobkorea",
@@ -2172,38 +2172,6 @@
     },
     {
       "source": "jobkorea",
-      "id": "jobkorea-49992626",
-      "position": "마산신항운영(주) 안전보건관리자 채용",
-      "company": "마산신항운영㈜",
-      "location": "경남 창원시",
-      "region": "경남",
-      "category": "안전관리자",
-      "annual_from": null,
-      "annual_to": null,
-      "is_newbie": false,
-      "career_text": "경력무관",
-      "employment_type": "계약직",
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49992626",
-      "first_seen": "2026-09-17"
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-49992411",
-      "position": "외국계 시험인증소 HSE(안전관리자) 모집",
-      "company": "뷰로베리타스씨피에스코리아테크㈜",
-      "location": "경기 화성시",
-      "region": "경기",
-      "category": "안전관리자",
-      "annual_from": 3,
-      "annual_to": null,
-      "is_newbie": false,
-      "career_text": "경력 3년 이상",
-      "employment_type": "정규직",
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49992411",
-      "first_seen": "2026-09-17"
-    },
-    {
-      "source": "jobkorea",
       "id": "jobkorea-49982166",
       "position": "[글로벌 자동차 부품사] EHS & Admin Specialist (안전 및 총무)",
       "company": "엘앤피자동차코리아",
@@ -2585,38 +2553,6 @@
       "employment_type": "기타",
       "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/575063",
       "first_seen": "2026-10-08"
-    },
-    {
-      "source": "catch",
-      "id": "catch-574412",
-      "position": "2026년 10월 보건관리 신입사원(계약직) 채용",
-      "company": "캐논코리아",
-      "location": "경기",
-      "region": "경기",
-      "category": "전기/소방/통신/안전",
-      "annual_from": 0,
-      "annual_to": null,
-      "is_newbie": true,
-      "career_text": "신입",
-      "employment_type": "계약직",
-      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/574412",
-      "first_seen": "2026-10-12"
-    },
-    {
-      "source": "catch",
-      "id": "catch-571440",
-      "position": "반도체중견기업 ESH그룹 공조분야 모집(경력)",
-      "company": "한양디지텍",
-      "location": "경기",
-      "region": "경기",
-      "category": "전기/소방/통신/안전",
-      "annual_from": 5,
-      "annual_to": 10,
-      "is_newbie": false,
-      "career_text": "경력 5-10년",
-      "employment_type": "정규직",
-      "url": "https://www.catch.co.kr/NCS/RecruitInfoDetails/571440",
-      "first_seen": "2026-09-17"
     },
     {
       "source": "catch",

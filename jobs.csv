@@ -1,4 +1,5 @@
 ﻿source,position,company,location,category,annual_from,annual_to,employment_type,reward_total,url
+wanted,"Senior Frontend Engineer, Forge",트웰브랩스(TwelveLabs),서울 용산구,프론트엔드 개발자,5,100,regular,100만원,https://www.wanted.co.kr/wd/392689
 wanted,웹 프론트엔드 Product Developer (React),피트크루,서울 성동구,프론트엔드 개발자,3,10,regular,100만원,https://www.wanted.co.kr/wd/392672
 wanted,프론트엔드 엔지니어 (3년 이상),마카롱팩토리(마이클),경기 성남시,프론트엔드 개발자,3,100,regular,100만원,https://www.wanted.co.kr/wd/388451
 wanted,IT부문 - MTS/WTS 개발,메리츠증권,서울 영등포구,프론트엔드 개발자,3,100,contract,20만원,https://www.wanted.co.kr/wd/392649
@@ -31,15 +32,14 @@ wanted,풀스택(백엔드/프론트엔드) 개발 파트장,인플루엔셜(윌
 wanted,AI플랫폼 프론트엔드 엔지니어,메타팩토리코퍼레이션,서울 강남구,프론트엔드 개발자,3,8,regular,100만원,https://www.wanted.co.kr/wd/391111
 wanted,[쿠팡페이] Staff Front-end Engineer (Rocket Pay),쿠팡,서울 광진구,웹 개발자,7,14,regular,100만원,https://www.wanted.co.kr/wd/389697
 wanted,앱 개발자–프로덕트 엔지니어(React Native·3년 이상),스피커블,서울 강동구,프론트엔드 개발자,3,100,regular,100만원,https://www.wanted.co.kr/wd/390968
-wanted,"[비전 AI 플랫폼] 프론트엔드 엔지니어 (경력 5~10년, 전문연구요원 가능)",뉴로클,서울 강동구,프론트엔드 개발자,3,10,regular,100만원,https://www.wanted.co.kr/wd/391112
 wanted,[AX krewa] 프로덕트 엔지니어 (Frontend),콕스웨이브,서울 영등포구,프론트엔드 개발자,3,7,regular,100만원,https://www.wanted.co.kr/wd/391002
 wanted,프로덕트 엔지니어 (주니어),메타엑스(Meta-X),서울 성동구,프론트엔드 개발자,1,5,regular,100만원,https://www.wanted.co.kr/wd/390909
 wanted,[백오피스사업본부] 프론트엔드 개발자(계약직),퓨쳐위즈(Futurewiz),서울 강남구,프론트엔드 개발자,1,4,contract,20만원,https://www.wanted.co.kr/wd/390587
 wanted,Full Stack Engineer - Web,텔어스,서울 서대문구,프론트엔드 개발자,5,10,regular,100만원,https://www.wanted.co.kr/wd/387823
 wanted,Frontend Engineer,스캐터랩(Scatterlab),서울 성동구,웹 개발자,3,100,regular,100만원,https://www.wanted.co.kr/wd/347680
-wanted,"[병역특례] Web Frontend Developer(JavaScript, React)",페이타랩(패스오더),서울 강남구,프론트엔드 개발자,0,10,regular,100만원,https://www.wanted.co.kr/wd/390472
 wanted,"[병역특례] Backend Developer(Kotlin, Spring, MSA)",페이타랩(패스오더),서울 강남구,프론트엔드 개발자,0,10,regular,100만원,https://www.wanted.co.kr/wd/325722
 wanted,"Web Frontend Developer(JavaScript, React)",페이타랩(패스오더),서울 강남구,프론트엔드 개발자,0,10,regular,100만원,https://www.wanted.co.kr/wd/390471
+wanted,"[병역특례] Web Frontend Developer(JavaScript, React)",페이타랩(패스오더),서울 강남구,프론트엔드 개발자,0,10,regular,100만원,https://www.wanted.co.kr/wd/390472
 wanted,[병역특례] iOS Developer(React Native),페이타랩(패스오더),서울 강남구,프론트엔드 개발자,0,10,regular,100만원,https://www.wanted.co.kr/wd/325714
 wanted,[금골디] 풀스택 개발자 5년 이상,골드앤컴퍼니,서울 마포구,프론트엔드 개발자,5,100,regular,100만원,https://www.wanted.co.kr/wd/380182
 wanted,프로덕트 엔지니어(프론트엔드),화해글로벌,서울 성동구,프론트엔드 개발자,3,6,regular,100만원,https://www.wanted.co.kr/wd/390388
@@ -132,9 +132,9 @@ wanted,[병역특례 현역/보충역] 프론트엔드 개발자,넛지헬스케
 wanted,Front-End engineer,파트리지시스템즈,서울 강남구,프론트엔드 개발자,1,3,regular,100만원,https://www.wanted.co.kr/wd/374718
 wanted,AI 네이티브 개발자,오웰헬스,서울 강남구,프론트엔드 개발자,3,10,regular,100만원,https://www.wanted.co.kr/wd/374666
 wanted,프론트엔드 개발자(선임~책임급),인이지,경기 성남시,프론트엔드 개발자,5,100,contract,20만원,https://www.wanted.co.kr/wd/374289
-wanted,풀필먼트 주니어 프론트엔드 개발자,컬리,서울 강남구,프론트엔드 개발자,4,100,regular,100만원,https://www.wanted.co.kr/wd/359779
-wanted,풀필먼트 시니어 프론트엔드 개발자,컬리,서울 강남구,프론트엔드 개발자,8,100,regular,100만원,https://www.wanted.co.kr/wd/359782
 wanted,핀테크 프론트엔드 개발자 (결제),컬리,서울 강남구,프론트엔드 개발자,3,100,regular,100만원,https://www.wanted.co.kr/wd/356194
+wanted,풀필먼트 시니어 프론트엔드 개발자,컬리,서울 강남구,프론트엔드 개발자,8,100,regular,100만원,https://www.wanted.co.kr/wd/359782
+wanted,풀필먼트 주니어 프론트엔드 개발자,컬리,서울 강남구,프론트엔드 개발자,4,100,regular,100만원,https://www.wanted.co.kr/wd/359779
 wanted,커머스 주니어 프론트엔드 개발자,컬리,서울 강남구,프론트엔드 개발자,4,100,regular,100만원,https://www.wanted.co.kr/wd/361794
 wanted,커머스 시니어 프론트엔드 개발자,컬리,서울 강남구,프론트엔드 개발자,8,100,regular,100만원,https://www.wanted.co.kr/wd/361793
 wanted,프론트엔드 개발자,머진랩스,서울 강남구,프론트엔드 개발자,3,8,contract,20만원,https://www.wanted.co.kr/wd/372883
@@ -163,6 +163,7 @@ wanted,Software Engineer (Application 개발),밀리만코리아(Milliman),서�
 wanted,프론트엔드 개발자(시니어),카카오페이증권(kakaopay증권),경기 성남시,프론트엔드 개발자,5,100,regular,100만원,https://www.wanted.co.kr/wd/311372
 wanted,프론트엔드 엔지니어,마인드로직 (Mindlogic Inc.),서울 강남구,프론트엔드 개발자,3,5,regular,100만원,https://www.wanted.co.kr/wd/281116
 wanted,Front-End 엔지니어,제로원에이아이,경기 성남시,프론트엔드 개발자,3,10,regular,100만원,https://www.wanted.co.kr/wd/166679
+jumpit,[AI 학습플랫폼] 프론트 엔지니어 (재택근무가능),캐치잇플레이,제주 제주시,프론트엔드 개발자,3,20,,50만원,https://jumpit.saramin.co.kr/position/55297179
 jumpit,Flutter 프론트엔드 개발자 채용,서울거래,서울 영등포구,프론트엔드 개발자,3,20,,50만원,https://jumpit.saramin.co.kr/position/55297123
 jumpit,JavaScript 프론드엔드 개발자 채용,서울거래,서울 영등포구,프론트엔드 개발자,3,20,,50만원,https://jumpit.saramin.co.kr/position/55297116
 jumpit,Frontend Engineer,플라잎,경기 성남시 분당구,"SW/솔루션,프론트엔드 개발자",3,15,,50만원,https://jumpit.saramin.co.kr/position/55289075
@@ -338,7 +339,6 @@ remember,[윌라] 풀스택(백엔드/프론트엔드) 개발 파트장,(주)인
 remember,[토스인컴] Frontend Developer (Senior),(주)비바리퍼블리카,서울 강남구,프론트엔드,5,,,,https://career.rememberapp.co.kr/job/posting/345940
 remember,Tech - Frontend Engineer,(주)프로써치코리아,서울 강남구,프론트엔드,3,15,,,https://career.rememberapp.co.kr/job/posting/124520
 remember,프론트엔드 개발자 - 로봇/스마트팩토리,현대오토에버(주),서울,백엔드,3,,,,https://career.rememberapp.co.kr/job/posting/319233
-remember,"[비전 AI 플랫폼] 프론트엔드 엔지니어 (5~10년차, 전문연구요원 가능)",(주)뉴로클,서울 강동구,프론트엔드,5,10,,,https://career.rememberapp.co.kr/job/posting/339036
 remember,Frontend Developer - 계정 시스템 프론트엔드 개발 및 운영,현대오토에버(주),서울,"프론트엔드, SW개발 기타",5,15,,,https://career.rememberapp.co.kr/job/posting/335598
 remember,Frontend Engineer (채널 서비스·클라이언트 플랫폼),넥스트증권(주),서울 영등포구,프론트엔드,5,,,,https://career.rememberapp.co.kr/job/posting/344750
 remember,프로덕트 엔지니어(프론트엔드),(주)화해글로벌,서울 성동구,"백엔드, 프론트엔드, 풀스택",3,6,,,https://career.rememberapp.co.kr/job/posting/344747
