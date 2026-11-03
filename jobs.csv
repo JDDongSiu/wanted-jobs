@@ -1,4 +1,5 @@
 ﻿source,position,company,location,category,annual_from,annual_to,employment_type,reward_total,url
+jumpit,프론트엔드개발자 경력,송암시스콤,전남광주 나주시,프론트엔드 개발자,3,15,,50만원,https://jumpit.saramin.co.kr/position/55466446
 jumpit,프론트엔드 개발자 [8~15년],제네시스네스트,경기 용인시 수지구,프론트엔드 개발자,8,15,,50만원,https://jumpit.saramin.co.kr/position/55436323
 jumpit,프론트엔드 개발자 [1~8년 미만],제네시스네스트,경기 용인시 수지구,프론트엔드 개발자,1,8,,50만원,https://jumpit.saramin.co.kr/position/55436311
 jumpit,프론트 엔지니어,놀다교육연구소,경기 구리시,프론트엔드 개발자,1,1,,50만원,https://jumpit.saramin.co.kr/position/55441822
@@ -25,6 +26,13 @@ jumpit,App(React Native) 개발자(전문연구요원가능),베스텔라랩,경
 jumpit,프론트엔드 개발자,오투플러스,경기 용인시 수지구,프론트엔드 개발자,3,10,,50만원,https://jumpit.saramin.co.kr/position/55252404
 jumpit,프론트엔드 개발자,와탭랩스,서울 서초구,프론트엔드 개발자,3,10,,50만원,https://jumpit.saramin.co.kr/position/55242123
 jumpit,Frontend Engineer(MLOps/Data플랫폼),아이벡스,서울 서초구,"SW/솔루션,프론트엔드 개발자",5,11,,50만원,https://jumpit.saramin.co.kr/position/55242726
+jobkorea,[정규직 채용] 풀스택 개발자 (Frontend / Backend / Infra),솔앤드㈜,서울 서초구,프론트엔드개발자,,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50298358
+jobkorea,[React SI 공덕] 저축은행 프론트 공통 설계개발 (12월) (6),㈜제이투이,서울 마포구,프론트엔드개발자,10,,프리랜서,,https://www.jobkorea.co.kr/Recruit/GI_Read/50298117
+jobkorea,[웹젠] 프론트엔드 개발(경력),㈜웹젠,경기 성남시,프론트엔드개발자,8,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50296715
+jobkorea,ICT본부 경력직 채용 - 웹 백엔드/프론트엔드 개발자,신한투자증권,서울 영등포구,프론트엔드개발자,,,계약직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50294504
+jobkorea,[FAP팀] 프론트엔드 개발자 채용,㈜알티넷솔루션,서울 강남구,프론트엔드개발자,1,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50294163
+jobkorea,Frontend 개발자,씨메스로보틱스㈜,서울 강남구 외,프론트엔드개발자,3,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50292571
+jobkorea,앱 프론트엔드 개발자 (React · iOS · Android · 2년 이상),스피커블,서울 강동구,프론트엔드개발자,2,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50291092
 jobkorea,시니어 프론트엔드 개발자 / React Native 앱 개발자 채용,카방㈜,서울 영등포구 외,프론트엔드개발자,5,,,,https://www.jobkorea.co.kr/Recruit/GI_Read/50288841
 jobkorea,(주)위즈돔 플랫폼개발본부 -프론트엔드 담당자 채용,㈜위즈돔,경기 성남시,프론트엔드개발자,,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50286516
 jobkorea,[아이엠펫] Frontend Developer,㈜아이엠펫,서울 용산구,프론트엔드개발자,5,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50286427
@@ -38,7 +46,6 @@ jobkorea,프론트엔드(Frontend) 개발(UI개발 - 중급)모집,에스티컴,
 jobkorea,[산타] AI 활용 프론트엔드 경력직 개발자 (부산),㈜산타,부산 해운대구,프론트엔드개발자,3,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50273238
 jobkorea,[아이브릭스] 웹 프론트엔드 경력 개발자 채용공고,㈜아이브릭스,경기 성남시,프론트엔드개발자,5,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50272566
 jobkorea,"웹 서비스(Back-end, Front-end) 개발 및 운영(신입/경력)",나이스디앤알,서울 서대문구,프론트엔드개발자,,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50271130
-jobkorea,[React SI 공덕] 저축은행 프론트 공통 설계개발 (12월) (6),㈜제이투이,서울 마포구,프론트엔드개발자,10,,프리랜서,,https://www.jobkorea.co.kr/Recruit/GI_Read/50270923
 jobkorea,JH솔루션(주) 3D 프론트엔드 개발자 채용,㈜제이에이치솔루션,서울 금천구,프론트엔드개발자,3,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50270334
 jobkorea,프론트엔드 개발자 - 자산 서비스,㈜카카오페이,경기 성남시,프론트엔드개발자,3,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50268463
 jobkorea,웹 프론트엔드 및 모바일 앱(iOS/AOS) 개발자 모십니다.,㈜유탑소프트,서울 강남구 외,프론트엔드개발자,3,,,,https://www.jobkorea.co.kr/Recruit/GI_Read/50266697
@@ -51,7 +58,6 @@ jobkorea,UX/UI 디자인 및 웹 프론트엔드 개발자 모집,㈜디로그,�
 jobkorea,"(주)디오 AI Platform 프론트엔드(UI,UX)",㈜디오,서울 강서구,프론트엔드개발자,6,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50256342
 jobkorea,"[경력] (주)더솔트 프론트엔드 (웹,앱) 가능하신 분을 모집합니다.",더솔트,서울 구로구,프론트엔드개발자,2,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50255607
 jobkorea,[금융프로젝트] 프론트(React) 및 백엔드(Java) 프로그래머 경력직 채용,㈜유니베이아이엔씨,서울 중구,프론트엔드개발자,5,,,,https://www.jobkorea.co.kr/Recruit/GI_Read/50253185
-jobkorea,[백엔드/프론트엔드 개발자] 경력직 채용,㈜화이트스캔,서울 용산구,프론트엔드개발자,,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50251907
 jobkorea,프론트엔드 개발자 채용,㈜에스위너스,부산 해운대구,프론트엔드개발자,3,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50251137
 jobkorea,프론트엔드 개발자 (Next.js),㈜링캠,서울 구로구,프론트엔드개발자,3,,계약직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50247273
 jobkorea,[React] 리액트 프론트엔드 개발자 경력직 모집,㈜아이티에스피,서울 강서구,프론트엔드개발자,5,,프리랜서,,https://www.jobkorea.co.kr/Recruit/GI_Read/50247141
@@ -124,7 +130,6 @@ jobkorea,일본에서 일하실 프론트엔드 개발자를 구합니다.,㈜�
 jobkorea,[코스닥/GTX킨텍스역위치]프론트엔드 개발자 채용합니다.,㈜뉴엔에이아이,경기 고양시,프론트엔드개발자,,,계약직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50044880
 jobkorea,바이오리서치에이아이 Frontend Engineer 채용,㈜바이오리서치에이아이,서울 강남구,프론트엔드개발자,1,,,,https://www.jobkorea.co.kr/Recruit/GI_Read/50043453
 jobkorea,C# FrontEnd 개발자 채용,㈜씨에스피아이,경기 수원시 외,프론트엔드개발자,2,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50041490
-jobkorea,[벤처기업] Frontend 개발자 채용,㈜와이즈에이아이,경기 성남시,프론트엔드개발자,2,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50004067
 jobkorea,Frontend Engineer (클라이언트 플랫폼),넥스트증권㈜,서울 영등포구,프론트엔드개발자,,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50041312
 jobkorea,Frontend Engineer (채널 서비스),넥스트증권㈜,서울 영등포구,프론트엔드개발자,,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50041292
 jobkorea,Frontend Engineer (채널 서비스/클라이언트 플랫폼),넥스트증권㈜,서울 영등포구,프론트엔드개발자,,,정규직,,https://www.jobkorea.co.kr/Recruit/GI_Read/50041280
@@ -154,6 +159,8 @@ catch,웹 프론트엔드 개발자 (계약직/3년 이상) 채용,컴투스,서
 catch,웹 프론트엔드 개발자 (3년 이상) 채용,컴투스,서울,웹개발,3,,정규직,,https://www.catch.co.kr/NCS/RecruitInfoDetails/574836
 catch,프론트엔드 개발자 (전환형 인턴) 채용,넥스트그라운드,서울,웹개발,,,인턴,,https://www.catch.co.kr/NCS/RecruitInfoDetails/570760
 catch,웹 개발자 (프론트엔드/백엔드),이스트게임즈,서울,"웹개발, 웹기획/PM/웹마케팅",3,,정규직,,https://www.catch.co.kr/NCS/RecruitInfoDetails/525564
+remember,[쿠팡페이] Frontend 개발자 (Rocket Pay),쿠팡(주),서울 광진구,프론트엔드,8,20,,,https://career.rememberapp.co.kr/job/posting/351983
+remember,[강남언니] 웹 프론트엔드 개발자 (글로벌),(주)힐링페이퍼,서울 강남구,"프론트엔드, SW개발 기타",5,,,,https://career.rememberapp.co.kr/job/posting/351682
 remember,Frontend Developer,(주)아이엠펫,서울 용산구,"프론트엔드, 크로스 플랫폼",5,,,,https://career.rememberapp.co.kr/job/posting/351556
 remember,프론트엔드 개발자,(주)누아,서울 중구,프론트엔드,3,12,,,https://career.rememberapp.co.kr/job/posting/337917
 remember,프론트엔드 개발자 팀장,(주)누아,서울 중구,프론트엔드,8,20,,,https://career.rememberapp.co.kr/job/posting/318839
@@ -163,7 +170,6 @@ remember,"[비전 AI 플랫폼] 프론트엔드 엔지니어 (5~10년차, 전문
 remember,"프로덕트 엔지니어 (프론트엔드, 3년 이상)",에이비제트(주),서울 서초구,프론트엔드,3,,,,https://career.rememberapp.co.kr/job/posting/348474
 remember,Frontend UX Engineer,(주)인피니티익스체인지코리아,서울 강남구,"프론트엔드, 풀스택, 블록체인, 웹퍼블리싱, IT프로덕트/UX디자인",3,8,,,https://career.rememberapp.co.kr/job/posting/347959
 remember,Frontend Engineer (프론트엔드 엔지니어),(주)고위드,서울 강남구,프론트엔드,3,10,,,https://career.rememberapp.co.kr/job/posting/347945
-remember,[쿠팡페이] Frontend 개발자 (Rocket Pay),쿠팡(주),서울 광진구,프론트엔드,8,20,,,https://career.rememberapp.co.kr/job/posting/347732
 remember,Sr. 프론트엔드 개발자 (Frontend Engineer),(주)큐빅,경기 성남시 분당구,프론트엔드,7,10,,,https://career.rememberapp.co.kr/job/posting/272040
 remember,"[차살때 그로스] 프로덕트 엔지니어 (웹·앱 프론트엔드, 5년 이상)",(주)패스트뷰,서울 강남구,"여신심사, 투자심사",5,20,,,https://career.rememberapp.co.kr/job/posting/347129
 remember,Frontend Engineer,(주)뤼튼테크놀로지스,서울 서초구,"프론트엔드, SW개발 기타",5,,,,https://career.rememberapp.co.kr/job/posting/347154
@@ -185,7 +191,6 @@ remember,"[쿠팡] Senior, Frontend Engineer (Coupang Ads-ACI Intelligence)",쿠
 remember,Tech - Frontend Engineer,(주)벙커키즈,서울 강남구,"프론트엔드, 풀스택",3,,,,https://career.rememberapp.co.kr/job/posting/338877
 remember,B2B Front-end Developer,캐치테이블,경기 성남시 분당구,프론트엔드,5,10,,,https://career.rememberapp.co.kr/job/posting/337909
 remember,React Web Frontend 개발자,(주)미래로시스템,경기 용인시 기흥구,"프론트엔드, 풀스택, 응용 프로그램, SW개발 기타",,,,,https://career.rememberapp.co.kr/job/posting/336538
-remember,프론트엔드 개발자,(주)샐러드랩,서울 강남구,"프론트엔드, 풀스택",3,7,,,https://career.rememberapp.co.kr/job/posting/313985
 remember,[강남언니] 웹 프론트엔드 개발자 (디자인 시스템),(주)힐링페이퍼,서울 강남구,"프론트엔드, SW개발 기타",5,,,,https://career.rememberapp.co.kr/job/posting/337190
 remember,"프론트엔드 엔지니어(부산, 10년 이상)",(주)더블미디어,부산 해운대구,프론트엔드,10,,,,https://career.rememberapp.co.kr/job/posting/336904
 remember,프론트엔드 개발자 (React),(주)위펀,서울 강남구,"프론트엔드, 풀스택, 시스템아키텍트, QA·테스터·검증, SW개발 기타",5,,,,https://career.rememberapp.co.kr/job/posting/336695
