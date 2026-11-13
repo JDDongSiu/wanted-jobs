@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-11-12T19:36:14+09:00",
+  "updated_at": "2026-11-13T09:00:39+09:00",
   "sources": {
     "jumpit": 24,
-    "jobkorea": 126,
+    "jobkorea": 127,
     "catch": 10,
     "remember": 56
   },
   "stale_sources": [],
-  "total_count": 216,
+  "total_count": 217,
   "matched_count": 0,
-  "new_count": 10,
+  "new_count": 1,
   "conditions": [
     "established",
     "rapid_growth",
@@ -633,6 +633,29 @@
       "url": "https://jumpit.saramin.co.kr/position/55297116",
       "flags": {},
       "first_seen": "2026-10-15"
+    },
+    {
+      "source": "jobkorea",
+      "id": "jobkorea-50358302",
+      "position": "[AI 기반 개발] React·TypeScript 프론트엔드 개발자 채용 (Tech Lead)",
+      "company": "㈜소프트웍스",
+      "location": "서울 중구",
+      "category": "프론트엔드개발자",
+      "annual_from": 7,
+      "annual_to": null,
+      "is_newbie": false,
+      "employment_type": "정규직",
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50358302",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-11-13"
     },
     {
       "source": "jobkorea",
@@ -3491,7 +3514,7 @@
       "id": "jobkorea-49992924",
       "position": "프론트엔드 엔지니어 채용 (Next.js·React·TypeScript)",
       "company": "㈜마켓파일럿",
-      "location": "서울 금천구",
+      "location": "충남 천안시",
       "category": "프론트엔드개발자",
       "annual_from": null,
       "annual_to": null,
