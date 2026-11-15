@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-11-14T09:00:37+09:00",
+  "updated_at": "2026-11-15T09:00:39+09:00",
   "sources": {
-    "jumpit": 23,
-    "jobkorea": 120,
+    "jumpit": 22,
+    "jobkorea": 118,
     "catch": 10,
     "remember": 56
   },
   "stale_sources": [],
-  "total_count": 209,
+  "total_count": 206,
   "matched_count": 0,
-  "new_count": 9,
+  "new_count": 0,
   "conditions": [
     "established",
     "rapid_growth",
@@ -570,35 +570,6 @@
       "url": "https://jumpit.saramin.co.kr/position/55309483",
       "flags": {},
       "first_seen": "2026-10-18"
-    },
-    {
-      "source": "jumpit",
-      "id": "jumpit-55297179",
-      "position": "[AI 학습플랫폼] 프론트 엔지니어 (재택근무가능)",
-      "company": "캐치잇플레이",
-      "location": "제주 제주시",
-      "category": "프론트엔드 개발자",
-      "annual_from": 3,
-      "annual_to": 20,
-      "is_newbie": false,
-      "employment_type": null,
-      "reward_total": "50만원",
-      "skills": [
-        "HTML5",
-        "JavaScript",
-        "React",
-        "React Native",
-        "TypeScript",
-        "WebGL",
-        "REST API",
-        "WebSocket",
-        "TailwindCSS",
-        "FLEX"
-      ],
-      "thumbnail": "https://cdn.jumpit.co.kr/lg/images/company/7958100387/20252206032203941/rsw98x_gk7d-drxtck_workenv-bg.webp",
-      "url": "https://jumpit.saramin.co.kr/position/55297179",
-      "flags": {},
-      "first_seen": "2026-10-16"
     },
     {
       "source": "jobkorea",
@@ -2718,29 +2689,6 @@
     },
     {
       "source": "jobkorea",
-      "id": "jobkorea-50175773",
-      "position": "[프리랜서](강동역) AI 사내 기술문서 검색 프로젝트 -  Frontend Engineer",
-      "company": "㈜서치독",
-      "location": "서울 강동구",
-      "category": "프론트엔드개발자",
-      "annual_from": 3,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "프리랜서",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50175773",
-      "flags": {
-        "incentive": false,
-        "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": "2026-10-15"
-    },
-    {
-      "source": "jobkorea",
       "id": "jobkorea-50163133",
       "position": "UI/UX 디자인 및 프론트앤드 개발자 채용공고",
       "company": "㈜스카이앤드",
@@ -3336,29 +3284,6 @@
         "stock": false
       },
       "first_seen": "2026-09-17"
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-49992924",
-      "position": "프론트엔드 엔지니어 채용 (Next.js·React·TypeScript)",
-      "company": "㈜마켓파일럿",
-      "location": "충남 천안시",
-      "category": "프론트엔드개발자",
-      "annual_from": null,
-      "annual_to": null,
-      "is_newbie": true,
-      "employment_type": "정규직",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/49992924",
-      "flags": {
-        "incentive": false,
-        "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": "2026-09-15"
     },
     {
       "source": "catch",
