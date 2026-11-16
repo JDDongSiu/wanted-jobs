@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-11-15T09:00:39+09:00",
+  "updated_at": "2026-11-16T09:00:37+09:00",
   "sources": {
     "jumpit": 22,
-    "jobkorea": 118,
+    "jobkorea": 115,
     "catch": 10,
     "remember": 56
   },
   "stale_sources": [],
-  "total_count": 206,
+  "total_count": 203,
   "matched_count": 0,
-  "new_count": 0,
+  "new_count": 1,
   "conditions": [
     "established",
     "rapid_growth",
@@ -573,6 +573,29 @@
     },
     {
       "source": "jobkorea",
+      "id": "jobkorea-50354402",
+      "position": "[국비지원IT분야취업]빅데이터/인공지능/자바파이썬/프론트 백엔드 클라우드서비스개발",
+      "company": "한국ICT인재개발원",
+      "location": "경기",
+      "category": "프론트엔드개발자",
+      "annual_from": null,
+      "annual_to": null,
+      "is_newbie": true,
+      "employment_type": null,
+      "reward_total": null,
+      "skills": [],
+      "thumbnail": null,
+      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50354402",
+      "flags": {
+        "incentive": false,
+        "club": false,
+        "refresh": false,
+        "stock": false
+      },
+      "first_seen": "2026-11-16"
+    },
+    {
+      "source": "jobkorea",
       "id": "jobkorea-50365570",
       "position": "프론트엔드 개발자 (전환형 인턴)",
       "company": "㈜넥스트그라운드",
@@ -750,29 +773,6 @@
       "flags": {
         "incentive": false,
         "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": "2026-11-12"
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-50357195",
-      "position": "[AI Claude 프론트엔드,프리,즉시투입,서울역] 이벤트자동화 구축,Next.js",
-      "company": "㈜지엠솔루션",
-      "location": "서울 중구",
-      "category": "프론트엔드개발자",
-      "annual_from": 10,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": null,
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50357195",
-      "flags": {
-        "incentive": true,
-        "club": true,
         "refresh": false,
         "stock": false
       },
@@ -1141,29 +1141,6 @@
       "flags": {
         "incentive": false,
         "club": true,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": "2026-11-10"
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-50329493",
-      "position": "[NH Pay]  Front-End 고급 개발자",
-      "company": "이든웍스",
-      "location": "경기 의왕시",
-      "category": "프론트엔드개발자",
-      "annual_from": 10,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "프리랜서",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50329493",
-      "flags": {
-        "incentive": false,
-        "club": false,
         "refresh": false,
         "stock": false
       },
@@ -1555,29 +1532,6 @@
       "flags": {
         "incentive": true,
         "club": true,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": "2026-11-03"
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-50294504",
-      "position": "ICT본부 경력직 채용 - 웹 백엔드/프론트엔드 개발자",
-      "company": "신한투자증권",
-      "location": "서울 영등포구",
-      "category": "프론트엔드개발자",
-      "annual_from": null,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "계약직",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50294504",
-      "flags": {
-        "incentive": false,
-        "club": false,
         "refresh": false,
         "stock": false
       },
@@ -2153,29 +2107,6 @@
       "flags": {
         "incentive": false,
         "club": false,
-        "refresh": false,
-        "stock": false
-      },
-      "first_seen": "2026-10-27"
-    },
-    {
-      "source": "jobkorea",
-      "id": "jobkorea-50244586",
-      "position": "React 프론트 개발 프로젝트.",
-      "company": "㈜디와이즈",
-      "location": "서울 강남구",
-      "category": "프론트엔드개발자",
-      "annual_from": 9,
-      "annual_to": null,
-      "is_newbie": false,
-      "employment_type": "프리랜서",
-      "reward_total": null,
-      "skills": [],
-      "thumbnail": null,
-      "url": "https://www.jobkorea.co.kr/Recruit/GI_Read/50244586",
-      "flags": {
-        "incentive": false,
-        "club": true,
         "refresh": false,
         "stock": false
       },
